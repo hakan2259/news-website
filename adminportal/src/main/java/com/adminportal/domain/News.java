@@ -19,6 +19,7 @@ public class News {
 	private String author;
 	private String publicationDate;
 	private String category;
+	private boolean active=true;
 	
 	@Column(columnDefinition = "text")
 	private String description;
@@ -68,6 +69,12 @@ public class News {
 	}
 	public void setNewsImage(MultipartFile newsImage) {
 		this.newsImage = newsImage;
+	}
+	public boolean isActive() {
+		return active;
+	}
+	public void setActive(boolean active) {
+		this.active = active;
 	}
 	
 	
