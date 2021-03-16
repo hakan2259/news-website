@@ -1,5 +1,7 @@
 package com.adminportal.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +19,13 @@ public class NewsServiceImpl implements NewsService{
 	public News save(News news) {
 		
 		return newsRepository.save(news);
+		
+	}
+
+	@Override
+	public List<News> findAll() {
+		
+		return (List<News>) newsRepository.findAll();
 		
 	}
 	

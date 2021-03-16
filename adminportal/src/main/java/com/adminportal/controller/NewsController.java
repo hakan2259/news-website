@@ -7,6 +7,7 @@ package com.adminportal.controller;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -43,7 +44,7 @@ public class NewsController {
 
 		try {
 			byte[] bytes = newsImage.getBytes();
-			String name = news.getId() + ".png";
+			String name = news.getId() + ".jpg";
 			BufferedOutputStream stream = new BufferedOutputStream(
 					new FileOutputStream(new File("src/main/resources/static/assets/img/news/" + name)));
 			stream.write(bytes);
@@ -57,7 +58,9 @@ public class NewsController {
 	
 	@RequestMapping("/newsList")
 	public String newsList(Model model) {
-		/*List<News> newsList = newsService.findAll();*/
+		List<News> newsList = newsService.findAll();
+		model.addAttribute("newsList",newsList);
+		
 		
 		return "newsList";
 		
