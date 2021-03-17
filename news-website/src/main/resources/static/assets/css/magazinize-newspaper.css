@@ -5985,11 +5985,6 @@ input[type="button"].btn-block {
 .navbar__top .nav-link {
   font-size: 0.8rem;
 }
-
-.navbar__top .dropdown-menu {
-  margin-top: -;
-}
-
 @media (min-width: 576px) {
   .navbar__top.navbar-expand-sm .nav-link,
   .navbar__top.navbar-expand-sm .nav-item--text {

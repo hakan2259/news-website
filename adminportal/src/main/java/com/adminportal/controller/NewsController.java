@@ -63,8 +63,6 @@ public class NewsController {
 		
 		
 		return "newsList";
-		
-		
 	}
 
 }
