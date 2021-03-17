@@ -24,10 +24,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.newswebsite.domain.Contact;
 import com.newswebsite.domain.User;
 import com.newswebsite.domain.security.PasswordResetToken;
 import com.newswebsite.domain.security.Role;
 import com.newswebsite.domain.security.UserRole;
+import com.newswebsite.service.ContactService;
 import com.newswebsite.service.UserService;
 import com.newswebsite.service.impl.UserSecurityService;
 import com.newswebsite.utility.MailConstructor;
@@ -46,6 +48,9 @@ public class HomeController {
 	
 	@Autowired
 	private UserSecurityService userSecurityService;
+	
+	@Autowired
+	private ContactService contactService;
 	
 	
 	@RequestMapping("/")
@@ -82,6 +87,26 @@ public class HomeController {
 	public String about() {
 		return "about";
 	}
+	
+	
+	
+	
+	@RequestMapping(value="/contact/add",method=RequestMethod.POST)
+	public String addContactPost(@ModelAttribute("contact") 
+	Contact contact, 
+	HttpServletRequest request,
+	Model model) {
+		contactService.save(contact);
+		
+		
+		model.addAttribute("messageSent", "true");
+		
+		return "contact";
+		
+		
+	}
+	
+	
 	
 	@RequestMapping(value = "/forgetPassword",method = RequestMethod.POST)
 	public String forgetPasswordPost(
