@@ -55,12 +55,13 @@
 
 <div class="col-sm-6">
 <div class="form-group">
-<input class="form-control valid" name="name" id="name" type="text" autofocus="autofocus" required="required" placeholder="Enter your name">
+  <input type="hidden" name="postingDate" id="postingDate" th:value="${#dates.format(postingDate, 'dd-MM-yyyy HH:mm')}"/>
+<input class="form-control" name="name" id="name" type="text" autofocus="autofocus" required="required" placeholder="Enter your name">
 </div>
 </div>
 <div class="col-sm-6">
 <div class="form-group">
-<input class="form-control valid" name="email" id="email" type="email"  placeholder="Email" required="required">
+<input class="form-control" name="email" id="email" type="email"  placeholder="Email" required="required">
 </div>
 </div>
 <div class="col-12">

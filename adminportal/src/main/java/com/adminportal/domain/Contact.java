@@ -1,4 +1,4 @@
-package com.newswebsite.domain;
+package com.adminportal.domain;
 
 import java.util.Date;
 
@@ -30,7 +30,6 @@ public class Contact {
 	private String email;
 	
 	private String postingDate;
-	
 
 	
 	

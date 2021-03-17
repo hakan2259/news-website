@@ -79,7 +79,8 @@ public class HomeController {
 	
 
 	@RequestMapping("/contact")
-	public String contact() {
+	public String contact(Model model) {
+		model.addAttribute("postingDate", new Date());
 		return "contact";
 	}
 	
@@ -102,8 +103,6 @@ public class HomeController {
 		model.addAttribute("messageSent", "true");
 		
 		return "contact";
-		
-		
 	}
 	
 	

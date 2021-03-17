@@ -12,8 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.adminportal.domain.Category;
-import com.adminportal.domain.TrendingTopic;
+import com.adminportal.domain.Contact;
 import com.adminportal.service.CategoryService;
+import com.adminportal.service.ContactService;
 import com.adminportal.service.TrendingTopicService;
 
 @Controller
@@ -25,6 +26,10 @@ public class CategoryController {
 	
 	@Autowired
 	private TrendingTopicService trendingTopicService;
+	
+	@Autowired
+	private ContactService contactService;
+	
 	
 	
 	
@@ -50,6 +55,16 @@ public class CategoryController {
 	
 		return "categoryList";
 	}
+	
+	@RequestMapping("/contactList")
+	public String contactList(Model model) {
+		List<Contact> contactList = contactService.findAll();
+		model.addAttribute("contactList",contactList);
+	
+		return "contactList";
+	}
+	
+	
 	
 	
 	
