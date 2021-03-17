@@ -1,6 +1,8 @@
 package com.newswebsite.controller;
 
 
+
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
@@ -18,7 +20,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -48,7 +49,8 @@ public class HomeController {
 	
 	
 	@RequestMapping("/")
-	public String index() {
+	public String index(Model model) {
+		model.addAttribute("standardDate", new Date());
 		return "index";
 	}
 	
@@ -68,6 +70,17 @@ public class HomeController {
 	public String forgetPassword(Model model) {
 		model.addAttribute("classActiveForgetPassword", true);
 		return "forgetPassword";
+	}
+	
+
+	@RequestMapping("/contact")
+	public String contact() {
+		return "contact";
+	}
+	
+	@RequestMapping("/about")
+	public String about() {
+		return "about";
 	}
 	
 	@RequestMapping(value = "/forgetPassword",method = RequestMethod.POST)
@@ -189,10 +202,6 @@ public class HomeController {
 	
 
 	
-	@RequestMapping("/contact")
-	public String contact() {
-		return "contact";
-	}
 	
 	
 }
