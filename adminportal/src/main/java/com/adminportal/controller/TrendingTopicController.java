@@ -17,11 +17,10 @@ import com.adminportal.service.CategoryService;
 import com.adminportal.service.TrendingTopicService;
 
 @Controller
-@RequestMapping("/category")
-public class CategoryController {
+@RequestMapping("/trendingTopic")
+public class TrendingTopicController {
 	
-	@Autowired
-	private CategoryService categoryService;
+	
 	
 	@Autowired
 	private TrendingTopicService trendingTopicService;
@@ -29,26 +28,26 @@ public class CategoryController {
 	
 	
 	@RequestMapping(value="/add",method=RequestMethod.GET)
-	public String addCategory(Model model) {
-		Category category = new Category();
-		model.addAttribute("category",category);
-		return "addCategory";
+	public String addTrendingTopic(Model model) {
+		TrendingTopic trendingTopic = new TrendingTopic();
+		model.addAttribute("trendingTopic",trendingTopic);
+		return "addtrendingTopic";
 	}
 	@RequestMapping(value="/add",method=RequestMethod.POST)
-	public String addCategoryPost(@ModelAttribute("category") Category category, HttpServletRequest request) {
-		categoryService.save(category);
+	public String addTrendingTopicPost(@ModelAttribute("trendingTopic") TrendingTopic trendingTopic, HttpServletRequest request) {
+		trendingTopicService.save(trendingTopic);
 		
-		return "redirect:categoryList";
+		return "redirect:trendingTopicList";
 		
 		
 	}
 	
-	@RequestMapping("/categoryList")
-	public String categoryList(Model model) {
-		List<Category> categoryList = categoryService.findAll();
-		model.addAttribute("categoryList",categoryList);
+	@RequestMapping("/trendingTopicList")
+	public String trendingTopicList(Model model) {
+		List<TrendingTopic> trendingTopicList = trendingTopicService.findAll();
+		model.addAttribute("trendingTopicList",trendingTopicList);
 	
-		return "categoryList";
+		return "trendingTopicList";
 	}
 	
 	
