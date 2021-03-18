@@ -4,6 +4,7 @@ package com.newswebsite.controller;
 
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 import java.util.UUID;
@@ -24,11 +25,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.newswebsite.domain.Category;
 import com.newswebsite.domain.Contact;
 import com.newswebsite.domain.User;
 import com.newswebsite.domain.security.PasswordResetToken;
 import com.newswebsite.domain.security.Role;
 import com.newswebsite.domain.security.UserRole;
+import com.newswebsite.repository.CategoryRepository;
 import com.newswebsite.service.ContactService;
 import com.newswebsite.service.UserService;
 import com.newswebsite.service.impl.UserSecurityService;
@@ -52,10 +55,20 @@ public class HomeController {
 	@Autowired
 	private ContactService contactService;
 	
+	@Autowired
+	private CategoryRepository categoryRepository;
+	
+	
 	
 	@RequestMapping("/")
 	public String index(Model model) {
 		model.addAttribute("standardDate", new Date());
+		List<Category> firstSixByCategoryList = categoryRepository.findFirst6ByCategory();
+		List<Category> afterSixByCategoryList = categoryRepository.findAfter6ByCategory();
+		model.addAttribute("firstSixByCategoryList",firstSixByCategoryList);
+		model.addAttribute("afterSixByCategoryList",afterSixByCategoryList);
+		
+		
 		return "index";
 	}
 	
