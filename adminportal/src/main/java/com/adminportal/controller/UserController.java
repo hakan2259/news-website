@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.adminportal.domain.User;
-import com.adminportal.repository.UserRepository;
+import com.adminportal.service.UserService;
 
 @Controller
 @RequestMapping("/user")
@@ -17,12 +17,12 @@ public class UserController {
 	
 	
 	@Autowired
-	private UserRepository userRepository;
+	private UserService userService;
 	
 	
 	@RequestMapping("/userList")
 	public String userList(Model model) {
-		List<User> userList = userRepository.findByUserRoleId(2);
+		List<User> userList = userService.findByUserRoleId(2);
 		model.addAttribute("userList",userList);
 	
 		return "userList";

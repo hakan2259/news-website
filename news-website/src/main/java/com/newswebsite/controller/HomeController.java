@@ -6,7 +6,6 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
-
 import java.util.Set;
 import java.util.UUID;
 
@@ -33,7 +32,7 @@ import com.newswebsite.domain.User;
 import com.newswebsite.domain.security.PasswordResetToken;
 import com.newswebsite.domain.security.Role;
 import com.newswebsite.domain.security.UserRole;
-import com.newswebsite.repository.CategoryRepository;
+import com.newswebsite.service.CategoryService;
 import com.newswebsite.service.ContactService;
 import com.newswebsite.service.TrendingTopicService;
 import com.newswebsite.service.UserService;
@@ -59,7 +58,7 @@ public class HomeController {
 	private ContactService contactService;
 	
 	@Autowired
-	private CategoryRepository categoryRepository;
+	private CategoryService categoryService;
 	
 	@Autowired
 	private TrendingTopicService trendingTopicService;
@@ -70,8 +69,8 @@ public class HomeController {
 	@RequestMapping("/")
 	public String index(Model model) {
 		model.addAttribute("standardDate", new Date());
-		List<Category> firstSixByCategoryList = categoryRepository.findFirst6ByCategory();
-		List<Category> afterSixByCategoryList = categoryRepository.findAfter6ByCategory();
+		List<Category> firstSixByCategoryList = categoryService.findFirst6ByCategory();
+		List<Category> afterSixByCategoryList = categoryService.findAfter6ByCategory();
 		List<TrendingTopic> trendingTopicList = trendingTopicService.findAll();
 		
 		
