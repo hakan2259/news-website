@@ -52,12 +52,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			"/assets/js/plyr.js",
 			"/assets/js/538d9daa14.js",
 		
-			"/assets/img/**",
-			"/assets/1-1/**",
-			"/assets/5-3/**",
+		
 			
 			"/assets/banners/**",
 			"/assets/magazinize/**",
+			
+			"/assets/img/**",
+			"/assets/1-1/**",
+			"/assets/5-3/**",
 			
 			"/",
 			"/newUser",
@@ -83,9 +85,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http
 			.csrf().disable().cors().disable()
 			.formLogin().failureUrl("/login?error")
-			.defaultSuccessUrl("/")
-			.loginPage("/login").permitAll()
-			
+			.loginPage("/login").defaultSuccessUrl("/",true).permitAll()
 			.and()
 			.logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
 			.logoutSuccessUrl("/?logout").deleteCookies("remember-me").permitAll()
