@@ -7,12 +7,33 @@
 <title>Register Page</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
 
 <link rel="stylesheet" href="/assets/css/style.css">
 </head>
-<body style="background-image: url('/assets/img/pocket-watch-665871_1280.jpg'); background-repeat: no-repeat; background-size: cover;">
-<main class="login-bg" th:classappend="${classActiveEdit}? 'in active'">
+<body style="background-image: url('/assets/img/pocket-watch-665871_1280.jpg'); background-repeat: no-repeat; background-size: cover; background-color: #F7F8FB;">
 
+
+<main class="login-bg" th:classappend="${classActiveEdit}? 'in active'">
+<div class="hero-area slider-area">
+<div class="hero-height2 hero-bg2 d-flex align-items-center">
+<div class="container">
+<div class="row">
+<div class="col-xl-12">
+<div class="hero-cap">
+<h2>My Profile</h2>
+
+<ul class="breadcrumb">
+    <li><a th:href="@{/}">Home</a></li>
+    <li class="active">Profile</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="register-form-area">
 <div class="register-form text-center">
 
