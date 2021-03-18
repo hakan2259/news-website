@@ -92,6 +92,8 @@ public class HomeController {
 	
 	
 	
+	
+	
 	@RequestMapping(value="/contact/add",method=RequestMethod.POST)
 	public String addContactPost(@ModelAttribute("contact") 
 	Contact contact, 

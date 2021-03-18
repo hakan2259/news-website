@@ -55,10 +55,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			"/assets/img/**",
 			"/assets/1-1/**",
 			"/assets/5-3/**",
-			"/assets/avatar/**",
+			
 			"/assets/banners/**",
 			"/assets/magazinize/**",
-			
 			
 			"/",
 			"/newUser",

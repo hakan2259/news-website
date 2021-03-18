@@ -36,7 +36,7 @@ public class User implements UserDetails{
 	private String email;
 	private String phone;
 	private boolean enabled=true;
-	private boolean status=false;
+
 	private int roleId;
 	
 	
@@ -46,12 +46,7 @@ public class User implements UserDetails{
 	public void setRoleId(int roleId) {
 		this.roleId = roleId;
 	}
-	public boolean isStatus() {
-		return status;
-	}
-	public void setStatus(boolean status) {
-		this.status = status;
-	}
+	
 
 	@OneToMany(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
 	@JsonIgnore

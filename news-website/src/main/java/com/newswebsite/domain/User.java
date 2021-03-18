@@ -36,7 +36,7 @@ public class User implements UserDetails{
 	private String email;
 	private String phone;
 	private boolean enabled=true;
-	private boolean status=false;
+
 	private int roleId;
 	
 	
@@ -52,12 +52,7 @@ public class User implements UserDetails{
 	@JsonIgnore
 	private Set<UserRole> userRoles = new HashSet<>();
 	
-	public boolean isStatus() {
-		return status;
-	}
-	public void setStatus(boolean status) {
-		this.status = status;
-	}
+	
 	
 	public Set<UserRole> getUserRoles() {
 		return userRoles;
