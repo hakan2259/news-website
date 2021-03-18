@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
+
 import java.util.Set;
 import java.util.UUID;
 
@@ -27,12 +28,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.newswebsite.domain.Category;
 import com.newswebsite.domain.Contact;
+import com.newswebsite.domain.TrendingTopic;
 import com.newswebsite.domain.User;
 import com.newswebsite.domain.security.PasswordResetToken;
 import com.newswebsite.domain.security.Role;
 import com.newswebsite.domain.security.UserRole;
 import com.newswebsite.repository.CategoryRepository;
 import com.newswebsite.service.ContactService;
+import com.newswebsite.service.TrendingTopicService;
 import com.newswebsite.service.UserService;
 import com.newswebsite.service.impl.UserSecurityService;
 import com.newswebsite.utility.MailConstructor;
@@ -58,6 +61,10 @@ public class HomeController {
 	@Autowired
 	private CategoryRepository categoryRepository;
 	
+	@Autowired
+	private TrendingTopicService trendingTopicService;
+	
+	
 	
 	
 	@RequestMapping("/")
@@ -65,8 +72,13 @@ public class HomeController {
 		model.addAttribute("standardDate", new Date());
 		List<Category> firstSixByCategoryList = categoryRepository.findFirst6ByCategory();
 		List<Category> afterSixByCategoryList = categoryRepository.findAfter6ByCategory();
+		List<TrendingTopic> trendingTopicList = trendingTopicService.findAll();
+		
+		
+		
 		model.addAttribute("firstSixByCategoryList",firstSixByCategoryList);
 		model.addAttribute("afterSixByCategoryList",afterSixByCategoryList);
+		model.addAttribute("trendingTopicList",trendingTopicList);
 		
 		
 		return "index";

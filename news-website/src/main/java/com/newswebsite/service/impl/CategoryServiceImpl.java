@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.newswebsite.domain.Category;
+
 import com.newswebsite.repository.CategoryRepository;
 import com.newswebsite.service.CategoryService;
 
@@ -25,6 +26,12 @@ public class CategoryServiceImpl implements CategoryService {
 	public List<Category> findAfter6ByCategory() {
 		return categoryRepository.findAfter6ByCategory();
 	}
+	
+	
+
+	
+
+	
 
 	
 

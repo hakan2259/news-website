@@ -469,10 +469,12 @@ xmlns:sec="http://www.w3.org/1999/xhtml">
         <div class="navbar-container container-xl position-relative">
           <div class="collapse navbar-collapse flex-wrap">
             <ul class="navbar-nav navbar-nav--left mx-auto">
-              <li class="nav-item nav-item--text">
-                <span class="strong text-danger text-uppercase small mr-1">Trending Topics :</span> <a href="#" class="badge badge-warning">#Coronavirus</a> <a href="#" class="badge badge-success">#Ruritania Protest</a> <a href="#" class=
-                "badge badge-info">#Election</a> <a href="#" class="badge badge-light">#CEF 2020</a> <a href="#" class="badge badge-light">#MOTOGP</a> <a href="#" class="badge badge-light">#Photos</a> <a href="#" class=
-                "badge badge-light">#Videos</a>
+              <li class="nav-item nav-item--text" >
+                <span class="strong text-danger text-uppercase small mr-1">Çok Konuşulan Konular : </span> 
+                <span data-th-each="trendingTopic : ${trendingTopicList}">
+                <a href="#" class="badge badge-light" th:text="${trendingTopic.name}"></a> 
+                </span>
+              
               </li>
             </ul>
           </div>
