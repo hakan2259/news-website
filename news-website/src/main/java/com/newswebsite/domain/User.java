@@ -37,8 +37,16 @@ public class User implements UserDetails{
 	private String phone;
 	private boolean enabled=true;
 	private boolean status=false;
+	private int roleId;
 	
 	
+
+	public int getRoleId() {
+		return roleId;
+	}
+	public void setRoleId(int roleId) {
+		this.roleId = roleId;
+	}
 
 	@OneToMany(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
 	@JsonIgnore

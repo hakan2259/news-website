@@ -169,6 +169,7 @@ public class HomeController {
 		User user = new User();
 		user.setUsername(username);
 		user.setEmail(userEmail);
+		user.setRoleId(2);
 		
 		String password = SecurityUtility.randomPassword();
 		
@@ -176,7 +177,7 @@ public class HomeController {
 		user.setPassword(encryptedPassword);
 		
 		Role role = new Role();
-		role.setRoleId(1);
+		role.setRoleId(2);
 		role.setName("ROLE_USER");
 		Set<UserRole> userRoles = new HashSet<>();
 		userRoles.add(new UserRole(user, role));

@@ -8,14 +8,12 @@ import org.springframework.data.jpa.repository.Query;
 import com.adminportal.domain.User;
 
 
-public interface UserRepository extends JpaRepository<User, Long>{
-	User findByUsername(String username);
+public interface AdminRepository extends JpaRepository<User, Long>{
+	
 
+	
 	@Query(value="select u from User u where u.roleId = ?1")
-	public List<User> findByUserRoleId(int role_id);
-	
-	
-	
+	public List<User> findByAdminRoleId(int role_id);
 	
 	
 	

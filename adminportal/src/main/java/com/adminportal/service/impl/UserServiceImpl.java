@@ -1,11 +1,14 @@
 package com.adminportal.service.impl;
 
+
+import java.util.List;
 import java.util.Set;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 
 import com.adminportal.domain.User;
 import com.adminportal.domain.security.UserRole;
@@ -57,5 +60,19 @@ public class UserServiceImpl implements UserService {
 		
 		return userRepository.save(user);
 	}
+
+	@Override
+	public List<User> findByUserRoleId(int role_id) {
+		
+		return userRepository.findByUserRoleId(role_id);
+	}
+
+	
+
+	
+
+	
+
+	
 
 }
