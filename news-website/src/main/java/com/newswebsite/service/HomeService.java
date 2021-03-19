@@ -8,5 +8,8 @@ public interface HomeService {
 	
 	List<News> findLast6ByNews();
 	
+	List<News> StartAt6Find2News();
+	
+	
 
 }

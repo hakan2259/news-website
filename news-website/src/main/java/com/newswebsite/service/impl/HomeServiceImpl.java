@@ -21,5 +21,11 @@ public class HomeServiceImpl implements HomeService {
 		return homeRepository.findLast6ByNews();
 	}
 
+	@Override
+	public List<News> StartAt6Find2News() {
+		
+		return homeRepository.StartAt6Find2News();
+	}
+
 	
 }

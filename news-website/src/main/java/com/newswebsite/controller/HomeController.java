@@ -79,12 +79,13 @@ public class HomeController {
 		List<Category> afterSixByCategoryList = categoryService.findAfter6ByCategory();
 		List<TrendingTopic> trendingTopicList = trendingTopicService.findAll();
 		List<News> lastSixNewsList = homeService.findLast6ByNews();
+		List<News> StartAt6Find2NewsList = homeService.StartAt6Find2News();
 		
 		model.addAttribute("firstSixByCategoryList",firstSixByCategoryList);
 		model.addAttribute("afterSixByCategoryList",afterSixByCategoryList);
 		model.addAttribute("trendingTopicList",trendingTopicList);
 		model.addAttribute("lastSixNewsList",lastSixNewsList);
-		
+		model.addAttribute("StartAt6Find2NewsList",StartAt6Find2NewsList);
 		
 		
 		return "index";

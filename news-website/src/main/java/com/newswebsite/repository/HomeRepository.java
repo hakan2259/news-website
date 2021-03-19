@@ -14,6 +14,10 @@ public interface HomeRepository extends JpaRepository<News, Long> {
 	public List<News> findLast6ByNews();
 	
 	
+	@Query(value="select * from news where active = 1 order by id desc limit 6,2",nativeQuery = true)
+	public List<News> StartAt6Find2News();
+	
+	
 	
 	
 	

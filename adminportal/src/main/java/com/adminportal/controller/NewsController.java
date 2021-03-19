@@ -4,6 +4,8 @@ package com.adminportal.controller;
 
 
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -59,10 +61,13 @@ public class NewsController {
 			
 			) {
 		
-		Date publicationDate = new Date();
+		Calendar cal = Calendar.getInstance();
+		SimpleDateFormat format1 = new SimpleDateFormat("d MMM yyy HH:mm");
+		String formatted = format1.format(cal.getTime());
+		
 		
 				
-		newsService.saveNewsToDB(file, title, author, publicationDate.toString(), category, active, description);
+		newsService.saveNewsToDB(file, title, author, formatted, category, active, description);
 
 		
 
