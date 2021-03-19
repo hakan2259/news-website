@@ -27,6 +27,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.newswebsite.domain.Category;
 import com.newswebsite.domain.Contact;
+import com.newswebsite.domain.News;
 import com.newswebsite.domain.TrendingTopic;
 import com.newswebsite.domain.User;
 import com.newswebsite.domain.security.PasswordResetToken;
@@ -34,6 +35,7 @@ import com.newswebsite.domain.security.Role;
 import com.newswebsite.domain.security.UserRole;
 import com.newswebsite.service.CategoryService;
 import com.newswebsite.service.ContactService;
+import com.newswebsite.service.HomeService;
 import com.newswebsite.service.TrendingTopicService;
 import com.newswebsite.service.UserService;
 import com.newswebsite.service.impl.UserSecurityService;
@@ -63,6 +65,10 @@ public class HomeController {
 	@Autowired
 	private TrendingTopicService trendingTopicService;
 	
+	@Autowired
+	private HomeService homeService;
+	
+	
 	
 	
 	
@@ -72,12 +78,13 @@ public class HomeController {
 		List<Category> firstSixByCategoryList = categoryService.findFirst6ByCategory();
 		List<Category> afterSixByCategoryList = categoryService.findAfter6ByCategory();
 		List<TrendingTopic> trendingTopicList = trendingTopicService.findAll();
-		
-		
+		List<News> lastSixNewsList = homeService.findLast6ByNews();
 		
 		model.addAttribute("firstSixByCategoryList",firstSixByCategoryList);
 		model.addAttribute("afterSixByCategoryList",afterSixByCategoryList);
 		model.addAttribute("trendingTopicList",trendingTopicList);
+		model.addAttribute("lastSixNewsList",lastSixNewsList);
+		
 		
 		
 		return "index";

@@ -29,13 +29,14 @@
                             <figure class="figure post-thumbnail sumry-thumbnail">
 
                               <div class="owl-carousel owl-theme">
-                                <img src="/assets/5-3/xl/ev-Thc9xjSu4dM-unsplash.jpg">
-                                <img src="/assets/5-3/xl/34-iSGu85T8TXS9zXJ20iBU__MG_9585.jpg">
-                                <img src="/assets/5-3/xl/3747fac5-41fc-46d7-83b9-3edf978160aa.jpg">
-                                <img src="/assets/5-3/xl/aaron-burden-205148.jpg">
-                                <img src="/assets/5-3/xl/arnaud-jaegers-IBWJsMObnnU-unsplash.jpg">
-                                <img src="/assets/5-3/xl/fake-2355686_1920.jpg">
+                             
+                                <span data-th-each="lastSixNews : ${lastSixNewsList}">
+                               <img alt="" th:src="*{'data:image/jpeg;base64,'+{lastSixNews.image}}">
+                           </span>
+                              
+                      
                               </div>
+                              
                             </figure>
 <!--Carousel-->
 
@@ -52,7 +53,15 @@
                                 <p>
                                   A Deep Analysis from latest Ruritania protest crackdown consectetur adipisicing elit, sed do eiusmod tempor incididunt
                                 </p>
+                                  <div class="post-meta">
+                                <span class="post-author"><a href="posts-by-author.html" class="post-meta-a">John Doe</a></span> <span class="post-meta-separator">&nbsp;•&nbsp;</span> <span class="post-time"><a href="#" class="post-meta-a">1 day
+                                ago</a></span>
+                              </div>
                               </div><!-- /.post-excerpt d-none d-md-block -->
+
+
+
+
                               <div class="post-meta">
                                 <span class="post-author"><a href="posts-by-author.html" class="post-meta-a">John Doe</a></span> <span class="post-meta-separator">&nbsp;•&nbsp;</span> <span class="post-time"><a href="#" class="post-meta-a">1 day
                                 ago</a></span>
@@ -76,6 +85,14 @@
                                 </p>
                               </aside><!-- /.post-more -->
                             </div><!-- /.post-content sumry-content -->
+
+
+
+
+
+
+
+
                           </div><!-- /.sumry-body -->
                         </div><!-- /.sumry-inner -->
                       </article><!-- /.post post__default post__sumry sumry__horz sumry__horz-2to1 size-md col-12 sumry__valign-none-->
