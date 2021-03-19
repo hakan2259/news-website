@@ -56,7 +56,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			
 			"/assets/banners/**",
 			"/assets/magazinize/**",
-			
+			"/assets/avatar/**",
 			"/assets/img/**",
 			"/assets/1-1/**",
 			"/assets/5-3/**",
@@ -70,6 +70,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			"/about",
 			"/forgetPassword",
 			"/login",
+			"/newsDetail"
 			
 			
 	};

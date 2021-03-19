@@ -97,6 +97,12 @@ public class HomeController {
 		return "login";
 	}
 	
+	@RequestMapping("/newsDetail")
+	public String newsDetail() {
+		
+		return "newsDetail";
+	}
+	
 	@RequestMapping("/myAccount")
 	public String myAccount(Model model) {
 		model.addAttribute("classActiveMyAccount",true);
