@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import com.adminportal.domain.Category;
 import com.adminportal.domain.News;
 
 
@@ -15,6 +16,9 @@ public interface NewsService {
 			);
 	
 	List<News> findAll();
+	
+	
+	
 	
 	
 

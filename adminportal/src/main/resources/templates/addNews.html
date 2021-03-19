@@ -55,17 +55,7 @@
 					</div>
 
 
-						<!-- publication date -->
-					<div class="form-group">
-						<label class="col-md-2 control-label" for="publicationDate">* Publication
-							Date</label>
-						<div class="col-md-8">
-							<input type="date" class="form-control" id="publicationDate"
-								name="publicationDate" th:value="${news.publicationDate}"
-								placeholder="Publication Date" /> <span class="help-block">Publication
-								Date of the news</span>
-						</div>
-					</div>
+					
 
 
 						<!-- category -->
@@ -77,17 +67,12 @@
 								class="form-control">
 								<option value="" selected="selected" disabled="disabled">Please
 									select an option...</option>
-								<option value="Management"
-									th:selected="(${news.category}=='Management')">Management</option>
-								<option value="Fiction"
-									th:selected="(${news.category}=='Fiction')">Fiction</option>
-								<option value="Engineering"
-									th:selected="(${news.category}=='Engineering')">Engineering</option>
-								<option value="Programming"
-									th:selected="(${news.category}=='Programming')">Programming</option>
-								<option value="Arts &amp; Literature"
-									th:selected="(${news.category}=='Arts &amp; Literature')">Arts
-									&amp; Literature</option>
+
+                                <span data-th-each="category : ${categoryList}">
+
+						
+								<option th:text="${category.name}"></option>
+										</span>
 							</select>
 						</div>
 					</div>

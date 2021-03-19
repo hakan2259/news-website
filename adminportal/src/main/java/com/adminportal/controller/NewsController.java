@@ -4,19 +4,20 @@ package com.adminportal.controller;
 
 
 
+import java.util.Date;
 import java.util.List;
-
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.adminportal.domain.Category;
 import com.adminportal.domain.News;
+import com.adminportal.service.CategoryService;
 import com.adminportal.service.NewsService;
 
 @Controller
@@ -28,11 +29,23 @@ public class NewsController {
 	@Autowired
 	private NewsService newsService;
 	
+	@Autowired
+	private CategoryService categoryService;
+	
+	
 	
 	@RequestMapping(value="/add",method=RequestMethod.GET)
 	public String addNews(Model model) {
 		News news = new News();
+		
+		List<Category> categoryList = categoryService.findAllActiveByCategory();
+		
+		
+		
 		model.addAttribute("news",news);
+		model.addAttribute("categoryList",categoryList);
+		
+		
 		return "addNews";
 	}
 	
@@ -40,14 +53,16 @@ public class NewsController {
 	public String addNewsPost(@RequestParam("newsImage") MultipartFile file,
 			@RequestParam("title") String title,
 			@RequestParam("author") String author,
-			@RequestParam("publicationDate") String publicationDate,
 			@RequestParam("category") String category,
 			@RequestParam("active") boolean active,
 			@RequestParam("description") String description
 			
 			) {
+		
+		Date publicationDate = new Date();
+		
 				
-		newsService.saveNewsToDB(file, title, author, publicationDate, category, active, description);
+		newsService.saveNewsToDB(file, title, author, publicationDate.toString(), category, active, description);
 
 		
 
