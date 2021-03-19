@@ -24,9 +24,20 @@ public class News {
 	@Column(columnDefinition = "text")
 	private String description;
 	
+	@Column(columnDefinition = "text")
+	private String subTitle;
+	
+	
 	@Lob
 	@Column(columnDefinition = "MEDIUMBLOB")
 	private String image;
+	
+	public String getSubTitle() {
+		return subTitle;
+	}
+	public void setSubTitle(String subTitle) {
+		this.subTitle = subTitle;
+	}
 	
 	
 	public Long getId() {

@@ -12,7 +12,7 @@ import com.adminportal.domain.News;
 public interface NewsService {
 	
 	void saveNewsToDB(MultipartFile file,String title,String author,String publicationDate,
-			String category,boolean active,String description
+			String category,boolean active,String description,String subTitle
 			);
 	
 	List<News> findAll();

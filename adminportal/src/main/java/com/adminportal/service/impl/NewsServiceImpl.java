@@ -37,7 +37,7 @@ public class NewsServiceImpl implements NewsService{
 
 	@Override
 	public void saveNewsToDB(MultipartFile file, String title, String author, String publicationDate, String category,
-			boolean active, String description) {
+			boolean active, String description,String subTitle) {
 		News n = new News();
 		String fileName = StringUtils.cleanPath(file.getOriginalFilename());
 		if(fileName.contains(".."))
@@ -56,6 +56,7 @@ public class NewsServiceImpl implements NewsService{
 		n.setCategory(category);
 		n.setActive(active);
 		n.setDescription(description);
+		n.setSubTitle(subTitle);
 		newsRepository.save(n);
 		
 		

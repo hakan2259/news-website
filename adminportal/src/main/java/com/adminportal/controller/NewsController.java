@@ -57,7 +57,8 @@ public class NewsController {
 			@RequestParam("author") String author,
 			@RequestParam("category") String category,
 			@RequestParam("active") boolean active,
-			@RequestParam("description") String description
+			@RequestParam("description") String description,
+			@RequestParam("subTitle") String subTitle
 			
 			) {
 		
@@ -67,7 +68,7 @@ public class NewsController {
 		
 		
 				
-		newsService.saveNewsToDB(file, title, author, formatted, category, active, description);
+		newsService.saveNewsToDB(file, title, author, formatted, category, active, description,subTitle);
 
 		
 
