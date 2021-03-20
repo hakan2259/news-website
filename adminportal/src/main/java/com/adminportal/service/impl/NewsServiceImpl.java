@@ -36,7 +36,7 @@ public class NewsServiceImpl implements NewsService{
 
 
 	@Override
-	public void saveNewsToDB(MultipartFile file, String title, String author, String publicationDate, String category,
+	public void saveNewsToDB(MultipartFile file, String title, String author, String publicationDate, String category,String newsType,
 			boolean active, String description,String subTitle) {
 		News n = new News();
 		String fileName = StringUtils.cleanPath(file.getOriginalFilename());
@@ -54,6 +54,7 @@ public class NewsServiceImpl implements NewsService{
 		n.setAuthor(author);
 		n.setPublicationDate(publicationDate);
 		n.setCategory(category);
+		n.setNewsType(newsType);
 		n.setActive(active);
 		n.setDescription(description);
 		n.setSubTitle(subTitle);

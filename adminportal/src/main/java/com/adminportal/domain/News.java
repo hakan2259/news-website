@@ -19,7 +19,9 @@ public class News {
 	private String author;
 	private String publicationDate;
 	private String category;
+	private String newsType;
 	private boolean active=true;
+	
 	
 	@Column(columnDefinition = "text")
 	private String description;
@@ -33,6 +35,12 @@ public class News {
 	private String image;
 	
 	
+	public String getNewsType() {
+		return newsType;
+	}
+	public void setNewsType(String newsType) {
+		this.newsType = newsType;
+	}
 	
 	public String getSubTitle() {
 		return subTitle;

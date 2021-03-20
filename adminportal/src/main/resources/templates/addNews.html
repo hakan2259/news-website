@@ -89,6 +89,32 @@
 					</div>
 
 
+					
+						<!-- newsType -->
+					<div class="form-group">
+						<label class="col-md-2 control-label" for="category">*
+							News Type</label>
+						<div class="col-md-8">
+							<select th:value="${news.newsType}" id="newsType" name="newsType"
+								class="form-control">
+								<option value="" selected="selected" disabled="disabled">Please
+									select an option...</option>
+
+                              
+
+								<option>Normal</option>
+								<option>Vip News</option>
+								<option>Popular</option>
+								<option>Editor Picks</option>
+										
+							</select>
+						</div>
+					</div>
+
+
+					
+
+
 
 						<!-- status of book -->
 					<div class="form-group">
