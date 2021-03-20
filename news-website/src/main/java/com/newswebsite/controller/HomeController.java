@@ -6,10 +6,12 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
+import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
@@ -36,6 +38,7 @@ import com.newswebsite.domain.security.UserRole;
 import com.newswebsite.service.CategoryService;
 import com.newswebsite.service.ContactService;
 import com.newswebsite.service.HomeService;
+import com.newswebsite.service.NewsService;
 import com.newswebsite.service.TrendingTopicService;
 import com.newswebsite.service.UserService;
 import com.newswebsite.service.impl.UserSecurityService;
@@ -68,6 +71,10 @@ public class HomeController {
 	@Autowired
 	private HomeService homeService;
 	
+	@Autowired
+	private NewsService newsService;
+	
+	
 	
 	
 	
@@ -98,7 +105,16 @@ public class HomeController {
 	}
 	
 	@RequestMapping("/newsDetail")
-	public String newsDetail() {
+	public String newsDetail(
+			@PathParam("id") Long id,Model model
+			
+			) {
+		News news = newsService.findOne(id);
+		
+		
+		
+		model.addAttribute("news",news);
+		
 		
 		return "newsDetail";
 	}

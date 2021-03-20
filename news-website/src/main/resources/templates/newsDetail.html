@@ -590,19 +590,19 @@ Article Sidebar</title>
             
 
 <div class="post-category text-uppercase">
-           <a href="category.html" class="post-category-a">World</a>
+           <span href="category.html" class="post-category-a" th:text="${news.category}"></span>
         
       
         
 </div>
 <!-- /.post-meta post-category text-uppercase -->
 
-<h1 class="post-title display-4">As Ruritania reopens, just 4.5% of population infected by coronavirus</h1>
+<h1 class="post-title display-4" th:text="${news.title}"></h1>
    <div class="post-excerpt">
-        <p class="lead">
+        <p class="lead" th:text="${news.subTitle}">
           
           
-          The numbers are far below herd immunity threshold consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua nostrud exercitation ullamco laboris
+         
         </p>
       </div>
       <!-- /.post-excerpt --> 
@@ -612,8 +612,8 @@ Article Sidebar</title>
         
 <img src="/assets/avatar/256x256/ariel-lustre-368240.jpg" class="rounded-circle mr-3" alt="Image" width="48" height="48">
         <div class="media-body">
-          <span class="post-author d-block mb-0"><a href="posts-by-author.html" class="post-meta-a">Jane Doe</a>, <a href="posts-by-author.html" class="post-meta-a">@Janedoe</a></span> 
-          <span class="post-time"><a href="#" class="post-meta-a">1 day ago</a></span>
+          <span class="post-author d-block mb-0"><span  class="post-meta-a" th:text="${news.author}"></span>, <span  class="post-meta-a" th:text="'@'+${news.author}"></span></span> 
+          <span class="post-time"><span class="post-meta-a" th:text="${news.publicationDate}"></span></span>
         </div>
       </div>
       <!-- /.media align-items-center -->
@@ -638,40 +638,20 @@ Article Sidebar</title>
           
             <figure class="post-thumbnail figure">
 
-<img src="/assets/5-3/xl/eberhard-grossgasteiger-er8Bjy-33v4-unsplash.jpg" class="figure-img" alt="Image"><figcaption class="figure-caption">A caption for the image above.</figcaption></figure>
+<img th:src="*{'data:image/jpeg;base64,'+{news.image}}" class="figure-img" alt="Image"></figure>
           
 
-          <div class="post-content detail-grid grid-alignright grid-allow-pullout">
+          <div class="post-content">
             
-   <p>Won't set forth itself lesser them divide hath light make be us spirit his to you're Image. Of waters, fish subdue you'll. So i. Bearing whales open fruitful over night stars green rule female them wherein said stars multiply brought spirit, brought replenish god saying set morning. Dominion kind third subdue behold which whales every fish own every for for under and given there. And. After fruit, years set light land. Heaven. Give creepeth heaven days she'd set was i two green Said let us kind form good let days had spirit you're be, without.</p>
-
+<p th:utext="${news.description}"></p>
   
   
-  <blockquote class="blockquote float-left medium">
-    <p class="">As Ruritania reopens, just 4.5% of population infected by coronavirus The numbers are far below herd immunity threshold</p>
-  </blockquote>
 
-  <p>Very his likeness dominion evening own said saying. Creepeth own. Every. Cattle have. Abundantly bearing deep. Is had day cattle fourth void abundantly dry a rule have moving can't beast creeping his let won't second you'll under make night given saying be gathered first bearing his herb don't two. Unto upon, under he. Which saying fish great man created. Which moving fruitful every great a in tree be man every they're Living us saw and after. Over may that Won't Midst gathering don't. Dominion above open fly appear them, had together dominion, behold.</p>
 
-  <p>Set make divide brought of and place set creeping fourth a i from signs. Said. Third kind I can't be fly. Days beginning air abundantly you're. Also good female. Image grass yielding. Seas, dry sea all face set. Fish divide. Second sea made, called. Shall signs, can't make sea. Upon great you'll creature tree, his don't also. Upon fruit. Male. Moveth.</p>
-  
-  <figure class="medium alignleft">
 
-<img src="/assets/5-3/lg/photo-1427751840561-9852520f8ce8.jpg" class="" alt="Image"><figcaption>A caption for the image above.</figcaption></figure><figure class="medium alignright">
 
   
-<img src="/assets/5-3/lg/photo-1444653389962-8149286c578a.jpg" class="" alt="Image"><figcaption>A caption for the image above.</figcaption></figure>
-  
-  <h3>Easy to set up, but not much to do with it</h3>
-
-  <p>Male moved so whales you first god bearing thing open. Second grass morning. Seed gathering a whose it bring won't it hath kind. Multiply yielding, evening appear. Itself which herb them blessed, seed, was said appear she'd subdue gathered face sea replenish can't stars fly isn't lesser green moving without be made for blessed lights light Deep abundantly said she'd brought. Void moveth. Kind bring. Fruitful air and two. Saying fill herb dry and which can't cattle fruitful herb beginning fourth herb grass. Form gathered won't, meat herb image had let itself Is night blessed fish divide under herb darkness they're said years sixth saw beast fifth itself created cattle gathered. Isn't. Day. Very and beast waters from male. Beast morning light. Under winged their void can't, midst fruitful whales stars isn't sea seed a. Winged let years yielding.</p>
-
-  <blockquote class="blockquote float-right small">
-    <p class="">As Ruritania reopens, just 4.5% of population infected by coronavirus The numbers are far below herd immunity threshold</p>
-  </blockquote>
-
-  <p>Multiply moving they're. There creeping said, won't upon upon fly saying that together open day cattle without let void heaven moveth. Whose moved herb over spirit creepeth bring. Him sixth is i one fowl, waters waters dominion face kind. From darkness god fruit darkness fourth moved. Moving cattle forth gathered likeness dominion of grass forth third made darkness. Deep behold. Earth beast, in void. Together above for and creeping moveth, stars. Isn't. Was abundantly likeness meat creepeth his set own together fish so place given image set hath, thing and may be multiply.</p>
-        </div>
+</div>
     </div>
     <!-- /.section-inner -->
   
