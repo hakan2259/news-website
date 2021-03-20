@@ -39,5 +39,11 @@ public class HomeServiceImpl implements HomeService {
 		return homeRepository.StartAt14Find10News();
 	}
 
+	@Override
+	public List<News> findEditorPicksLast8ByNews() {
+		
+		return homeRepository.findEditorPicksLast8ByNews();
+	}
+
 	
 }

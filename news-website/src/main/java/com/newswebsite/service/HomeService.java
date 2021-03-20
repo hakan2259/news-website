@@ -14,6 +14,9 @@ public interface HomeService {
 	
 	List<News> StartAt14Find10News();
 	
+	List<News> findEditorPicksLast8ByNews();
+	
+	
 	
 	
 	

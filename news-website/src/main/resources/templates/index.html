@@ -127,138 +127,37 @@
                   </header>
                   <div class="section-body">
                     <div class="posts posts__sumrys row sumrys__divider">
-                      <article class="post post__default post__sumry sumry__vert size-sm col-6 col-lg-3 sumry__valign-none">
+                      
+                      
+
+
+                      <article class="post post__default post__sumry sumry__vert size-sm col-6 col-lg-3 sumry__valign-none" data-th-each="findEditorPicksLast8ByNews : ${findEditorPicksLast8ByNewsList}">
                         <div class="sumry-inner">
                           <hr class="divider sumry-divider">
                           <div class="sumry-body">
                             <figure class="figure post-thumbnail sumry-thumbnail">
-                              <a href="article-sidebar.html" class="img-wrapper"><img src="/assets/5-3/md/3747fac5-41fc-46d7-83b9-3edf978160aa.jpg" class="img figure-img" alt="Image"></a>
+                              <a th:href="@{/newsDetail?id=}+${findEditorPicksLast8ByNews.id}" class="img-wrapper"><img th:src="*{'data:image/jpeg;base64,'+{findEditorPicksLast8ByNews.image}}" class="img figure-img" alt="Image"></a>
                             </figure>
                             <div class="post-content sumry-content">
                               <div class="post-category text-uppercase">
-                                <a href="category.html" class="post-category-a">World</a> <span class="post-category-separator">/</span> <a href="category.html" class="post-category-sub-a">Politic</a>
+                                <span class="post-category-a" th:text="${findEditorPicksLast8ByNews.category}"></span>
                               </div><!-- /.post-meta post-category text-uppercase -->
                               <h3 class="post-title sumry-title">
-                                <a href="article-sidebar.html" class="post-title-a sumry-title-a">Study Case: The Rise and Fall of Kang Ostnitz's Political Class</a>
+                                <a th:href="@{/newsDetail?id=}+${findEditorPicksLast8ByNews.id}" class="post-title-a sumry-title-a" th:text="${findEditorPicksLast8ByNews.title}"></a>
                               </h3>
                               <div class="post-meta">
-                                <span class="post-author"><a href="posts-by-author.html" class="post-meta-a">John Doe</a></span> <span class="post-meta-separator">&nbsp;•&nbsp;</span> <span class="post-time"><a href="#" class="post-meta-a">1 day
-                                ago</a></span>
+                                <span class="post-author"><span  class="post-meta-a" th:text="${findEditorPicksLast8ByNews.author}"></span></span> <span class="post-meta-separator">&nbsp;•&nbsp;</span> <span class="post-time"><span class="post-meta-a" th:text="${findEditorPicksLast8ByNews.publicationDate}">
+                                </span></span>
                               </div>
                             </div><!-- /.post-content sumry-content -->
                           </div><!-- /.sumry-body -->
                         </div><!-- /.sumry-inner -->
                       </article><!-- /.post post__default post__sumry sumry__vert size-sm col-6 col-lg-3 sumry__valign-none-->
-                      <article class="post post__default post__sumry sumry__vert size-sm col-6 col-lg-3 sumry__valign-none">
-                        <div class="sumry-inner">
-                          <hr class="divider sumry-divider">
-                          <div class="sumry-body">
-                            <figure class="figure post-thumbnail sumry-thumbnail">
-                              <a href="article-sidebar.html" class="img-wrapper"><img src="/assets/5-3/md/markus-spiske-y0J2yf7njHs-unsplash.jpg" class="img figure-img" alt="Image"></a>
-                            </figure>
-                            <div class="post-content sumry-content">
-                              <div class="post-category text-uppercase">
-                                <a href="category.html" class="post-category-a">Science</a> <span class="post-category-separator">/</span> <a href="category.html" class="post-category-sub-a">Research</a>
-                              </div><!-- /.post-meta post-category text-uppercase -->
-                              <h3 class="post-title sumry-title">
-                                <a href="article-sidebar.html" class="post-title-a sumry-title-a">New model predicts the peaks of the Ruritania COVID-19 pandemic</a>
-                              </h3>
-                              <div class="post-meta">
-                                <span class="post-author"><a href="posts-by-author.html" class="post-meta-a">John Doe</a></span> <span class="post-meta-separator">&nbsp;•&nbsp;</span> <span class="post-time"><a href="#" class="post-meta-a">1 day
-                                ago</a></span>
-                              </div>
-                            </div><!-- /.post-content sumry-content -->
-                          </div><!-- /.sumry-body -->
-                        </div><!-- /.sumry-inner -->
-                      </article><!-- /.post post__default post__sumry sumry__vert size-sm col-6 col-lg-3 sumry__valign-none-->
-                      <article class="post post__default post__sumry sumry__vert size-sm col-6 col-lg-3 sumry__valign-none">
-                        <div class="sumry-inner">
-                          <hr class="divider sumry-divider">
-                          <div class="sumry-body">
-                            <figure class="figure post-thumbnail sumry-thumbnail">
-                              <a href="article-sidebar.html" class="img-wrapper"><img src="/assets/5-3/md/evgeni-tcherkasski-JqWanio3sZo-unsplash.jpg" class="img figure-img" alt="Image"></a>
-                            </figure>
-                            <div class="post-content sumry-content">
-                              <div class="post-category text-uppercase">
-                                <a href="category.html" class="post-category-a">World</a> <span class="post-category-separator">/</span> <a href="category.html" class="post-category-sub-a">Health</a>
-                              </div><!-- /.post-meta post-category text-uppercase -->
-                              <h3 class="post-title sumry-title">
-                                <a href="article-sidebar.html" class="post-title-a sumry-title-a">Wear face masks at home to stop COVID-19 spread among family members</a>
-                              </h3>
-                              <div class="post-meta">
-                                <span class="post-author"><a href="posts-by-author.html" class="post-meta-a">John Doe</a></span> <span class="post-meta-separator">&nbsp;•&nbsp;</span> <span class="post-time"><a href="#" class="post-meta-a">1 day
-                                ago</a></span>
-                              </div>
-                            </div><!-- /.post-content sumry-content -->
-                          </div><!-- /.sumry-body -->
-                        </div><!-- /.sumry-inner -->
-                      </article><!-- /.post post__default post__sumry sumry__vert size-sm col-6 col-lg-3 sumry__valign-none-->
-                      <article class="post post__default post__sumry sumry__vert size-sm col-6 col-lg-3 sumry__valign-none">
-                        <div class="sumry-inner">
-                          <hr class="divider sumry-divider">
-                          <div class="sumry-body">
-                            <figure class="figure post-thumbnail sumry-thumbnail">
-                              <a href="article-sidebar.html" class="img-wrapper"><img src="/assets/5-3/md/sandy-millar-Kl4LNdg6on4-unsplash.jpg" class="img figure-img" alt="Image"></a>
-                            </figure>
-                            <div class="post-content sumry-content">
-                              <div class="post-category text-uppercase">
-                                <a href="category.html" class="post-category-a">World</a> <span class="post-category-separator">/</span> <a href="category.html" class="post-category-sub-a">Economic</a>
-                              </div><!-- /.post-meta post-category text-uppercase -->
-                              <h3 class="post-title sumry-title">
-                                <a href="article-sidebar.html" class="post-title-a sumry-title-a">What is Unsteadystan economic embargo? And How they coping with it?</a>
-                              </h3>
-                              <div class="post-meta">
-                                <span class="post-author"><a href="posts-by-author.html" class="post-meta-a">John Doe</a></span> <span class="post-meta-separator">&nbsp;•&nbsp;</span> <span class="post-time"><a href="#" class="post-meta-a">1 day
-                                ago</a></span>
-                              </div>
-                            </div><!-- /.post-content sumry-content -->
-                          </div><!-- /.sumry-body -->
-                        </div><!-- /.sumry-inner -->
-                      </article><!-- /.post post__default post__sumry sumry__vert size-sm col-6 col-lg-3 sumry__valign-none-->
-                      <article class="post post__default post__sumry sumry__horz sumry__horz-1to1 size-sm col-6 sumry__valign-none">
-                        <div class="sumry-inner">
-                          <hr class="divider sumry-divider">
-                          <div class="sumry-body">
-                            <figure class="figure post-thumbnail sumry-thumbnail">
-                              <a href="article-sidebar.html" class="img-wrapper"><img src="/assets/5-3/md/photo-1459755486867-b55449bb39ff.jpg" class="img figure-img" alt="Image"></a>
-                            </figure>
-                            <div class="post-content sumry-content">
-                              <div class="post-category text-uppercase">
-                                <a href="category.html" class="post-category-a">Business</a> <span class="post-category-separator">/</span> <a href="category.html" class="post-category-sub-a">Investing</a>
-                              </div><!-- /.post-meta post-category text-uppercase -->
-                              <h3 class="post-title sumry-title">
-                                <a href="article-sidebar.html" class="post-title-a sumry-title-a">Why You Should Venture Into Coffee Shop Industry</a>
-                              </h3>
-                              <div class="post-meta">
-                                <span class="post-author"><a href="posts-by-author.html" class="post-meta-a">John Robusta</a></span> <span class="post-meta-separator">&nbsp;•&nbsp;</span> <span class="post-time"><a href="#" class="post-meta-a">1 day
-                                ago</a></span>
-                              </div>
-                            </div><!-- /.post-content sumry-content -->
-                          </div><!-- /.sumry-body -->
-                        </div><!-- /.sumry-inner -->
-                      </article><!-- /.post post__default post__sumry sumry__horz sumry__horz-1to1 size-sm col-6 sumry__valign-none-->
-                      <article class="post post__default post__sumry sumry__horz sumry__horz-1to1 size-sm col-6 sumry__valign-none">
-                        <div class="sumry-inner">
-                          <hr class="divider sumry-divider">
-                          <div class="sumry-body">
-                            <figure class="figure post-thumbnail sumry-thumbnail">
-                              <a href="article-sidebar.html" class="img-wrapper"><img src="/assets/5-3/md/photo-1446057032654-9d8885db76c6.jpg" class="img figure-img" alt="Image"></a>
-                            </figure>
-                            <div class="post-content sumry-content">
-                              <div class="post-category text-uppercase">
-                                <a href="category.html" class="post-category-a">Entertainment</a> <span class="post-category-separator">/</span> <a href="category.html" class="post-category-sub-a">Music</a>
-                              </div><!-- /.post-meta post-category text-uppercase -->
-                              <h3 class="post-title sumry-title">
-                                <a href="article-sidebar.html" class="post-title-a sumry-title-a">Hotplay's Burning Guitar Review: Hotter than Hellish Hell</a>
-                              </h3>
-                              <div class="post-meta">
-                                <span class="post-author"><a href="posts-by-author.html" class="post-meta-a">John Doe</a></span> <span class="post-meta-separator">&nbsp;•&nbsp;</span> <span class="post-time"><a href="#" class="post-meta-a">2 days
-                                ago</a></span>
-                              </div>
-                            </div><!-- /.post-content sumry-content -->
-                          </div><!-- /.sumry-body -->
-                        </div><!-- /.sumry-inner -->
-                      </article><!-- /.post post__default post__sumry sumry__horz sumry__horz-1to1 size-sm col-6 sumry__valign-none-->
+                      
+
+
+
+
                     </div><!-- /.posts posts__sumrys row sumrys__divider -->
                   </div><!-- /.section-body -->
                 </div><!-- /.section-inner -->

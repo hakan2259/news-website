@@ -19,6 +19,8 @@ public class News {
 	private String author;
 	private String publicationDate;
 	private String category;
+	private String newsType;
+	
 	private boolean active=true;
 	
 	@Column(columnDefinition = "text")
@@ -40,6 +42,12 @@ public class News {
 	}
 	
 	
+	public String getNewsType() {
+		return newsType;
+	}
+	public void setNewsType(String newsType) {
+		this.newsType = newsType;
+	}
 	public Long getId() {
 		return id;
 	}
