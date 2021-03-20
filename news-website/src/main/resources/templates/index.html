@@ -31,7 +31,7 @@
                               <div class="owl-carousel owl-theme">
                              
                                 <span data-th-each="lastSixNews : ${lastSixNewsList}">
-                               <a th:href="@{/newsDetail?id=}+${lastSixNews.id}"><img alt="" th:src="*{'data:image/jpeg;base64,'+{lastSixNews.image}}"></a>
+                               <a th:href="@{/newsDetail?id=}+${lastSixNews.id}"><img alt="" th:src="*{'data:image/jpeg;base64,'+{lastSixNews.image}}" style="width: 976px; height:400px;"></a>
                            </span>
                               
                       
@@ -51,7 +51,7 @@
                                 <a th:href="@{/newsDetail?id=}+${StartAt6Find2News.id}" class="post-title-a sumry-title-a" th:text="${StartAt6Find2News.title}"></a>
                               </h3>
                               <div class="post-excerpt d-none d-md-block">
-                                <p th:text="${#strings.abbreviate(StartAt6Find2News.subTitle,70)}">
+                                <p th:text="${#strings.abbreviate(StartAt6Find2News.subTitle,100)}">
                                   
                                 </p>
                                   <div class="post-meta">
@@ -77,185 +77,38 @@
                       </article><!-- /.post post__default post__sumry sumry__horz sumry__horz-2to1 size-md col-12 sumry__valign-none-->
                      
                      
-                      <article class="post post__default post__sumry sumry__text size-sm col-6 col-lg-4 sumry__valign-none">
+                      <article class="post post__default post__sumry sumry__text size-sm col-6 col-lg-4 sumry__valign-none" data-th-each="StartAt8Find6News : ${StartAt8Find6NewsList}">
                         <div class="sumry-inner">
                           <hr class="divider sumry-divider">
                           <div class="sumry-body">
                             <div class="post-content sumry-content">
                               <div class="post-category text-uppercase">
-                                <a href="category.html" class="post-category-a">World</a> <span class="post-category-separator">/</span> <a href="category.html" class="post-category-sub-a">Politic</a>
+                                <span th:text="${StartAt8Find6News.category}" class="post-category-a"></span> 
                               </div><!-- /.post-meta post-category text-uppercase -->
                               <h3 class="post-title sumry-title">
-                                <a href="article-sidebar.html" class="post-title-a sumry-title-a">Backhairistan following a strategy of tolerance to Int community</a>
+                                <a th:href="@{/newsDetail?id=}+${StartAt8Find6News.id}" class="post-title-a sumry-title-a" th:text="${StartAt8Find6News.title}"></a>
                               </h3>
                               <div class="post-excerpt d-none d-lg-flex row">
                                 <div class="col-3 order-2 pl-0">
-                                  <img src="/assets/1-1/xs/hands-600497_1920.jpg" class="img w-100" alt="Image">
+                                  <a th:href="@{/newsDetail?id=}+${StartAt8Find6News.id}"><img th:src="*{'data:image/jpeg;base64,'+{StartAt8Find6News.image}}" class="img w-100" alt="Image"></a>
                                 </div><!-- /. col-3 order-2 pl-0 -->
                                 <div class="col-9 order-1">
-                                  <p>
-                                    First step to Backhairistan peace, giant step world peace consectetur adipisicing elit
+                                  <p th:text="${#strings.abbreviate(StartAt8Find6News.subTitle,100)}">
+                                   
                                   </p>
                                 </div><!-- /. col-9 order-1 -->
                               </div><!-- /.post-excerpt d-none d-lg-flex row row -->
                               <div class="post-meta">
-                                <span class="post-author"><a href="posts-by-author.html" class="post-meta-a">John Doe</a></span> <span class="post-meta-separator">&nbsp;•&nbsp;</span> <span class="post-time"><a href="#" class="post-meta-a">1 day
-                                ago</a></span>
+                                <span class="post-author"><span class="post-meta-a" th:text="${StartAt8Find6News.author}"></span></span> <span class="post-meta-separator">&nbsp;•&nbsp;</span> <span class="post-time"><span class="post-meta-a" th:text="${StartAt8Find6News.publicationDate}">
+                                </span></span>
                               </div>
                             </div><!-- /.post-content sumry-content -->
                           </div><!-- /.sumry-body -->
                         </div><!-- /.sumry-inner -->
                       </article><!-- /.post post__default post__sumry sumry__text size-sm col-6 col-lg-4 sumry__valign-none-->
-                      <article class="post post__default post__sumry sumry__text size-sm col-6 col-lg-4 sumry__valign-none">
-                        <div class="sumry-inner">
-                          <hr class="divider sumry-divider">
-                          <div class="sumry-body">
-                            <div class="post-content sumry-content">
-                              <div class="post-category text-uppercase">
-                                <a href="category.html" class="post-category-a">World</a> <span class="post-category-separator">/</span> <a href="category.html" class="post-category-sub-a">Politic</a>
-                              </div><!-- /.post-meta post-category text-uppercase -->
-                              <h3 class="post-title sumry-title">
-                                <a href="article-sidebar.html" class="post-title-a sumry-title-a">2024 Election: How well do you know the Presidential candidates?</a>
-                              </h3>
-                              <div class="post-excerpt d-none d-lg-flex row">
-                                <div class="col-3 order-2 pl-0">
-                                  <img src="/assets/1-1/xs/darth-3830731_1920.jpg" class="img w-100" alt="Image">
-                                </div><!-- /. col-3 order-2 pl-0 -->
-                                <div class="col-9 order-1">
-                                  <p>
-                                    A Brief profile of all the presidential candidates that you should know consectetur adipisicing elit
-                                  </p>
-                                </div><!-- /. col-9 order-1 -->
-                              </div><!-- /.post-excerpt d-none d-lg-flex row row -->
-                              <div class="post-meta">
-                                <span class="post-author"><a href="posts-by-author.html" class="post-meta-a">John Doe</a></span> <span class="post-meta-separator">&nbsp;•&nbsp;</span> <span class="post-time"><a href="#" class="post-meta-a">1 day
-                                ago</a></span>
-                              </div>
-                            </div><!-- /.post-content sumry-content -->
-                          </div><!-- /.sumry-body -->
-                        </div><!-- /.sumry-inner -->
-                      </article><!-- /.post post__default post__sumry sumry__text size-sm col-6 col-lg-4 sumry__valign-none-->
-                      <article class="post post__default post__sumry sumry__text size-sm col-6 col-lg-4 sumry__valign-none">
-                        <div class="sumry-inner">
-                          <hr class="divider sumry-divider">
-                          <div class="sumry-body">
-                            <div class="post-content sumry-content">
-                              <div class="post-category text-uppercase">
-                                <a href="category.html" class="post-category-a">World</a> <span class="post-category-separator">/</span> <a href="category.html" class="post-category-sub-a">Politic</a>
-                              </div><!-- /.post-meta post-category text-uppercase -->
-                              <h3 class="post-title sumry-title">
-                                <a href="article-sidebar.html" class="post-title-a sumry-title-a">Could John Doe or Tom Harry unite the country? They Certainly Could</a>
-                              </h3>
-                              <div class="post-excerpt d-none d-lg-flex row">
-                                <div class="col-3 order-2 pl-0">
-                                  <img src="/assets/1-1/xs/perry-grone-lbLgFFlADrY-unsplash.jpg" class="img w-100" alt="Image">
-                                </div><!-- /. col-3 order-2 pl-0 -->
-                                <div class="col-9 order-1">
-                                  <p>
-                                    Not the question we want but question we need to answer consectetur adipisicing elit
-                                  </p>
-                                </div><!-- /. col-9 order-1 -->
-                              </div><!-- /.post-excerpt d-none d-lg-flex row row -->
-                              <div class="post-meta">
-                                <span class="post-author"><a href="posts-by-author.html" class="post-meta-a">John Doe</a></span> <span class="post-meta-separator">&nbsp;•&nbsp;</span> <span class="post-time"><a href="#" class="post-meta-a">1 day
-                                ago</a></span>
-                              </div>
-                            </div><!-- /.post-content sumry-content -->
-                          </div><!-- /.sumry-body -->
-                        </div><!-- /.sumry-inner -->
-                      </article><!-- /.post post__default post__sumry sumry__text size-sm col-6 col-lg-4 sumry__valign-none-->
-
-                        <article class="post post__default post__sumry sumry__text size-sm col-6 col-lg-4 sumry__valign-none">
-                        <div class="sumry-inner">
-                          <hr class="divider sumry-divider">
-                          <div class="sumry-body">
-                            <div class="post-content sumry-content">
-                              <div class="post-category text-uppercase">
-                                <a href="category.html" class="post-category-a">World</a> <span class="post-category-separator">/</span> <a href="category.html" class="post-category-sub-a">Politic</a>
-                              </div><!-- /.post-meta post-category text-uppercase -->
-                              <h3 class="post-title sumry-title">
-                                <a href="article-sidebar.html" class="post-title-a sumry-title-a">Could John Doe or Tom Harry unite the country? They Certainly Could</a>
-                              </h3>
-                              <div class="post-excerpt d-none d-lg-flex row">
-                                <div class="col-3 order-2 pl-0">
-                                  <img src="/assets/1-1/xs/perry-grone-lbLgFFlADrY-unsplash.jpg" class="img w-100" alt="Image">
-                                </div><!-- /. col-3 order-2 pl-0 -->
-                                <div class="col-9 order-1">
-                                  <p>
-                                    Not the question we want but question we need to answer consectetur adipisicing elit
-                                  </p>
-                                </div><!-- /. col-9 order-1 -->
-                              </div><!-- /.post-excerpt d-none d-lg-flex row row -->
-                              <div class="post-meta">
-                                <span class="post-author"><a href="posts-by-author.html" class="post-meta-a">John Doe</a></span> <span class="post-meta-separator">&nbsp;•&nbsp;</span> <span class="post-time"><a href="#" class="post-meta-a">1 day
-                                ago</a></span>
-                              </div>
-                            </div><!-- /.post-content sumry-content -->
-                          </div><!-- /.sumry-body -->
-                        </div><!-- /.sumry-inner -->
-                      </article><!-- /.post post__default post__sumry sumry__text size-sm col-6 col-lg-4 sumry__valign-none-->
-
-
-                        <article class="post post__default post__sumry sumry__text size-sm col-6 col-lg-4 sumry__valign-none">
-                        <div class="sumry-inner">
-                          <hr class="divider sumry-divider">
-                          <div class="sumry-body">
-                            <div class="post-content sumry-content">
-                              <div class="post-category text-uppercase">
-                                <a href="category.html" class="post-category-a">World</a> <span class="post-category-separator">/</span> <a href="category.html" class="post-category-sub-a">Politic</a>
-                              </div><!-- /.post-meta post-category text-uppercase -->
-                              <h3 class="post-title sumry-title">
-                                <a href="article-sidebar.html" class="post-title-a sumry-title-a">Could John Doe or Tom Harry unite the country? They Certainly Could</a>
-                              </h3>
-                              <div class="post-excerpt d-none d-lg-flex row">
-                                <div class="col-3 order-2 pl-0">
-                                  <img src="/assets/1-1/xs/perry-grone-lbLgFFlADrY-unsplash.jpg" class="img w-100" alt="Image">
-                                </div><!-- /. col-3 order-2 pl-0 -->
-                                <div class="col-9 order-1">
-                                  <p>
-                                    Not the question we want but question we need to answer consectetur adipisicing elit
-                                  </p>
-                                </div><!-- /. col-9 order-1 -->
-                              </div><!-- /.post-excerpt d-none d-lg-flex row row -->
-                              <div class="post-meta">
-                                <span class="post-author"><a href="posts-by-author.html" class="post-meta-a">John Doe</a></span> <span class="post-meta-separator">&nbsp;•&nbsp;</span> <span class="post-time"><a href="#" class="post-meta-a">1 day
-                                ago</a></span>
-                              </div>
-                            </div><!-- /.post-content sumry-content -->
-                          </div><!-- /.sumry-body -->
-                        </div><!-- /.sumry-inner -->
-                      </article><!-- /.post post__default post__sumry sumry__text size-sm col-6 col-lg-4 sumry__valign-none-->
-
-
-                        <article class="post post__default post__sumry sumry__text size-sm col-6 col-lg-4 sumry__valign-none">
-                        <div class="sumry-inner">
-                          <hr class="divider sumry-divider">
-                          <div class="sumry-body">
-                            <div class="post-content sumry-content">
-                              <div class="post-category text-uppercase">
-                                <a href="category.html" class="post-category-a">World</a> <span class="post-category-separator">/</span> <a href="category.html" class="post-category-sub-a">Politic</a>
-                              </div><!-- /.post-meta post-category text-uppercase -->
-                              <h3 class="post-title sumry-title">
-                                <a href="article-sidebar.html" class="post-title-a sumry-title-a">Could John Doe or Tom Harry unite the country? They Certainly Could</a>
-                              </h3>
-                              <div class="post-excerpt d-none d-lg-flex row">
-                                <div class="col-3 order-2 pl-0">
-                                  <img src="/assets/1-1/xs/perry-grone-lbLgFFlADrY-unsplash.jpg" class="img w-100" alt="Image">
-                                </div><!-- /. col-3 order-2 pl-0 -->
-                                <div class="col-9 order-1">
-                                  <p>
-                                    Not the question we want but question we need to answer consectetur adipisicing elit
-                                  </p>
-                                </div><!-- /. col-9 order-1 -->
-                              </div><!-- /.post-excerpt d-none d-lg-flex row row -->
-                              <div class="post-meta">
-                                <span class="post-author"><a href="posts-by-author.html" class="post-meta-a">John Doe</a></span> <span class="post-meta-separator">&nbsp;•&nbsp;</span> <span class="post-time"><a href="#" class="post-meta-a">1 day
-                                ago</a></span>
-                              </div>
-                            </div><!-- /.post-content sumry-content -->
-                          </div><!-- /.sumry-body -->
-                        </div><!-- /.sumry-inner -->
-                      </article><!-- /.post post__default post__sumry sumry__text size-sm col-6 col-lg-4 sumry__valign-none-->
+                      
+                      
+                 
                      
                      
                       
@@ -428,178 +281,30 @@
                   
                   <div class="section-body">
                     <div class="posts posts__sumrys row sumrys__divider">
-                      <article class="post post__default post__sumry sumry__horz sumry__horz-1to3 sumry__reverse size-xs col-12 col-sm-6 col-lg-4 col-xl-12 sumry__valign-top">
-                        <div class="sumry-inner">
-                          <hr class="divider sumry-divider">
-                          <div class="sumry-body">
-                            <figure class="figure post-thumbnail sumry-thumbnail">
-                              <a href="article-sidebar.html" class="img-wrapper"><img src="/assets/1-1/sm/samantha-sophia--VHfqDKgMLk-unsplash.jpg" class="img figure-img" alt="Image"></a>
-                            </figure>
-                            <div class="post-content sumry-content">
-                              <div class="post-category text-uppercase">
-                                <a href="category.html" class="post-category-a">World</a> <span class="post-category-separator">/</span> <a href="category.html" class="post-category-sub-a">Politic</a>
-                              </div><!-- /.post-meta post-category text-uppercase -->
-                              <h3 class="post-title sumry-title">
-                                <a href="article-sidebar.html" class="post-title-a sumry-title-a">Anytown protest: 'Nearly twenty two million' join demonstration</a><span class="post-meta text-muted">&nbsp;–</span> <span class=
-                                "post-meta post-time"><a href="#" class="post-meta-a">1 day ago</a></span>
-                              </h3>
-                            </div><!-- /.post-content sumry-content -->
-                          </div><!-- /.sumry-body -->
-                        </div><!-- /.sumry-inner -->
-                      </article><!-- /.post post__default post__sumry sumry__horz sumry__horz-1to3 sumry__reverse size-xs col-12 col-sm-6 col-lg-4 col-xl-12 sumry__valign-top-->
-                      <article class="post post__default post__sumry sumry__horz sumry__horz-1to3 sumry__reverse size-xs col-12 col-sm-6 col-lg-4 col-xl-12 sumry__valign-top">
-                        <div class="sumry-inner">
-                          <hr class="divider sumry-divider">
-                          <div class="sumry-body">
-                            <figure class="figure post-thumbnail sumry-thumbnail">
-                              <a href="article-sidebar.html" class="img-wrapper"><img src="/assets/1-1/sm/ev-Thc9xjSu4dM-unsplash.jpg" class="img figure-img" alt="Image"></a>
-                            </figure>
-                            <div class="post-content sumry-content">
-                              <div class="post-category text-uppercase">
-                                <a href="category.html" class="post-category-a">World</a> <span class="post-category-separator">/</span> <a href="category.html" class="post-category-sub-a">Politic</a>
-                              </div><!-- /.post-meta post-category text-uppercase -->
-                              <h3 class="post-title sumry-title">
-                                <a href="article-sidebar.html" class="post-title-a sumry-title-a">Ruritania protest crackdown: Five things to should know and why</a><span class="post-meta text-muted">&nbsp;–</span> <span class=
-                                "post-meta post-time"><a href="#" class="post-meta-a">1 day ago</a></span>
-                              </h3>
-                            </div><!-- /.post-content sumry-content -->
-                          </div><!-- /.sumry-body -->
-                        </div><!-- /.sumry-inner -->
-                      </article><!-- /.post post__default post__sumry sumry__horz sumry__horz-1to3 sumry__reverse size-xs col-12 col-sm-6 col-lg-4 col-xl-12 sumry__valign-top-->
-                      <article class="post post__default post__sumry sumry__horz sumry__horz-1to3 sumry__reverse size-xs col-12 col-sm-6 col-lg-4 col-xl-12 sumry__valign-top">
-                        <div class="sumry-inner">
-                          <hr class="divider sumry-divider">
-                          <div class="sumry-body">
-                            <figure class="figure post-thumbnail sumry-thumbnail">
-                              <a href="article-sidebar.html" class="img-wrapper"><img src="/assets/1-1/sm/sweet-ice-cream-photography-88754.jpg" class="img figure-img" alt="Image"></a>
-                            </figure>
-                            <div class="post-content sumry-content">
-                              <div class="post-category text-uppercase">
-                                <a href="category.html" class="post-category-a">Lifestyle</a> <span class="post-category-separator">/</span> <a href="category.html" class="post-category-sub-a">Fashion</a>
-                              </div><!-- /.post-meta post-category text-uppercase -->
-                              <h3 class="post-title sumry-title">
-                                <a href="article-sidebar.html" class="post-title-a sumry-title-a">The Super Duper Ultimate Shoes Guide To Be A True Gentlemen</a><span class="post-meta text-muted">&nbsp;–</span> <span class=
-                                "post-meta post-time"><a href="#" class="post-meta-a">1 day ago</a></span>
-                              </h3>
-                            </div><!-- /.post-content sumry-content -->
-                          </div><!-- /.sumry-body -->
-                        </div><!-- /.sumry-inner -->
-                      </article><!-- /.post post__default post__sumry sumry__horz sumry__horz-1to3 sumry__reverse size-xs col-12 col-sm-6 col-lg-4 col-xl-12 sumry__valign-top-->
-                      <article class="post post__default post__sumry sumry__horz sumry__horz-1to3 sumry__reverse size-xs col-12 col-sm-6 col-lg-4 col-xl-12 sumry__valign-top">
-                        <div class="sumry-inner">
-                          <hr class="divider sumry-divider">
-                          <div class="sumry-body">
-                            <figure class="figure post-thumbnail sumry-thumbnail">
-                              <a href="article-sidebar.html" class="img-wrapper"><img src="/assets/1-1/sm/eberhard-grossgasteiger-er8Bjy-33v4-unsplash.jpg" class="img figure-img" alt="Image"></a>
-                            </figure>
-                            <div class="post-content sumry-content">
-                              <div class="post-category text-uppercase">
-                                <a href="category.html" class="post-category-a">World</a> <span class="post-category-separator">/</span> <a href="category.html" class="post-category-sub-a">Health</a>
-                              </div><!-- /.post-meta post-category text-uppercase -->
-                              <h3 class="post-title sumry-title">
-                                <a href="article-sidebar.html" class="post-title-a sumry-title-a">As Ruritania reopens, just 4.5% of population infected by coronavirus</a><span class="post-meta text-muted">&nbsp;–</span> <span class=
-                                "post-meta post-time"><a href="#" class="post-meta-a">1 day ago</a></span>
-                              </h3>
-                            </div><!-- /.post-content sumry-content -->
-                          </div><!-- /.sumry-body -->
-                        </div><!-- /.sumry-inner -->
-                      </article><!-- /.post post__default post__sumry sumry__horz sumry__horz-1to3 sumry__reverse size-xs col-12 col-sm-6 col-lg-4 col-xl-12 sumry__valign-top-->
-                      <article class="post post__default post__sumry sumry__horz sumry__horz-1to3 sumry__reverse size-xs col-12 col-sm-6 col-lg-4 col-xl-12 sumry__valign-top">
-                        <div class="sumry-inner">
-                          <hr class="divider sumry-divider">
-                          <div class="sumry-body">
-                            <figure class="figure post-thumbnail sumry-thumbnail">
-                              <a href="article-sidebar.html" class="img-wrapper"><img src="/assets/1-1/sm/matt-seymour-69zVsGRejY4-unsplash.jpg" class="img figure-img" alt="Image"></a>
-                            </figure>
-                            <div class="post-content sumry-content">
-                              <div class="post-category text-uppercase">
-                                <a href="category.html" class="post-category-a">World</a> <span class="post-category-separator">/</span> <a href="category.html" class="post-category-sub-a">Health</a>
-                              </div><!-- /.post-meta post-category text-uppercase -->
-                              <h3 class="post-title sumry-title">
-                                <a href="article-sidebar.html" class="post-title-a sumry-title-a">Raging Corona Virus at Ruritania after resisted imposing lockdown rules.</a><span class="post-meta text-muted">&nbsp;–</span> <span class=
-                                "post-meta post-time"><a href="#" class="post-meta-a">1 day ago</a></span>
-                              </h3>
-                            </div><!-- /.post-content sumry-content -->
-                          </div><!-- /.sumry-body -->
-                        </div><!-- /.sumry-inner -->
-                      </article><!-- /.post post__default post__sumry sumry__horz sumry__horz-1to3 sumry__reverse size-xs col-12 col-sm-6 col-lg-4 col-xl-12 sumry__valign-top-->
-                      <article class="post post__default post__sumry sumry__horz sumry__horz-1to3 sumry__reverse size-xs col-12 col-sm-6 col-lg-4 col-xl-12 sumry__valign-top">
-                        <div class="sumry-inner">
-                          <hr class="divider sumry-divider">
-                          <div class="sumry-body">
-                            <figure class="figure post-thumbnail sumry-thumbnail">
-                              <a href="article-sidebar.html" class="img-wrapper"><img src="/assets/1-1/sm/3747fac5-41fc-46d7-83b9-3edf978160aa.jpg" class="img figure-img" alt="Image"></a>
-                            </figure>
-                            <div class="post-content sumry-content">
-                              <div class="post-category text-uppercase">
-                                <a href="category.html" class="post-category-a">World</a> <span class="post-category-separator">/</span> <a href="category.html" class="post-category-sub-a">Politic</a>
-                              </div><!-- /.post-meta post-category text-uppercase -->
-                              <h3 class="post-title sumry-title">
-                                <a href="article-sidebar.html" class="post-title-a sumry-title-a">Study Case: The Rise and Fall of Kang Ostnitz's Political Class</a><span class="post-meta text-muted">&nbsp;–</span> <span class=
-                                "post-meta post-time"><a href="#" class="post-meta-a">1 day ago</a></span>
-                              </h3>
-                            </div><!-- /.post-content sumry-content -->
-                          </div><!-- /.sumry-body -->
-                        </div><!-- /.sumry-inner -->
-                      </article><!-- /.post post__default post__sumry sumry__horz sumry__horz-1to3 sumry__reverse size-xs col-12 col-sm-6 col-lg-4 col-xl-12 sumry__valign-top-->
-                      <article class="post post__default post__sumry sumry__horz sumry__horz-1to3 sumry__reverse size-xs col-12 col-sm-6 col-lg-4 col-xl-12 sumry__valign-top">
-                        <div class="sumry-inner">
-                          <hr class="divider sumry-divider">
-                          <div class="sumry-body">
-                            <figure class="figure post-thumbnail sumry-thumbnail">
-                              <a href="article-sidebar.html" class="img-wrapper"><img src="/assets/1-1/sm/stefan-heesch-ueoCQpWTNiM-unsplash.jpg" class="img figure-img" alt="Image"></a>
-                            </figure>
-                            <div class="post-content sumry-content">
-                              <div class="post-category text-uppercase">
-                                <a href="category.html" class="post-category-a">World</a> <span class="post-category-separator">/</span> <a href="category.html" class="post-category-sub-a">Health</a>
-                              </div><!-- /.post-meta post-category text-uppercase -->
-                              <h3 class="post-title sumry-title">
-                                <a href="article-sidebar.html" class="post-title-a sumry-title-a">The U.S. has sent 2 million doses of hydroxy chloroquine to Ruritania.</a><span class="post-meta text-muted">&nbsp;–</span> <span class=
-                                "post-meta post-time"><a href="#" class="post-meta-a">1 day ago</a></span>
-                              </h3>
-                            </div><!-- /.post-content sumry-content -->
-                          </div><!-- /.sumry-body -->
-                        </div><!-- /.sumry-inner -->
-                      </article><!-- /.post post__default post__sumry sumry__horz sumry__horz-1to3 sumry__reverse size-xs col-12 col-sm-6 col-lg-4 col-xl-12 sumry__valign-top-->
-                      <article class="post post__default post__sumry sumry__horz sumry__horz-1to3 sumry__reverse size-xs col-12 col-sm-6 col-lg-4 col-xl-12 sumry__valign-top">
-                        <div class="sumry-inner">
-                          <hr class="divider sumry-divider">
-                          <div class="sumry-body">
-                            <figure class="figure post-thumbnail sumry-thumbnail">
-                              <a href="article-sidebar.html" class="img-wrapper"><img src="/assets/1-1/sm/sandy-millar-Kl4LNdg6on4-unsplash.jpg" class="img figure-img" alt="Image"></a>
-                            </figure>
-                            <div class="post-content sumry-content">
-                              <div class="post-category text-uppercase">
-                                <a href="category.html" class="post-category-a">World</a> <span class="post-category-separator">/</span> <a href="category.html" class="post-category-sub-a">Economic</a>
-                              </div><!-- /.post-meta post-category text-uppercase -->
-                              <h3 class="post-title sumry-title">
-                                <a href="article-sidebar.html" class="post-title-a sumry-title-a">What is Unsteadystan economic embargo? And How they coping with it?</a><span class="post-meta text-muted">&nbsp;–</span> <span class=
-                                "post-meta post-time"><a href="#" class="post-meta-a">1 day ago</a></span>
-                              </h3>
-                            </div><!-- /.post-content sumry-content -->
-                          </div><!-- /.sumry-body -->
-                        </div><!-- /.sumry-inner -->
-                      </article><!-- /.post post__default post__sumry sumry__horz sumry__horz-1to3 sumry__reverse size-xs col-12 col-sm-6 col-lg-4 col-xl-12 sumry__valign-top-->
 
- <article class="post post__default post__sumry sumry__horz sumry__horz-1to3 sumry__reverse size-xs col-12 col-sm-6 col-lg-4 col-xl-12 sumry__valign-top">
+
+                      <!--Right SideBar-->
+                      <article class="post post__default post__sumry sumry__horz sumry__horz-1to3 sumry__reverse size-xs col-12 col-sm-6 col-lg-4 col-xl-12 sumry__valign-top" data-th-each="StartAt14Find10News : ${StartAt14Find10NewsList}">
                         <div class="sumry-inner">
                           <hr class="divider sumry-divider">
                           <div class="sumry-body">
                             <figure class="figure post-thumbnail sumry-thumbnail">
-                              <a href="article-sidebar.html" class="img-wrapper"><img src="/assets/1-1/sm/sandy-millar-Kl4LNdg6on4-unsplash.jpg" class="img figure-img" alt="Image"></a>
+                              <a th:href="@{/newsDetail?id=}+${StartAt14Find10News.id}" class="img-wrapper"><img th:src="*{'data:image/jpeg;base64,'+{StartAt14Find10News.image}}" class="img figure-img" alt="Image"></a>
                             </figure>
                             <div class="post-content sumry-content">
                               <div class="post-category text-uppercase">
-                                <a href="category.html" class="post-category-a">World</a> <span class="post-category-separator">/</span> <a href="category.html" class="post-category-sub-a">Economic</a>
+                                <span class="post-category-a" th:text="${StartAt14Find10News.category}"></span> 
                               </div><!-- /.post-meta post-category text-uppercase -->
                               <h3 class="post-title sumry-title">
-                                <a href="article-sidebar.html" class="post-title-a sumry-title-a">What is Unsteadystan economic embargo? And How they coping with it?</a><span class="post-meta text-muted">&nbsp;–</span> <span class=
-                                "post-meta post-time"><a href="#" class="post-meta-a">1 day ago</a></span>
+                                <a th:href="@{/newsDetail?id=}+${StartAt14Find10News.id}" class="post-title-a sumry-title-a" th:text="${StartAt14Find10News.title}"></a><span class="post-meta text-muted">&nbsp;–</span> <span class=
+                                "post-meta post-time"><span href="#" class="post-meta-a" th:text="${StartAt14Find10News.publicationDate}"></span></span>
                               </h3>
                             </div><!-- /.post-content sumry-content -->
                           </div><!-- /.sumry-body -->
                         </div><!-- /.sumry-inner -->
                       </article><!-- /.post post__default post__sumry sumry__horz sumry__horz-1to3 sumry__reverse size-xs col-12 col-sm-6 col-lg-4 col-xl-12 sumry__valign-top-->
+                     <!--Right SideBar-->
+                      
 
                     </div><!-- /.posts posts__sumrys row sumrys__divider -->
                   </div><!-- /.section-body -->
@@ -977,441 +682,10 @@
           </div><!-- /.section-body -->
         </div><!-- /.section-inner -->
       </div><!-- /#popularPostsSection.section container-xl section__default-->
-      <div id="multicolssection2" class="section container-xl section__default">
-        <div class="bg position-absolute section-bg"></div>
-        <hr class="divider section-divider d-none">
-        <div class="section-inner">
-          <div class="sections section-sections row">
-            <div id="moreFeaturedPosts" class="section col col-xl section__default">
-              <div class="bg position-absolute section-bg"></div>
-              <hr class="divider section-divider">
-              <div class="section-inner">
-                <header class="section-header">
-                  <h2 class="section-title">
-                    <a href="archive.html" class="section-title-a">More Featured Posts</a>
-                  </h2>
-                </header>
-                <div class="section-body">
-                  <div class="posts posts__sumrys row sumrys__divider">
-                    <article class="post post__default post__sumry sumry__vert size-md col-12 col-lg-4 sumry__valign-none">
-                      <div class="sumry-inner">
-                        <hr class="divider sumry-divider">
-                        <div class="sumry-body">
-                          <figure class="figure post-thumbnail sumry-thumbnail">
-                            <a href="article-sidebar.html" class="img-wrapper"><img src="/assets/5-3/lg/fake-2355686_1920.jpg" class="img figure-img" alt="Image"></a>
-                          </figure>
-                          <div class="post-content sumry-content">
-                            <div class="post-category text-uppercase">
-                              <a href="category.html" class="post-category-a">World</a> <span class="post-category-separator">/</span> <a href="category.html" class="post-category-sub-a">Security</a>
-                            </div><!-- /.post-meta post-category text-uppercase -->
-                            <h3 class="post-title sumry-title">
-                              <a href="article-sidebar.html" class="post-title-a sumry-title-a">Schoolkids’ phones are easy targets for fake News And Scams, Beware</a>
-                            </h3>
-                            <div class="post-excerpt d-none d-md-block">
-                              <p>
-                                Further trainings are needed to keep them stay alerted consectetur adipisicing elit, sed do eiusmod tempor incididunt
-                              </p>
-                            </div><!-- /.post-excerpt d-none d-md-block -->
-                            <div class="post-meta">
-                              <span class="post-author"><a href="posts-by-author.html" class="post-meta-a">John Doe</a></span> <span class="post-meta-separator">&nbsp;•&nbsp;</span> <span class="post-time"><a href="#" class="post-meta-a">1 day
-                              ago</a></span>
-                            </div>
-                          </div><!-- /.post-content sumry-content -->
-                        </div><!-- /.sumry-body -->
-                      </div><!-- /.sumry-inner -->
-                    </article><!-- /.post post__default post__sumry sumry__vert size-md col-12 col-lg-4 sumry__valign-none-->
-                    <div class="col-12 col-lg-8">
-                      <div class="row posts">
-                        <article class="post post__default post__sumry sumry__text size-sm col-12 col-sm-6 col-lg-6 sumry__valign-none">
-                          <div class="sumry-inner">
-                            <hr class="divider sumry-divider">
-                            <div class="sumry-body">
-                              <div class="post-content sumry-content">
-                                <div class="post-category text-uppercase">
-                                  <a href="category.html" class="post-category-a">Architecture</a> <span class="post-category-separator">/</span> <a href="category.html" class="post-category-sub-a">Landscape</a>
-                                </div><!-- /.post-meta post-category text-uppercase -->
-                                <h3 class="post-title sumry-title">
-                                  <a href="article-sidebar.html" class="post-title-a sumry-title-a">Landscape Designers Will always Be Key to the Future of Our Cities</a>
-                                </h3>
-                                <div class="post-excerpt d-none d-lg-flex row">
-                                  <div class="col-3 order-2 pl-0">
-                                    <img src="/assets/1-1/xs/photo-1444426724550-c7bfccd051ee.jpg" class="img w-100" alt="Image">
-                                  </div><!-- /. col-3 order-2 pl-0 -->
-                                  <div class="col-9 order-1">
-                                    <p>
-                                      The title says it all isnt it, if you dont get it read it again consectetur adipisicing elit
-                                    </p>
-                                  </div><!-- /. col-9 order-1 -->
-                                </div><!-- /.post-excerpt d-none d-lg-flex row row -->
-                                <div class="post-meta">
-                                  <span class="post-author"><a href="posts-by-author.html" class="post-meta-a">Ava Adore</a></span> <span class="post-meta-separator">&nbsp;•&nbsp;</span> <span class="post-time"><a href="#" class="post-meta-a">1 day
-                                  ago</a></span>
-                                </div>
-                              </div><!-- /.post-content sumry-content -->
-                            </div><!-- /.sumry-body -->
-                          </div><!-- /.sumry-inner -->
-                        </article><!-- /.post post__default post__sumry sumry__text size-sm col-12 col-sm-6 col-lg-6 sumry__valign-none-->
-                        <article class="post post__default post__sumry sumry__text size-sm col-12 col-sm-6 col-lg-6 sumry__valign-none">
-                          <div class="sumry-inner">
-                            <hr class="divider sumry-divider">
-                            <div class="sumry-body">
-                              <div class="post-content sumry-content">
-                                <div class="post-category text-uppercase">
-                                  <a href="category.html" class="post-category-a">Lifestyle</a> <span class="post-category-separator">/</span> <a href="category.html" class="post-category-sub-a">Food</a>
-                                </div><!-- /.post-meta post-category text-uppercase -->
-                                <h3 class="post-title sumry-title">
-                                  <a href="article-sidebar.html" class="post-title-a sumry-title-a">Alphonse: Coffee is a beverage that puts one to sleep when not drank</a>
-                                </h3>
-                                <div class="post-excerpt d-none d-lg-flex row">
-                                  <div class="col-3 order-2 pl-0">
-                                    <img src="/assets/1-1/xs/saz-b-471484.jpg" class="img w-100" alt="Image">
-                                  </div><!-- /. col-3 order-2 pl-0 -->
-                                  <div class="col-9 order-1">
-                                    <p>
-                                      How Alphonse Allais describes Coffee Is A Top Notch One consectetur adipisicing elit
-                                    </p>
-                                  </div><!-- /. col-9 order-1 -->
-                                </div><!-- /.post-excerpt d-none d-lg-flex row row -->
-                                <div class="post-meta">
-                                  <span class="post-author"><a href="posts-by-author.html" class="post-meta-a">John Doe</a></span> <span class="post-meta-separator">&nbsp;•&nbsp;</span> <span class="post-time"><a href="#" class="post-meta-a">1 day
-                                  ago</a></span>
-                                </div>
-                              </div><!-- /.post-content sumry-content -->
-                            </div><!-- /.sumry-body -->
-                          </div><!-- /.sumry-inner -->
-                        </article><!-- /.post post__default post__sumry sumry__text size-sm col-12 col-sm-6 col-lg-6 sumry__valign-none-->
-                        <article class="post post__default post__sumry sumry__text size-sm col-12 col-sm-6 col-lg-6 sumry__valign-none">
-                          <div class="sumry-inner">
-                            <hr class="divider sumry-divider">
-                            <div class="sumry-body">
-                              <div class="post-content sumry-content">
-                                <div class="post-category text-uppercase">
-                                  <a href="category.html" class="post-category-a">Tech</a> <span class="post-category-separator">/</span> <a href="category.html" class="post-category-sub-a">Gadget</a>
-                                </div><!-- /.post-meta post-category text-uppercase -->
-                                <h3 class="post-title sumry-title">
-                                  <a href="article-sidebar.html" class="post-title-a sumry-title-a">Drones, What are They, How Do they work, Which One is Best?</a>
-                                </h3>
-                                <div class="post-excerpt d-none d-lg-flex row">
-                                  <div class="col-3 order-2 pl-0">
-                                    <img src="/assets/1-1/xs/diana-macesanu-488920.jpg" class="img w-100" alt="Image">
-                                  </div><!-- /. col-3 order-2 pl-0 -->
-                                  <div class="col-9 order-1">
-                                    <p>
-                                      The Technology behind Drones consectetur adipisicing elit
-                                    </p>
-                                  </div><!-- /. col-9 order-1 -->
-                                </div><!-- /.post-excerpt d-none d-lg-flex row row -->
-                                <div class="post-meta">
-                                  <span class="post-author"><a href="posts-by-author.html" class="post-meta-a">John Doe</a></span> <span class="post-meta-separator">&nbsp;•&nbsp;</span> <span class="post-time"><a href="#" class="post-meta-a">1 day
-                                  ago</a></span>
-                                </div>
-                              </div><!-- /.post-content sumry-content -->
-                            </div><!-- /.sumry-body -->
-                          </div><!-- /.sumry-inner -->
-                        </article><!-- /.post post__default post__sumry sumry__text size-sm col-12 col-sm-6 col-lg-6 sumry__valign-none-->
-                        <article class="post post__default post__sumry sumry__text size-sm col-12 col-sm-6 col-lg-6 sumry__valign-none">
-                          <div class="sumry-inner">
-                            <hr class="divider sumry-divider">
-                            <div class="sumry-body">
-                              <div class="post-content sumry-content">
-                                <div class="post-category text-uppercase">
-                                  <a href="category.html" class="post-category-a">Tech</a> <span class="post-category-separator">/</span> <a href="category.html" class="post-category-sub-a">Photography</a>
-                                </div><!-- /.post-meta post-category text-uppercase -->
-                                <h3 class="post-title sumry-title">
-                                  <a href="article-sidebar.html" class="post-title-a sumry-title-a">Featured Photography Toolkit from CEF 2020</a>
-                                </h3>
-                                <div class="post-excerpt d-none d-lg-flex row">
-                                  <div class="col-3 order-2 pl-0">
-                                    <img src="/assets/1-1/xs/photo-1429292578245-ad090579eed2.jpg" class="img w-100" alt="Image">
-                                  </div><!-- /. col-3 order-2 pl-0 -->
-                                  <div class="col-9 order-1">
-                                    <p>
-                                      Best New Photography Toolkit you can get this year consectetur adipisicing elit
-                                    </p>
-                                  </div><!-- /. col-9 order-1 -->
-                                </div><!-- /.post-excerpt d-none d-lg-flex row row -->
-                                <div class="post-meta">
-                                  <span class="post-author"><a href="posts-by-author.html" class="post-meta-a">John Doe</a></span> <span class="post-meta-separator">&nbsp;•&nbsp;</span> <span class="post-time"><a href="#" class="post-meta-a">1 day
-                                  ago</a></span>
-                                </div>
-                              </div><!-- /.post-content sumry-content -->
-                            </div><!-- /.sumry-body -->
-                          </div><!-- /.sumry-inner -->
-                        </article><!-- /.post post__default post__sumry sumry__text size-sm col-12 col-sm-6 col-lg-6 sumry__valign-none-->
-                      </div><!-- /.row posts -->
-                    </div><!-- /.col-12 col-lg-8 -->
-                  </div><!-- /.posts posts__sumrys row sumrys__divider -->
-                </div><!-- /.section-body -->
-              </div><!-- /.section-inner -->
-            </div><!-- /#moreFeaturedPosts.section col col-xl section__default-->
-            <div class="col-12 col-xl-300px">
-              <div id="banner5" class="section section__default">
-                <div class="bg position-absolute section-bg"></div>
-                <hr class="divider section-divider">
-                <div class="section-inner">
-                  <div class="banner banner-300x250 align-self-center">
-                    <a href="http://html.coolorize.com/magazinize/1.0.0/"><img src="/assets/banners/magazinize-300x250.jpg" alt="Image"></a>
-                  </div><!-- /.banner banner-300x250 -->
-                </div><!-- /.section-inner -->
-              </div><!-- /#banner5.section section__default-->
-              <div id="subscribeForm" class="section text-center mb-gtr mx-0 section__default">
-                <div class="bg position-absolute section-bg bg-transparent border borderw-4 border-primary"></div>
-                <hr class="divider section-divider d-none">
-                <div class="section-inner">
-                  <div class="section-body">
-                    <h6 class="text-uppercase">
-                      Subscribe To Magazinize
-                    </h6>
-                    <p class="small">
-                      We'll deliver fresh news right into your inbox
-                    </p>
-                    <form class="form my-3">
-                      <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="submit-button">
-                        <div class="input-group-append">
-                          <button class="btn btn-outline-secondary" type="button" id="submit-button">Submit</button>
-                        </div>
-                      </div>
-                    </form><!-- /.form -->
-                    <p class="small">
-                      By registering for these newsletters you agree to our <a href="#">T and C</a> and <a href="#">Privacy Policy</a>
-                    </p>
-                  </div><!-- /.section-body -->
-                </div><!-- /.section-inner -->
-              </div><!-- /#subscribeForm.section text-center mb-gtr mx-0 section__default-->
-            </div><!-- /.col-12 col-xl-300px -->
-          </div><!-- /.sections section-sections row -->
-        </div><!-- /.section-inner -->
-      </div><!-- /#multicolssection2.section container-xl section__default-->
-      <div class="section container-xl section__default">
-        <div class="bg position-absolute section-bg"></div>
-        <hr class="divider section-divider d-none">
-        <div class="section-inner">
-          <div class="sections section-sections row">
-            <div id="opinionSection" class="section col-12 col-xl-3 section__default">
-              <div class="bg position-absolute section-bg"></div>
-              <hr class="divider section-divider">
-              <div class="section-inner">
-                <header class="section-header">
-                  <h2 class="section-title">
-                    <a href="archive.html" class="section-title-a">Opinion</a>
-                  </h2>
-                </header>
-                <div class="section-body">
-                  <div class="posts posts__sumrys row sumrys__divider">
-                    <article class="post post__default post__sumry sumry__horz sumry__horz-1to3 sumry__reverse size-sm col-12 col-sm-6 col-lg-4 col-xl-12 sumry__valign-none">
-                      <div class="sumry-inner">
-                        <hr class="divider sumry-divider">
-                        <div class="sumry-body">
-                          <figure class="figure post-thumbnail sumry-thumbnail">
-                            <a href="article-sidebar.html" class="img-wrapper"><img src="/assets/avatar/256x256/ariel-lustre-368240.jpg" class="rounded-circle" alt="Image"></a>
-                          </figure>
-                          <blockquote class="post-content sumry-content">
-                            <p class="post-title sumry-title">
-                              <a href="article-sidebar.html" class="post-title-a sumry-title-a">Study Case: The Rise and Fall of Kang Ostnitz's Political Class</a>
-                            </p>
-                            <footer class="blockquote-footer">
-                              <div class="post-meta">
-                                <span class="post-author"><a href="posts-by-author.html" class="post-meta-a">John Doe</a></span> <span class="post-meta-separator">&nbsp;•&nbsp;</span> <span class="post-time"><a href="#" class="post-meta-a">1 day
-                                ago</a></span>
-                              </div>
-                            </footer>
-                          </blockquote><!-- /.post-content sumry-content -->
-                        </div><!-- /.sumry-body -->
-                      </div><!-- /.sumry-inner -->
-                    </article><!-- /.post post__default post__sumry sumry__horz sumry__horz-1to3 sumry__reverse size-sm col-12 col-sm-6 col-lg-4 col-xl-12 sumry__valign-none-->
-                    <article class="post post__default post__sumry sumry__horz sumry__horz-1to3 sumry__reverse size-sm col-12 col-sm-6 col-lg-4 col-xl-12 sumry__valign-none">
-                      <div class="sumry-inner">
-                        <hr class="divider sumry-divider">
-                        <div class="sumry-body">
-                          <figure class="figure post-thumbnail sumry-thumbnail">
-                            <a href="article-sidebar.html" class="img-wrapper"><img src="/assets/avatar/256x256/ben-white-190081.jpg" class="rounded-circle" alt="Image"></a>
-                          </figure>
-                          <blockquote class="post-content sumry-content">
-                            <p class="post-title sumry-title">
-                              <a href="article-sidebar.html" class="post-title-a sumry-title-a">What is Unsteadystan economic embargo? And How they coping with it?</a>
-                            </p>
-                            <footer class="blockquote-footer">
-                              <div class="post-meta">
-                                <span class="post-author"><a href="posts-by-author.html" class="post-meta-a">John Doe</a></span> <span class="post-meta-separator">&nbsp;•&nbsp;</span> <span class="post-time"><a href="#" class="post-meta-a">1 day
-                                ago</a></span>
-                              </div>
-                            </footer>
-                          </blockquote><!-- /.post-content sumry-content -->
-                        </div><!-- /.sumry-body -->
-                      </div><!-- /.sumry-inner -->
-                    </article><!-- /.post post__default post__sumry sumry__horz sumry__horz-1to3 sumry__reverse size-sm col-12 col-sm-6 col-lg-4 col-xl-12 sumry__valign-none-->
-                    <article class="post post__default post__sumry sumry__horz sumry__horz-1to3 sumry__reverse size-sm col-12 col-sm-6 col-lg-4 col-xl-12 sumry__valign-none">
-                      <div class="sumry-inner">
-                        <hr class="divider sumry-divider">
-                        <div class="sumry-body">
-                          <figure class="figure post-thumbnail sumry-thumbnail">
-                            <a href="article-sidebar.html" class="img-wrapper"><img src="/assets/avatar/256x256/dmitriy-ilkevich-437760.jpg" class="rounded-circle" alt="Image"></a>
-                          </figure>
-                          <blockquote class="post-content sumry-content">
-                            <p class="post-title sumry-title">
-                              <a href="article-sidebar.html" class="post-title-a sumry-title-a">Government Regulations for Social Media that Censor Political Speech?</a>
-                            </p>
-                            <footer class="blockquote-footer">
-                              <div class="post-meta">
-                                <span class="post-author"><a href="posts-by-author.html" class="post-meta-a">John Doe</a></span> <span class="post-meta-separator">&nbsp;•&nbsp;</span> <span class="post-time"><a href="#" class="post-meta-a">1 day
-                                ago</a></span>
-                              </div>
-                            </footer>
-                          </blockquote><!-- /.post-content sumry-content -->
-                        </div><!-- /.sumry-body -->
-                      </div><!-- /.sumry-inner -->
-                    </article><!-- /.post post__default post__sumry sumry__horz sumry__horz-1to3 sumry__reverse size-sm col-12 col-sm-6 col-lg-4 col-xl-12 sumry__valign-none-->
-                    <article class="post post__default post__sumry sumry__horz sumry__horz-1to3 sumry__reverse size-sm col-12 col-sm-6 col-lg-4 col-xl-12 sumry__valign-none">
-                      <div class="sumry-inner">
-                        <hr class="divider sumry-divider">
-                        <div class="sumry-body">
-                          <figure class="figure post-thumbnail sumry-thumbnail">
-                            <a href="article-sidebar.html" class="img-wrapper"><img src="/sets/avatar/256x256/melissa-mjoen-385845.jpg" class="rounded-circle" alt="Image"></a>
-                          </figure>
-                          <blockquote class="post-content sumry-content">
-                            <p class="post-title sumry-title">
-                              <a href="article-sidebar.html" class="post-title-a sumry-title-a">Why Fear of Nuclear Threatens National Security and World Peace</a>
-                            </p>
-                            <footer class="blockquote-footer">
-                              <div class="post-meta">
-                                <span class="post-author"><a href="posts-by-author.html" class="post-meta-a">John Doe</a></span> <span class="post-meta-separator">&nbsp;•&nbsp;</span> <span class="post-time"><a href="#" class="post-meta-a">1 day
-                                ago</a></span>
-                              </div>
-                            </footer>
-                          </blockquote><!-- /.post-content sumry-content -->
-                        </div><!-- /.sumry-body -->
-                      </div><!-- /.sumry-inner -->
-                    </article><!-- /.post post__default post__sumry sumry__horz sumry__horz-1to3 sumry__reverse size-sm col-12 col-sm-6 col-lg-4 col-xl-12 sumry__valign-none-->
-                  </div><!-- /.posts posts__sumrys row sumrys__divider -->
-                </div><!-- /.section-body -->
-              </div><!-- /.section-inner -->
-            </div><!-- /#opinionSection.section col-12 col-xl-3 section__default-->
-            <div id="businessSection" class="section col-12 col-xl-9 section__default">
-              <div class="bg position-absolute section-bg"></div>
-              <hr class="divider section-divider">
-              <div class="section-inner">
-                <header class="section-header">
-                  <h2 class="section-title">
-                    <a href="archive.html" class="section-title-a">Business</a>
-                  </h2>
-                </header>
-                <div class="section-body">
-                  <div class="posts posts__sumrys row sumrys__divider">
-                    <article class="post post__default post__sumry sumry__vert size-lg col-12 col-lg-8 sumry__valign-none">
-                      <div class="sumry-inner">
-                        <hr class="divider sumry-divider">
-                        <div class="sumry-body">
-                          <figure class="figure post-thumbnail sumry-thumbnail">
-                            <a href="article-sidebar.html" class="img-wrapper"><img src="/assets/5-3/xl/photo-1462392246754-28dfa2df8e6b.jpg" class="img figure-img" alt="Image"></a>
-                          </figure>
-                          <div class="post-content sumry-content">
-                            <div class="post-category text-uppercase">
-                              <a href="category.html" class="post-category-a">Investing</a>
-                            </div><!-- /.post-meta post-category text-uppercase -->
-                            <h3 class="post-title sumry-title">
-                              <a href="article-sidebar.html" class="post-title-a sumry-title-a">7000 Must-Take Steps Before Entering Fashion Bussiness For Dummies</a>
-                            </h3>
-                            <div class="post-excerpt d-none d-md-block">
-                              <p>
-                                Fashion bussiness is a bit complicated to do than breathing consectetur adipisicing elit, sed do eiusmod tempor incididunt
-                              </p>
-                            </div><!-- /.post-excerpt d-none d-md-block -->
-                            <div class="post-meta">
-                              <span class="post-author"><a href="posts-by-author.html" class="post-meta-a">John Doe</a></span> <span class="post-meta-separator">&nbsp;•&nbsp;</span> <span class="post-time"><a href="#" class="post-meta-a">1 day
-                              ago</a></span>
-                            </div>
-                          </div><!-- /.post-content sumry-content -->
-                        </div><!-- /.sumry-body -->
-                      </div><!-- /.sumry-inner -->
-                    </article><!-- /.post post__default post__sumry sumry__vert size-lg col-12 col-lg-8 sumry__valign-none-->
-                    <div class="col-12 col-lg-4">
-                      <div class="row posts">
-                        <article class="post post__default post__sumry sumry__text size-sm col-12 col-sm-6 col-lg-12 sumry__valign-none">
-                          <div class="sumry-inner">
-                            <hr class="divider sumry-divider">
-                            <div class="sumry-body">
-                              <div class="post-content sumry-content">
-                                <div class="post-category text-uppercase">
-                                  <a href="category.html" class="post-category-a">Finance</a>
-                                </div><!-- /.post-meta post-category text-uppercase -->
-                                <h3 class="post-title sumry-title">
-                                  <a href="article-sidebar.html" class="post-title-a sumry-title-a">How Bullet Journal Could Save You From Your Financial Disaster</a>
-                                </h3>
-                                <div class="post-meta">
-                                  <span class="post-author"><a href="posts-by-author.html" class="post-meta-a">John Doe</a></span> <span class="post-meta-separator">&nbsp;•&nbsp;</span> <span class="post-time"><a href="#" class="post-meta-a">1 day
-                                  ago</a></span>
-                                </div>
-                              </div><!-- /.post-content sumry-content -->
-                            </div><!-- /.sumry-body -->
-                          </div><!-- /.sumry-inner -->
-                        </article><!-- /.post post__default post__sumry sumry__text size-sm col-12 col-sm-6 col-lg-12 sumry__valign-none-->
-                        <article class="post post__default post__sumry sumry__text size-sm col-12 col-sm-6 col-lg-12 sumry__valign-none">
-                          <div class="sumry-inner">
-                            <hr class="divider sumry-divider">
-                            <div class="sumry-body">
-                              <div class="post-content sumry-content">
-                                <div class="post-category text-uppercase">
-                                  <a href="category.html" class="post-category-a">Finance</a>
-                                </div><!-- /.post-meta post-category text-uppercase -->
-                                <h3 class="post-title sumry-title">
-                                  <a href="article-sidebar.html" class="post-title-a sumry-title-a">Warning: You'll Definetely Losing Money by Not Doing It Right</a>
-                                </h3>
-                                <div class="post-meta">
-                                  <span class="post-author"><a href="posts-by-author.html" class="post-meta-a">John Doe</a></span> <span class="post-meta-separator">&nbsp;•&nbsp;</span> <span class="post-time"><a href="#" class="post-meta-a">1 day
-                                  ago</a></span>
-                                </div>
-                              </div><!-- /.post-content sumry-content -->
-                            </div><!-- /.sumry-body -->
-                          </div><!-- /.sumry-inner -->
-                        </article><!-- /.post post__default post__sumry sumry__text size-sm col-12 col-sm-6 col-lg-12 sumry__valign-none-->
-                        <article class="post post__default post__sumry sumry__text size-sm col-12 col-sm-6 col-lg-12 sumry__valign-none">
-                          <div class="sumry-inner">
-                            <hr class="divider sumry-divider">
-                            <div class="sumry-body">
-                              <div class="post-content sumry-content">
-                                <div class="post-category text-uppercase">
-                                  <a href="category.html" class="post-category-a">Finance</a>
-                                </div><!-- /.post-meta post-category text-uppercase -->
-                                <h3 class="post-title sumry-title">
-                                  <a href="article-sidebar.html" class="post-title-a sumry-title-a">9 Ways to Generate More Revenue For Your online Business</a>
-                                </h3>
-                                <div class="post-meta">
-                                  <span class="post-author"><a href="posts-by-author.html" class="post-meta-a">John Doe</a></span> <span class="post-meta-separator">&nbsp;•&nbsp;</span> <span class="post-time"><a href="#" class="post-meta-a">1 day
-                                  ago</a></span>
-                                </div>
-                              </div><!-- /.post-content sumry-content -->
-                            </div><!-- /.sumry-body -->
-                          </div><!-- /.sumry-inner -->
-                        </article><!-- /.post post__default post__sumry sumry__text size-sm col-12 col-sm-6 col-lg-12 sumry__valign-none-->
-                        <article class="post post__default post__sumry sumry__text size-sm col-12 col-sm-6 col-lg-12 sumry__valign-none">
-                          <div class="sumry-inner">
-                            <hr class="divider sumry-divider">
-                            <div class="sumry-body">
-                              <div class="post-content sumry-content">
-                                <div class="post-category text-uppercase">
-                                  <a href="category.html" class="post-category-a">Finance</a>
-                                </div><!-- /.post-meta post-category text-uppercase -->
-                                <h3 class="post-title sumry-title">
-                                  <a href="article-sidebar.html" class="post-title-a sumry-title-a">As Business Collapsed, All Phonebooth Branches Are Now Closed</a>
-                                </h3>
-                                <div class="post-meta">
-                                  <span class="post-author"><a href="posts-by-author.html" class="post-meta-a">John Doe</a></span> <span class="post-meta-separator">&nbsp;•&nbsp;</span> <span class="post-time"><a href="#" class="post-meta-a">1 day
-                                  ago</a></span>
-                                </div>
-                              </div><!-- /.post-content sumry-content -->
-                            </div><!-- /.sumry-body -->
-                          </div><!-- /.sumry-inner -->
-                        </article><!-- /.post post__default post__sumry sumry__text size-sm col-12 col-sm-6 col-lg-12 sumry__valign-none-->
-                      </div><!-- /.row posts -->
-                    </div><!-- /.col-12 col-lg-4 -->
-                  </div><!-- /.posts posts__sumrys row sumrys__divider -->
-                </div><!-- /.section-body -->
-              </div><!-- /.section-inner -->
-            </div><!-- /#businessSection.section col-12 col-xl-9 section__default-->
-          </div><!-- /.sections section-sections row -->
-        </div><!-- /.section-inner -->
-      </div><!-- /.section container-xl section__default-->
+
+
+      
+      
       <div id="banner6" class="section d-none d-md-flex container-xl section__default">
         <div class="bg position-absolute section-bg"></div>
         <hr class="divider section-divider d-none">

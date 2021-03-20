@@ -10,6 +10,12 @@ public interface HomeService {
 	
 	List<News> StartAt6Find2News();
 	
+	List<News> StartAt8Find6News();
+	
+	List<News> StartAt14Find10News();
+	
+	
+	
 	
 
 }

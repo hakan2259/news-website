@@ -88,12 +88,17 @@ public class HomeController {
 		List<News> lastSixNewsList = homeService.findLast6ByNews();
 		List<News> StartAt6Find2NewsList = homeService.StartAt6Find2News();
 		
+		List<News> StartAt8Find6NewsList = homeService.StartAt8Find6News();
+		
+		List<News> StartAt14Find10NewsList = homeService.StartAt14Find10News();
+		
 		model.addAttribute("firstSixByCategoryList",firstSixByCategoryList);
 		model.addAttribute("afterSixByCategoryList",afterSixByCategoryList);
 		model.addAttribute("trendingTopicList",trendingTopicList);
 		model.addAttribute("lastSixNewsList",lastSixNewsList);
 		model.addAttribute("StartAt6Find2NewsList",StartAt6Find2NewsList);
-		
+		model.addAttribute("StartAt8Find6NewsList",StartAt8Find6NewsList);
+		model.addAttribute("StartAt14Find10NewsList",StartAt14Find10NewsList);
 		
 		return "index";
 	}

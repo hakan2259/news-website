@@ -27,5 +27,17 @@ public class HomeServiceImpl implements HomeService {
 		return homeRepository.StartAt6Find2News();
 	}
 
+	@Override
+	public List<News> StartAt8Find6News() {
+		
+		return homeRepository.StartAt8Find6News();
+	}
+
+	@Override
+	public List<News> StartAt14Find10News() {
+	
+		return homeRepository.StartAt14Find10News();
+	}
+
 	
 }
