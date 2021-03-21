@@ -6,6 +6,13 @@ xmlns:sec="http://www.w3.org/1999/xhtml">
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    
+    <link rel="icon" th:href="#{adminPath}+@{/assets/img/}+${settings.icon}" type="image/png">
+
+      <meta name="description" th:content="${settings.description}">
+      <meta name="keywords" th:content="${settings.keywords}">
+      <meta name="author" th:content="${settings.author}">
+
 
     <link href="https://fonts.googleapis.com/css?family=Merriweather%7CRoboto:400,400i,700,700" rel="stylesheet">
     <script src="/assets/js/538d9daa14.js" crossorigin="anonymous"></script>
@@ -34,153 +41,7 @@ xmlns:sec="http://www.w3.org/1999/xhtml">
         </div><!-- /.section-body -->
       </div><!-- /.section-inner -->
     </div><!-- /#banner1.section d-none d-md-flex container-fluid section__default no-gutter-->
-    <div class="modal modal-md modal--mobilenav" id="mobileNav" data-backdrop="true" data-keyboard="true" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog m-0 h-100">
-        <div class="modal-content h-100 border-0">
-          <div class="modal-body p-0">
-            <nav class="navbar navbar__mobile navbar-dark navbar-expand-lg px-4 pb-4 pt-0">
-              <div class="collapse navbar-collapse show">
-                <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <a href="#" class="nav-link h4 mb-0" data-dismiss="modal" aria-label="Close"><i class="far fa-arrow-alt-circle-left"></i></a>
-                  </li>
-                </ul>
-                <div class="navbar-nav mb-3">
-                  <div class="nav-item dropdown active">
-                    <a class="nav-link dropdown-toggle h5 mb-0 active" tabindex="-1" href="#" id="homeDropdownMobile" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Home</a>
-                    
-                  </div>
-                  <div class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle h5 mb-0" tabindex="-1" href="#" id="articleDropdownMobile" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Article</a>
-                    <ul class="dropdown-menu" role="menu" aria-labelledby="articleDropdownMobile">
-                      <li>
-                        <a class="nav-link" href="article.html">Article</a>
-                      </li>
-                      <li>
-                        <a class="nav-link" href="article-no-image.html">Article No Image</a>
-                      </li>
-                      <li>
-                        <a class="nav-link" href="article-large-image.html">Article Large Hero</a>
-                      </li>
-                      <li>
-                        <a class="nav-link" href="article-fullwindow-image.html">Article Full Window Image</a>
-                      </li>
-                      <li>
-                        <a class="nav-link" href="article-top-image.html">Article Top Image</a>
-                      </li>
-                      <li>
-                        <a class="nav-link" href="article-sidebar.html">Article Sidebar</a>
-                      </li>
-                      <li>
-                        <a class="nav-link" href="index.html">All Article Templates</a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle h5 mb-0" tabindex="-1" href="#" id="colorschemesVariantDropdownMobile" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Colorscheme Variant</a>
-                    <ul class="dropdown-menu" role="menu" aria-labelledby="colorschemesVariantDropdownMobile">
-                      <li>
-                        <a class="nav-link" href="http://html.coolorize.com/magazinize/1.0.0/default/home-5.html">Default Home 5 Page Template</a>
-                      </li>
-                      <li>
-                        <a class="nav-link" href="http://html.coolorize.com/magazinize/1.0.0/default-dark/home-5.html">Default Dark Home 5 Page Template</a>
-                      </li>
-                      <li>
-                        <a class="nav-link" href="http://html.coolorize.com/magazinize/1.0.0/default-twotone/home-5.html">Default Twotone Home 5 Page Template</a>
-                      </li>
-                      <li>
-                        <a class="nav-link" href="http://html.coolorize.com/magazinize/1.0.0/default-narrow/home-5.html">Default Narrow Home 5 Page Template</a>
-                      </li>
-                      <li>
-                        <a class="nav-link active" href="home-5.html">Newspaper Home 5 Page Template</a>
-                      </li>
-                      <li>
-                        <a class="nav-link" href="http://html.coolorize.com/magazinize/1.0.0/newspaper-dark/home-5.html">Newspaper Dark Home 5 Page Template</a>
-                      </li>
-                      <li>
-                        <a class="nav-link" href="http://html.coolorize.com/magazinize/1.0.0/magazine/home-5.html">Magazine Home 5 Page Template</a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle h5 mb-0" tabindex="-1" href="#" id="allThemesTemplatesDropdownMobile" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All Themes</a>
-                    <ul class="dropdown-menu" role="menu" aria-labelledby="allThemesTemplatesDropdownMobile">
-                      <li>
-                        <a class="nav-link" href="http://html.coolorize.com/magazinize/1.0.0/default/">Default</a>
-                      </li>
-                      <li>
-                        <a class="nav-link" href="http://html.coolorize.com/magazinize/1.0.0/default-dark/">Default Dark</a>
-                      </li>
-                      <li>
-                        <a class="nav-link" href="http://html.coolorize.com/magazinize/1.0.0/default-twotone/">Default Twotone</a>
-                      </li>
-                      <li>
-                        <a class="nav-link" href="http://html.coolorize.com/magazinize/1.0.0/default-narrow/">Default Narrow</a>
-                      </li>
-                      <li>
-                        <a class="nav-link active" href="index-2.html">Newspaper</a>
-                      </li>
-                      <li>
-                        <a class="nav-link" href="http://html.coolorize.com/magazinize/1.0.0/newspaper-dark/">Newspaper Dark</a>
-                      </li>
-                      <li>
-                        <a class="nav-link" href="http://html.coolorize.com/magazinize/1.0.0/magazine/">Magazine</a>
-                      </li>
-                      <li>
-                        <a class="nav-link" href="http://html.coolorize.com/magazinize/1.0.0/minimal/">Minimal</a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle h5 mb-0" tabindex="-1" href="#" id="miscPagesDropdownMobile" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Misc</a>
-                
-                  </div>
-                  <div class="nav-item dropdown">
-                    <a class="nav-link h5 mb-0" href="home-6.html">Next Page</a>
-                  </div>
-                  <div class="nav-item dropdown">
-                    <a class="nav-link h5 mb-0" href="http://html.coolorize.com/magazinize/1.0.0/newspaper-dark/home-5.html">Next Colorscheme</a>
-                  </div>
-                  <div class="dropdown-divider"></div>
-                  <div class="row m-0">
-                    <a class="nav-link col-6" href="posts-by-category.html">Featured</a> <a class="nav-link col-6" href="posts-by-category.html">Tags or Cats</a> <a class="nav-link col-6" href="posts-by-category.html">Such As</a> <a class=
-                    "nav-link col-6" href="posts-by-category.html">Bussiness</a> <a class="nav-link col-6" href="posts-by-category.html">Tech</a> <a class="nav-link col-6" href="posts-by-category.html">Review</a> <a class="nav-link col-6" href=
-                    "posts-by-category.html">Video</a> <a class="nav-link col-6" href="posts-by-category.html">Lifestyle</a> <a class="nav-link col-6" href="posts-by-category.html">Music</a> <a class="nav-link col-6" href=
-                    "posts-by-category.html">Movie</a> <a class="nav-link col-6" href="posts-by-category.html">Gaming</a> <a class="nav-link col-6" href="posts-by-category.html">Goes Here</a>
-                    <div class="dropdown-divider col-12"></div><a class="nav-link col-12" href="posts-by-category.html">All Topics</a>
-                  </div><!-- /.row -->
-                </div>
-                <form class="form-inline">
-                  <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Keyword" aria-label="Keyword" aria-describedby="mobileSearchButton">
-                    <div class="input-group-append">
-                      <button class="btn btn-outline-secondary" type="button" id="mobileSearchButton">Search</button>
-                    </div>
-                  </div>
-                </form>
-                <ul class="navbar-nav flex-row flex-fill justify-content-between h3">
-                  <li class="nav-item">
-                    <a href="#" class="nav-link"><span class="fab fa-facebook" aria-hidden="true"></span></a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#" class="nav-link"><span class="fab fa-youtube" aria-hidden="true"></span></a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#" class="nav-link"><span class="fab fa-twitter" aria-hidden="true"></span></a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#" class="nav-link"><span class="fab fa-instagram" aria-hidden="true"></span></a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#" class="nav-link"><span class="fas fa-envelope" aria-hidden="true"></span></a>
-                  </li>
-                </ul>
-              </div>
-            </nav>
-          </div>
-        </div>
-      </div>
-    </div>
+    
     <header class="header sections sections__header">
       <div class="bg sections-bg header-bg position-absolute"></div>
       <nav class="navbar navbar__top navbar-expand navbar-light">
@@ -204,19 +65,19 @@ xmlns:sec="http://www.w3.org/1999/xhtml">
             </ul>
             <ul class="navbar-nav navbar-nav--right ml-auto">
               <li class="nav-item">
-                <a href="#" class="nav-link"><span class="fab fa-facebook" aria-hidden="true"></span></a>
+                <a th:href="${settings.facebookUrl}" target="_blank" class="nav-link"><span class="fab fa-facebook" aria-hidden="true"></span></a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link"><span class="fab fa-youtube" aria-hidden="true"></span></a>
+                <a th:href="${settings.youtubeUrl}" target="_blank" class="nav-link"><span class="fab fa-youtube" aria-hidden="true"></span></a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link"><span class="fab fa-twitter" aria-hidden="true"></span></a>
+                <a th:href="${settings.twitterUrl}" target="_blank" class="nav-link"><span class="fab fa-twitter" aria-hidden="true"></span></a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link"><span class="fab fa-instagram" aria-hidden="true"></span></a>
+                <a th:href="${settings.instagramUrl}" target="_blank" class="nav-link"><span class="fab fa-instagram" aria-hidden="true"></span></a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link"><span class="fas fa-envelope" aria-hidden="true"></span></a>
+                <a th:href="@{/contact}" class="nav-link" target="_blank"><span class="fas fa-envelope" aria-hidden="true"></span></a>
               </li>
             </ul>
           </div>
@@ -241,7 +102,7 @@ xmlns:sec="http://www.w3.org/1999/xhtml">
               <li class="nav-item">
                 <a sec:authorize="isAuthenticated()" class="text-uppercase btn btn-outline-primary btn-sm my-1" th:href="@{/logout}"><span class="d-inline-block">Logout</span></a>
               </li>
-            </ul><a th:href="@{/}" class="navbar-brand mx-auto order-2 mt-3 mb-4 mt-xl-4"><img alt="Magazinize" src="/assets/img/newspaper.png"></a>
+            </ul><a th:href="@{/}" class="navbar-brand mx-auto order-2 mt-3 mb-4 mt-xl-4"><img alt="Magazinize" th:src="#{adminPath}+@{/assets/img/}+${settings.bigLogo}"></a>
           </div>
           <hr class="divider navbar-divider">
         </div><!-- /.navbar-container container-xl position-relative -->

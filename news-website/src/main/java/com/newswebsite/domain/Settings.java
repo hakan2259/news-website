@@ -1,11 +1,11 @@
 package com.newswebsite.domain;
 
-import javax.persistence.Column;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Lob;
+
 
 @Entity
 public class Settings {
@@ -18,17 +18,14 @@ public class Settings {
 	private String keywords;
 	private String description;
 	
-	@Lob
-	@Column(columnDefinition = "MEDIUMBLOB")
+	
 	private String icon;
 	
-	@Lob
-	@Column(columnDefinition = "MEDIUMBLOB")
+	
 	private String bigLogo;
 	
 	
-	@Lob
-	@Column(columnDefinition = "MEDIUMBLOB")
+	
 	private String smallLogo;
 	
 	private String videoUrl;
@@ -67,6 +64,7 @@ public class Settings {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	
 	public String getIcon() {
 		return icon;
 	}

@@ -6,7 +6,6 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
-import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
 
@@ -30,6 +29,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.newswebsite.domain.Category;
 import com.newswebsite.domain.Contact;
 import com.newswebsite.domain.News;
+import com.newswebsite.domain.Settings;
 import com.newswebsite.domain.TrendingTopic;
 import com.newswebsite.domain.User;
 import com.newswebsite.domain.security.PasswordResetToken;
@@ -39,6 +39,7 @@ import com.newswebsite.service.CategoryService;
 import com.newswebsite.service.ContactService;
 import com.newswebsite.service.HomeService;
 import com.newswebsite.service.NewsService;
+import com.newswebsite.service.SettingsService;
 import com.newswebsite.service.TrendingTopicService;
 import com.newswebsite.service.UserService;
 import com.newswebsite.service.impl.UserSecurityService;
@@ -74,6 +75,8 @@ public class HomeController {
 	@Autowired
 	private NewsService newsService;
 	
+	@Autowired
+	private SettingsService settingsService;
 	
 	
 	
@@ -93,6 +96,9 @@ public class HomeController {
 		List<News> StartAt14Find10NewsList = homeService.StartAt14Find10News();
 		
 		List<News> findEditorPicksLast8ByNewsList = homeService.findEditorPicksLast8ByNews();
+		Settings settings = settingsService.findBySettings();
+		
+		
 		
 		model.addAttribute("firstSixByCategoryList",firstSixByCategoryList);
 		model.addAttribute("afterSixByCategoryList",afterSixByCategoryList);
@@ -102,6 +108,7 @@ public class HomeController {
 		model.addAttribute("StartAt8Find6NewsList",StartAt8Find6NewsList);
 		model.addAttribute("StartAt14Find10NewsList",StartAt14Find10NewsList);
 		model.addAttribute("findEditorPicksLast8ByNewsList",findEditorPicksLast8ByNewsList);
+		model.addAttribute("settings",settings);
 		return "index";
 	}
 	
