@@ -45,5 +45,40 @@ public class HomeServiceImpl implements HomeService {
 		return homeRepository.findEditorPicksLast8ByNews();
 	}
 
+	public List<News> StartAt24Find10News() {
+		// TODO Auto-generated method stub
+		return homeRepository.StartAt24Find10News();
+	}
+
+	@Override
+	public List<News> findPopularLast6ByNews() {
+		
+		return homeRepository.findPopularLast6ByNews();
+	}
+
+	@Override
+	public List<News> findScienceByNews() {
+		// TODO Auto-generated method stub
+		return homeRepository.findScienceByNews();
+	}
+
+	@Override
+	public List<News> findTechByNews() {
+		// TODO Auto-generated method stub
+		return homeRepository.findTechByNews();
+	}
+
+	@Override
+	public List<News> findHealthByNews() {
+		// TODO Auto-generated method stub
+		return homeRepository.findHealthByNews();
+	}
+
+	@Override
+	public List<News> findBookArtByNews() {
+		// TODO Auto-generated method stub
+		return homeRepository.findBookArtByNews();
+	}
+
 	
 }

@@ -10,211 +10,31 @@
         <div class="section-inner">
           <div class="section-body section-content">
             <p class="text-center mb-4">
-              <a href="index-2.html" class=""><img alt="Magazinize" src="../assets/img/newspaper.png"></a>
+              <a href="index-2.html" class=""><img alt="Magazinize" th:src="#{adminPath}+@{/assets/img/}+${settings.bigLogo}"></a>
             </p>
             <ul class="nav justify-content-center">
               <li class="nav-item">
-                <a href="#" class="nav-link"><span class="fab fa-facebook" aria-hidden="true"></span></a>
+                <a th:href="${settings.facebookUrl}" target="_blank" class="nav-link"><span class="fab fa-facebook" aria-hidden="true"></span></a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link"><span class="fab fa-youtube" aria-hidden="true"></span></a>
+                <a th:href="${settings.youtubeUrl}" target="_blank" class="nav-link"><span class="fab fa-youtube" aria-hidden="true"></span></a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link"><span class="fab fa-twitter" aria-hidden="true"></span></a>
+                <a th:href="${settings.twitterUrl}" target="_blank" class="nav-link"><span class="fab fa-twitter" aria-hidden="true"></span></a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link"><span class="fab fa-instagram" aria-hidden="true"></span></a>
+                <a th:href="${settings.instagramUrl}" target="_blank" class="nav-link"><span class="fab fa-instagram" aria-hidden="true"></span></a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link"><span class="fas fa-envelope" aria-hidden="true"></span></a>
+                <a th:href="@{/contact}" target="_blank" class="nav-link"><span class="fas fa-envelope" aria-hidden="true"></span></a>
               </li>
             </ul>
             <hr class="divider w-100">
-            <div class="row">
-              <div class="col-12 col-lg-8">
-                <div class="row">
-                  <div class="col-12 col-xl">
-                    <ul class="list-unstyled mb-0">
-                      <li class="mb-2">
-                        <a class="" href="posts-by-category.html">World</a>
-                      </li>
-                      <li class="mb-2">
-                        <a class="" href="posts-by-category.html">Politic</a>
-                      </li>
-                      <li class="mb-2">
-                        <a class="" href="posts-by-category.html">Lifestyle</a>
-                      </li>
-                      <li class="mb-2">
-                        <a class="" href="posts-by-category.html">Fashion</a>
-                      </li>
-                      <li class="mb-2">
-                        <a class="" href="posts-by-category.html">Health</a>
-                      </li>
-                      <li class="mb-2">
-                        <a class="" href="posts-by-category.html">Economic</a>
-                      </li>
-                      <li class="mb-2">
-                        <a class="" href="posts-by-category.html">Science</a>
-                      </li>
-                      <li class="mb-2">
-                        <a class="" href="posts-by-category.html">Research</a>
-                      </li>
-                      <li class="mb-2">
-                        <a class="" href="posts-by-category.html">Security</a>
-                      </li>
-                      <li class="mb-2">
-                        <a class="" href="posts-by-category.html">Tech</a>
-                      </li>
-                    </ul>
-                  </div><!--/.col-12 col-xl -->
-                  <div class="col-12 col-xl">
-                    <ul class="list-unstyled mb-0">
-                      <li class="mb-2">
-                        <a class="" href="posts-by-category.html">Mobile</a>
-                      </li>
-                      <li class="mb-2">
-                        <a class="" href="posts-by-category.html">Architecture</a>
-                      </li>
-                      <li class="mb-2">
-                        <a class="" href="posts-by-category.html">Building</a>
-                      </li>
-                      <li class="mb-2">
-                        <a class="" href="posts-by-category.html">Photography</a>
-                      </li>
-                      <li class="mb-2">
-                        <a class="" href="posts-by-category.html">Traveling</a>
-                      </li>
-                      <li class="mb-2">
-                        <a class="" href="posts-by-category.html">Relationship</a>
-                      </li>
-                      <li class="mb-2">
-                        <a class="" href="posts-by-category.html">Landscape</a>
-                      </li>
-                      <li class="mb-2">
-                        <a class="" href="posts-by-category.html">Food</a>
-                      </li>
-                      <li class="mb-2">
-                        <a class="" href="posts-by-category.html">Nature</a>
-                      </li>
-                      <li class="mb-2">
-                        <a class="" href="posts-by-category.html">Animal</a>
-                      </li>
-                    </ul>
-                  </div><!--/.col-12 col-xl -->
-                  <div class="col-12 col-xl">
-                    <ul class="list-unstyled mb-0">
-                      <li class="mb-2">
-                        <a class="" href="posts-by-category.html">Gadget</a>
-                      </li>
-                      <li class="mb-2">
-                        <a class="" href="posts-by-category.html">Event</a>
-                      </li>
-                      <li class="mb-2">
-                        <a class="" href="posts-by-category.html">Entertainment</a>
-                      </li>
-                      <li class="mb-2">
-                        <a class="" href="posts-by-category.html">Outdoor</a>
-                      </li>
-                      <li class="mb-2">
-                        <a class="" href="posts-by-category.html">Business</a>
-                      </li>
-                      <li class="mb-2">
-                        <a class="" href="posts-by-category.html">Investing</a>
-                      </li>
-                      <li class="mb-2">
-                        <a class="" href="posts-by-category.html">Finance</a>
-                      </li>
-                      <li class="mb-2">
-                        <a class="" href="posts-by-category.html">Apps</a>
-                      </li>
-                      <li class="mb-2">
-                        <a class="" href="posts-by-category.html">Gaming</a>
-                      </li>
-                      <li class="mb-2">
-                        <a class="" href="posts-by-category.html">Sport</a>
-                      </li>
-                    </ul>
-                  </div><!--/.col-12 col-xl -->
-                  <div class="col-12 col-xl">
-                    <ul class="list-unstyled mb-0">
-                      <li class="mb-2">
-                        <a class="" href="posts-by-category.html">Bicycle Race</a>
-                      </li>
-                      <li class="mb-2">
-                        <a class="" href="posts-by-category.html">Horse Race</a>
-                      </li>
-                      <li class="mb-2">
-                        <a class="" href="posts-by-category.html">Formula 1</a>
-                      </li>
-                      <li class="mb-2">
-                        <a class="" href="posts-by-category.html">Indi Car</a>
-                      </li>
-                      <li class="mb-2">
-                        <a class="" href="posts-by-category.html">Skateboard</a>
-                      </li>
-                      <li class="mb-2">
-                        <a class="" href="posts-by-category.html">Music</a>
-                      </li>
-                      <li class="mb-2">
-                        <a class="" href="posts-by-category.html">Movie</a>
-                      </li>
-                      <li class="mb-2">
-                        <a class="" href="posts-by-category.html">Home Gadget</a>
-                      </li>
-                    </ul>
-                  </div><!--/.col-12 col-xl -->
-                </div><!-- /.row -->
-              </div><!-- /.col-12 col-lg-8 -->
-              <div class="col-lg-1 d-none d-lg-flex pr-5">
-                <hr class="divider divider--horz h-100">
-              </div>
-              <div class="col-12 col-lg-3">
-                <div class="row">
-                  <div class="col-12 col-xl">
-                    <ul class="list-unstyled mb-0">
-                      <li class="mb-1">
-                        <a class="small" href="page-layout-1.html">About Magazinize</a>
-                      </li>
-                      <li class="mb-1">
-                        <a class="small" href="#">Careers</a>
-                      </li>
-                      <li class="mb-1">
-                        <a class="small" href="#">Subscribe</a>
-                      </li>
-                      <li class="mb-1">
-                        <a class="small" href="#">Events</a>
-                      </li>
-                      <li class="mb-1">
-                        <a class="small" href="#">Advertise</a>
-                      </li>
-                    </ul>
-                  </div><!--/.col-12 col-xl -->
-                  <div class="col-12 col-xl">
-                    <ul class="list-unstyled mb-0">
-                      <li class="mb-1">
-                        <a class="small" href="#">Terms of Us</a>
-                      </li>
-                      <li class="mb-1">
-                        <a class="small" href="#">Privacy Policy</a>
-                      </li>
-                      <li class="mb-1">
-                        <a class="small" href="#">Cookie Policy</a>
-                      </li>
-                      <li class="mb-1">
-                        <a class="small" href="#">Manage Policy</a>
-                      </li>
-                      <li class="mb-1">
-                        <a class="small" href="#">Accessibility</a>
-                      </li>
-                    </ul>
-                  </div><!--/.col-12 col-xl -->
-                </div><!-- /.row -->
-              </div><!-- /.col-12 col-lg-4 -->
-            </div><!-- /.row -->
-            <hr class="divider w-100">
+            
+      
             <p class="text-center small">
-              MAGAZINIZE may receive compensation for some links to products and services on this website. Offers may be subject to change without notice.<br>
-              © 2020 MAGAZINIZE, LLC. All Rights Reserved.
+             
+              &copy; 2021 HABER EKSTRA, Made by Hakan SANDAL. All Rights Reserved.
             </p>
           </div><!-- /.section-body -->
         </div><!-- /.section-inner -->

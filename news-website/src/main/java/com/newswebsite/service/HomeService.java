@@ -16,6 +16,20 @@ public interface HomeService {
 	
 	List<News> findEditorPicksLast8ByNews();
 	
+	List<News> StartAt24Find10News();
+	
+	List<News> findPopularLast6ByNews();
+	
+	List<News> findScienceByNews();
+	List<News> findTechByNews();
+	List<News> findHealthByNews();
+	List<News> findBookArtByNews();
+	
+	
+	
+	
+	
+	
 	
 	
 	
