@@ -77,6 +77,19 @@ public class NewsController {
 		return "redirect:newsList";
 	}
 	
+	@RequestMapping("/newsInfo")
+	public String newsInfo(@RequestParam("id") Long id, Model model) {
+		News news = newsService.findOne(id);
+		model.addAttribute("news",news);
+		
+		return "newsInfo";
+		
+		
+		
+	}
+		
+	
+	
 	@RequestMapping("/newsList")
 	public String newsList(Model model) {
 		List<News> newsList = newsService.findAll();

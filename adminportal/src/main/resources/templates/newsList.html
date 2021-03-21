@@ -45,7 +45,7 @@
                                         <tr data-th-each="news : ${newsList}">
 
                                           <input hidden="hidden" name="id" th:value="${news.id}">
-                                            <td th:text="${news.title}"></td>
+                                            <td><a th:href="@{/news/newsInfo(id=${news.id})}"><span th:text="${news.title}"></span></a></td>
                                               <td th:text="${news.author}"></td>
                                                 <td th:text="${news.category}"></td>
                                                   <td th:text="${news.newsType}"></td>

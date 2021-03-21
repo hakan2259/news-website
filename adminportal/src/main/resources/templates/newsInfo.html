@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xlmns:th="http://www.w3.org/1000/xhtml">
+<head th:replace="common/sidebar :: common-sidebar" />
+
+
+<body id="page-top">
+     <div id="wrapper">
+        <div th:replace="common/sidebar :: sidebar" />
+
+          <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+               <div th:replace="common/header :: header" />
+
+                    <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+          <div>
+			<ol class="breadcrumb">
+				<li><a th:href="@{/news/newsList}"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>Go back</a></li>&nbsp; / &nbsp; 
+				<li><a th:href="@{/news/updateNews?id=}+${news.id}">Edit</a></li>
+			</ol>
+			
+		</div>
+
+                  <div class="row container">
+                          <div class="col-xs-12">
+                              <div class="panel panel-default">
+                                  <div class="panel-body">
+                                        <img alt="" th:src="*{'data:image/jpeg;base64,'+{news.image}}" class="img-responsive" />
+                                  </div>
+                              </div>
+                          
+                     
+                            <hr>
+                              <h3 th:text="${news.title}"></h3>
+                              <h4 th:text="${news.subTitle}"></h4>
+                              <hr>
+                              <div class="row">
+                                  <div class="text-right">
+                                      <p><strong>Author: </strong><span th:text="${news.author}"></span></p>
+                                      <p><strong>Publication Date: </strong><span th:text="${news.publicationDate}"></span></p>
+                                      <p><strong>Category: </strong><span th:text="${news.category}"></span></p>
+                                      <p><strong>Active: </strong><span th:text="${news.active}"></span></p>
+                                      <p><strong>News Type: </strong><span th:text="${news.newsType}"></span></p>
+                                  </div>
+             
+                              </div>
+                                  <hr>
+                              <p><strong>Description: </strong><span th:utext="${news.description}"></span></p>
+                         </div>
+                  </div>  
+
+
+
+                </div>
+                <!-- /.container-fluid -->
+
+              </div>
+            <div th:replace="common/footer :: footer" />
+
+              </div>
+              </div>
+
+
+
+     <div th:replace="common/footer-bottom-scripts :: footer-bottom-scripts" />
+
+	</body>
+
+</html>

@@ -65,6 +65,14 @@ public class NewsServiceImpl implements NewsService{
 
 
 
+	@Override
+	public News findOne(Long id) {
+		
+		return newsRepository.findOne(id);
+	}
+
+
+
 	
 
 
