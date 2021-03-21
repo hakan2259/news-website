@@ -31,7 +31,7 @@
                               <div class="owl-carousel owl-theme">
                              
                                 <span data-th-each="lastSixNews : ${lastSixNewsList}">
-                               <a th:href="@{/newsDetail?id=}+${lastSixNews.id}"><img alt="" th:src="*{'data:image/jpeg;base64,'+{lastSixNews.image}}" style="width: 976px; height:400px;"></a>
+                               <a th:href="@{/newsDetail?id=}+${lastSixNews.id}"><img alt="" th:src="#{adminPath}+@{/assets/img/news/}+${lastSixNews.id}+'.jpg'" style="width: 976px; height:400px;"></a>
                            </span>
                               
                       
@@ -90,7 +90,7 @@
                               </h3>
                               <div class="post-excerpt d-none d-lg-flex row">
                                 <div class="col-3 order-2 pl-0">
-                                  <a th:href="@{/newsDetail?id=}+${StartAt8Find6News.id}"><img th:src="*{'data:image/jpeg;base64,'+{StartAt8Find6News.image}}" class="img w-100" alt="Image"></a>
+                                  <a th:href="@{/newsDetail?id=}+${StartAt8Find6News.id}"><img th:src="#{adminPath}+@{/assets/img/news/}+${StartAt8Find6News.id}+'.jpg'" class="img w-100" alt="Image"></a>
                                 </div><!-- /. col-3 order-2 pl-0 -->
                                 <div class="col-9 order-1">
                                   <p th:text="${#strings.abbreviate(StartAt8Find6News.subTitle,100)}">
@@ -136,7 +136,7 @@
                           <hr class="divider sumry-divider">
                           <div class="sumry-body">
                             <figure class="figure post-thumbnail sumry-thumbnail">
-                              <a th:href="@{/newsDetail?id=}+${findEditorPicksLast8ByNews.id}" class="img-wrapper"><img th:src="*{'data:image/jpeg;base64,'+{findEditorPicksLast8ByNews.image}}" class="img figure-img" alt="Image"></a>
+                              <a th:href="@{/newsDetail?id=}+${findEditorPicksLast8ByNews.id}" class="img-wrapper"><img th:src="#{adminPath}+@{/assets/img/news/}+${findEditorPicksLast8ByNews.id}+'.jpg'" class="img figure-img" alt="Image"></a>
                             </figure>
                             <div class="post-content sumry-content">
                               <div class="post-category text-uppercase">
@@ -188,7 +188,7 @@
                           <hr class="divider sumry-divider">
                           <div class="sumry-body">
                             <figure class="figure post-thumbnail sumry-thumbnail">
-                              <a th:href="@{/newsDetail?id=}+${StartAt14Find10News.id}" class="img-wrapper"><img th:src="*{'data:image/jpeg;base64,'+{StartAt14Find10News.image}}" class="img figure-img" alt="Image"></a>
+                              <a th:href="@{/newsDetail?id=}+${StartAt14Find10News.id}" class="img-wrapper"><img th:src="#{adminPath}+@{/assets/img/news/}+${StartAt14Find10News.id}+'.jpg'" class="img figure-img" alt="Image"></a>
                             </figure>
                             <div class="post-content sumry-content">
                               <div class="post-category text-uppercase">
@@ -259,7 +259,7 @@
                             <hr class="divider sumry-divider">
                             <div class="sumry-body">
                               <figure class="figure post-thumbnail sumry-thumbnail">
-                                <a th:href="@{/newsDetail?id=}+${StartAt24Find10News.id}" class="img-wrapper plyr-play" data-plyr-id="#videoSectionPlyr"><img th:src="*{'data:image/jpeg;base64,'+{StartAt24Find10News.image}}" class="img figure-img" alt="Image"></a>
+                                <a th:href="@{/newsDetail?id=}+${StartAt24Find10News.id}" class="img-wrapper plyr-play" data-plyr-id="#videoSectionPlyr"><img th:src="#{adminPath}+@{/assets/img/news/}+${StartAt24Find10News.id}+'.jpg'" class="img figure-img" alt="Image"></a>
                               </figure>
                               <div class="post-content sumry-content">
                                 <h3 class="post-title sumry-title">
@@ -315,7 +315,7 @@
                   <hr class="divider sumry-divider">
                   <div class="sumry-body">
                     <figure class="figure post-thumbnail sumry-thumbnail">
-                      <a th:href="@{/newsDetail?id=}+${findPopularLast6ByNews.id}" class="img-wrapper"><img th:src="*{'data:image/jpeg;base64,'+{findPopularLast6ByNews.image}}" class="img figure-img" alt="Image"></a>
+                      <a th:href="@{/newsDetail?id=}+${findPopularLast6ByNews.id}" class="img-wrapper"><img th:src="#{adminPath}+@{/assets/img/news/}+${findPopularLast6ByNews.id}+'.jpg'" class="img figure-img" alt="Image"></a>
                     </figure>
                     <div class="post-content sumry-content">
                       <div class="post-category text-uppercase">
@@ -384,7 +384,7 @@
                             <hr class="divider sumry-divider">
                             <div class="sumry-body">
                               <figure class="figure post-thumbnail sumry-thumbnail">
-                                <a th:href="@{/newsDetail?id=}+${findScienceByNews.id}" class="img-wrapper"><img th:src="*{'data:image/jpeg;base64,'+{findScienceByNews.image}}" class="img figure-img" alt="Image"></a>
+                                <a th:href="@{/newsDetail?id=}+${findScienceByNews.id}" class="img-wrapper"><img th:src="#{adminPath}+@{/assets/img/news/}+${findScienceByNews.id}+'.jpg'" class="img figure-img" alt="Image"></a>
                               </figure>
                               <div class="post-content sumry-content">
                                 <h3 class="post-title sumry-title">
@@ -429,7 +429,7 @@
                             <hr class="divider sumry-divider">
                             <div class="sumry-body">
                               <figure class="figure post-thumbnail sumry-thumbnail">
-                                <a th:href="@{/newsDetail?id=}+${findTechByNews.id}" class="img-wrapper"><img th:src="*{'data:image/jpeg;base64,'+{findTechByNews.image}}" class="img figure-img" alt="Image"></a>
+                                <a th:href="@{/newsDetail?id=}+${findTechByNews.id}" class="img-wrapper"><img th:src="#{adminPath}+@{/assets/img/news/}+${findTechByNews.id}+'.jpg'" class="img figure-img" alt="Image"></a>
                               </figure>
                               <div class="post-content sumry-content">
                                 <h3 class="post-title sumry-title">
@@ -470,7 +470,7 @@
                             <hr class="divider sumry-divider">
                             <div class="sumry-body">
                               <figure class="figure post-thumbnail sumry-thumbnail">
-                                <a th:href="@{/newsDetail?id=}+${findHealthByNews.id}" class="img-wrapper"><img th:src="*{'data:image/jpeg;base64,'+{findHealthByNews.image}}" class="img figure-img" alt="Image"></a>
+                                <a th:href="@{/newsDetail?id=}+${findHealthByNews.id}" class="img-wrapper"><img th:src="#{adminPath}+@{/assets/img/news/}+${findHealthByNews.id}+'.jpg'" class="img figure-img" alt="Image"></a>
                               </figure>
                               <div class="post-content sumry-content">
                                 <h3 class="post-title sumry-title">
@@ -511,7 +511,7 @@
                             <hr class="divider sumry-divider">
                             <div class="sumry-body">
                               <figure class="figure post-thumbnail sumry-thumbnail">
-                                <a th:href="@{/newsDetail?id=}+${findBookArtByNews.id}" class="img-wrapper"><img th:src="*{'data:image/jpeg;base64,'+{findBookArtByNews.image}}" class="img figure-img" alt="Image"></a>
+                                <a th:href="@{/newsDetail?id=}+${findBookArtByNews.id}" class="img-wrapper"><img th:src="#{adminPath}+@{/assets/img/news/}+${findBookArtByNews.id}+'.jpg'" class="img figure-img" alt="Image"></a>
                               </figure>
                               <div class="post-content sumry-content">
                                 <h3 class="post-title sumry-title">

@@ -20,11 +20,11 @@
 
                   
 
-                    <form class="form-horizontal" th:action="@{/news/add}" method="post"
+                    <form class="form-horizontal" th:action="@{/news/update}" method="post"
 				enctype="multipart/form-data">
 				<fieldset>
 					<legend class="center-block">
-						New News Information<span style="font-size: small"> * is a
+						Update News Information<span style="font-size: small"> * is a
 							required field</span>
 					</legend>
 					<hr>
@@ -82,7 +82,7 @@
                                 <span data-th-each="category : ${categoryList}">
 
 						
-								<option th:text="${category.name}"></option>
+								<option th:selected="(${news.category} == ${category.name})" th:text="${category.name}"></option>
 										</span>
 							</select>
 						</div>
@@ -102,10 +102,10 @@
 
                               
 
-								<option>Normal</option>
-								<option>Vip News</option>
-								<option>Popular</option>
-								<option>Editor Picks</option>
+								<option th:selected="(${news.newsType}=='Normal')">Normal</option>
+								<option th:selected="(${news.newsType}=='Vip News')">Vip News</option>
+								<option th:selected="(${news.newsType}=='Popular')">Popular</option>
+								<option th:selected="(${news.newsType}=='Editor Picks')">Editor Picks</option>
 										
 							</select>
 						</div>
@@ -121,8 +121,8 @@
 						<label class="col-md-2 control-label" for="status">Status</label>
 						<div class="col-md-8">
 							<label><input value="true" type="radio" name="active"
-								checked="checked" /> Active </label> <label><input
-								value="false" type="radio" name="active" />
+								th:checked="(${news.active}==true)" /> Active </label> <label><input
+								value="false" th:checked="(${news.active}==false)" type="radio" name="active" />
 								Inactive </label> <span class="help-block" style="color:blue;">Whether the news is
 								active or inactive</span>
 						</div>
@@ -133,7 +133,7 @@
 
 
 <label class="control-label" for="description"> * Description</label>
-			 	<textarea name="description" id="description" th:value="${news.description}"></textarea>
+			 	<textarea name="description" id="description" th:value="${news.description}" th:text="${news.description}"></textarea>
 <span class="help-block">Description of the news</span>
 
 <div style="margin-bottom: 10px;"></div>
@@ -154,7 +154,7 @@
 						<div class="col-md-2"></div>
 						<div class="col-md-8">
 							<button type="submit" class="btn btn-success">Add News</button>
-							<a class="btn btn-danger" th:href="@{/}">Cancel</a>
+							<a class="btn btn-danger" th:href="@{/news/newsInfo(id=${news.id})}">Cancel</a>
 						</div>
 					</div>
 

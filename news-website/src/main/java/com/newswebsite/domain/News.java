@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.Transient;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -29,10 +30,20 @@ public class News {
 	@Column(columnDefinition = "text")
 	private String subTitle;
 	
+
+	@Transient
+	private MultipartFile newsImage;
 	
-	@Lob
-	@Column(columnDefinition = "MEDIUMBLOB")
-	private String image;
+	
+	public MultipartFile getNewsImage() {
+		return newsImage;
+	}
+	public void setNewsImage(MultipartFile newsImage) {
+		this.newsImage = newsImage;
+	}
+	
+	
+	
 	
 	public String getSubTitle() {
 		return subTitle;
@@ -86,12 +97,8 @@ public class News {
 	}
 	
 	
-	public String getImage() {
-		return image;
-	}
-	public void setImage(String image) {
-		this.image = image;
-	}
+	
+
 	public boolean isActive() {
 		return active;
 	}

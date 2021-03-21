@@ -638,7 +638,7 @@ Article Sidebar</title>
           
             <figure class="post-thumbnail figure">
 
-<img th:src="*{'data:image/jpeg;base64,'+{news.image}}" class="figure-img" alt="Image"></figure>
+<img th:src="#{adminPath}+@{/assets/img/news/}+${news.id}+'.jpg'" class="figure-img" alt="Image"></figure>
           
 
           <div class="post-content">

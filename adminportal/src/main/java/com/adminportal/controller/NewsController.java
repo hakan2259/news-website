@@ -4,14 +4,19 @@ package com.adminportal.controller;
 
 
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -52,28 +57,33 @@ public class NewsController {
 	}
 	
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public String addNewsPost(@RequestParam("newsImage") MultipartFile file,
-			@RequestParam("title") String title,
-			@RequestParam("author") String author,
-			@RequestParam("category") String category,
-			@RequestParam("newsType") String newsType,
-			@RequestParam("active") boolean active,
-			@RequestParam("description") String description,
-			@RequestParam("subTitle") String subTitle
-			
+	public String addNewsPost(@ModelAttribute("news") News news, HttpServletRequest request
 			) {
 		
 		Calendar cal = Calendar.getInstance();
 		SimpleDateFormat format1 = new SimpleDateFormat("d MMM yyy HH:mm");
 		String formatted = format1.format(cal.getTime());
+		news.setPublicationDate(formatted);
 		
+		newsService.save(news);
+		MultipartFile newsImage = news.getNewsImage();
 		
-				
-		newsService.saveNewsToDB(file, title, author, formatted, category,newsType, active, description,subTitle);
-
+	
 		
-
+		try {
+			byte[] bytes = newsImage.getBytes();
 		
+			String name = news.getId() + ".jpg";
+			BufferedOutputStream stream = new BufferedOutputStream(
+					new FileOutputStream(new File("src/main/resources/static/assets/img/news/" + name)));
+			stream.write(bytes);
+			stream.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	
+	
+	
 		return "redirect:newsList";
 	}
 	
@@ -86,6 +96,16 @@ public class NewsController {
 		
 		
 		
+	}
+	
+	@RequestMapping("/updateNews")
+	public String updateBook(@RequestParam("id") Long id, Model model) {
+		News news = newsService.findOne(id);
+		List<Category> categoryList = categoryService.findAllActiveByCategory();
+
+		model.addAttribute("news", news);
+		model.addAttribute("categoryList", categoryList);
+		return "updateNews";
 	}
 		
 	

@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Lob;
+import javax.persistence.Transient;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -17,10 +17,12 @@ public class News {
 	private Long id;
 	private String title;
 	private String author;
+	
 	private String publicationDate;
 	private String category;
 	private String newsType;
 	private boolean active=true;
+
 	
 	
 	@Column(columnDefinition = "text")
@@ -30,11 +32,26 @@ public class News {
 	private String subTitle;
 	
 	
-	@Lob
-	@Column(columnDefinition = "MEDIUMBLOB")
-	private String image;
+	@Transient
+	private MultipartFile newsImage;
 	
 	
+	public MultipartFile getNewsImage() {
+		return newsImage;
+	}
+	public void setNewsImage(MultipartFile newsImage) {
+		this.newsImage = newsImage;
+	}
+	
+	
+
+	
+	
+	
+	
+	
+	
+
 	public String getNewsType() {
 		return newsType;
 	}
@@ -85,13 +102,7 @@ public class News {
 		this.description = description;
 	}
 	
-	
-	public String getImage() {
-		return image;
-	}
-	public void setImage(String image) {
-		this.image = image;
-	}
+
 	public boolean isActive() {
 		return active;
 	}
