@@ -31,29 +31,19 @@ public class NewsServiceImpl implements NewsService{
 		
 	}
 
-
-
-	
-
-
-
 	@Override
 	public News findOne(Long id) {
 		
 		return newsRepository.findOne(id);
 	}
 
-
-
-
-
-
-
 	@Override
 	public News save(News news) {
 		// TODO Auto-generated method stub
 		return newsRepository.save(news);
 	}
+
+	
 
 
 

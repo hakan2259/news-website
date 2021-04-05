@@ -7,6 +7,8 @@ package com.adminportal.controller;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
@@ -53,7 +55,7 @@ public class NewsController {
 		model.addAttribute("categoryList",categoryList);
 		
 		
-		return "addNews";
+		return "/news/addNews";
 	}
 	
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
@@ -84,7 +86,7 @@ public class NewsController {
 	
 	
 	
-		return "redirect:newsList";
+		return "redirect:/news/newsList";
 	}
 	
 	@RequestMapping("/newsInfo")
@@ -92,7 +94,7 @@ public class NewsController {
 		News news = newsService.findOne(id);
 		model.addAttribute("news",news);
 		
-		return "newsInfo";
+		return "/news/newsInfo";
 		
 		
 		
@@ -105,8 +107,37 @@ public class NewsController {
 
 		model.addAttribute("news", news);
 		model.addAttribute("categoryList", categoryList);
-		return "updateNews";
+		return "/news/updateNews";
 	}
+	
+	@RequestMapping(value = "/updateNews", method = RequestMethod.POST)
+	public String updateNewsPost(@ModelAttribute("news") News news, HttpServletRequest request) {
+		Calendar cal = Calendar.getInstance();
+		SimpleDateFormat format1 = new SimpleDateFormat("d MMM yyy HH:mm");
+		String formatted = format1.format(cal.getTime());
+		news.setPublicationDate(formatted);
+		
+		newsService.save(news);
+		MultipartFile newsImage = news.getNewsImage();
+		if(!newsImage.isEmpty()) {
+			try {
+				byte[] bytes = newsImage.getBytes();
+				
+				String name = news.getId() + ".jpg";
+				
+				Files.delete(Paths.get("src/main/resources/static/assets/img/news/"+name));
+				BufferedOutputStream stream = new BufferedOutputStream(
+						new FileOutputStream(new File("src/main/resources/static/assets/img/news/" + name)));
+				stream.write(bytes);
+				stream.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return "redirect:/news/newsInfo?id="+news.getId();
+	}
+	
+	
 		
 	
 	
@@ -116,7 +147,7 @@ public class NewsController {
 		model.addAttribute("newsList",newsList);
 		
 		
-		return "newsList";
+		return "/news/newsList";
 	}
 
 }

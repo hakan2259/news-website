@@ -11,5 +11,8 @@ public interface NewsRepository extends JpaRepository<News,Long>{
 	
 	@Query(value="select n from News n where n.id = ?1")
 	public News findOne(Long id);
+	
+	
+	
 
 }

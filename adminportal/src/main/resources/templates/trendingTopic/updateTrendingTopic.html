@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xlmns:th="http://www.w3.org/1000/xhtml">
+<head th:replace="common/sidebar :: common-sidebar" />
+
+
+<body id="page-top">
+     <div id="wrapper">
+        <div th:replace="common/sidebar :: sidebar" />
+
+          <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+               <div th:replace="common/header :: header" />
+
+                    <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                  
+
+                    <form class="form-horizontal" th:action="@{/trendingTopic/updateTrendingTopic}" method="post"
+				>
+				<fieldset>
+					<legend class="center-block">
+						Update Trending Topic Information<span style="font-size: small"> * is a
+							required field</span>
+					</legend>
+					<hr>
+
+					<input hidden="hidden" name="id" th:value="${trendingTopic.id}" />
+
+
+					<!-- title -->
+					<div class="form-group">
+						<label class="col-md-2 control-label" for="title">* Title</label>
+
+						<div class="col-md-8">
+							<input type="text" name="name" class="form-control" id="name"
+								th:value="${trendingTopic.name}" required="required" placeholder="Name" />
+							<span class="help-block">Title of the trending topic</span>
+						</div>
+					</div>
+
+					
+
+						<!-- status of book -->
+					<div class="form-group">
+						<label class="col-md-2 control-label" for="status">Status</label>
+						<div class="col-md-8">
+							<label><input value="true" type="radio" name="active"
+								th:checked="(${trendingTopic.active}==true)" /> Active </label> <label><input
+								value="false" th:checked="(${trendingTopic.active}==false)" type="radio" name="active" />
+								Inactive </label> <span class="help-block" style="color:blue;">Whether the trending topic is
+								active or inactive</span>
+						</div>
+					</div>
+
+
+
+					<div class="form-group">
+						<div class="col-md-2"></div>
+						<div class="col-md-8">
+							<button type="submit" class="btn btn-success">Update Category</button>
+							<a class="btn btn-danger" th:href="@{/trendingTopic/trendingTopicInfo(id=${trendingTopic.id})}">Cancel</a>
+						</div>
+					</div>
+
+
+
+
+					</fieldset>
+					</form>
+
+                </div>
+                <!-- /.container-fluid -->
+
+              </div>
+            <div th:replace="common/footer :: footer" />
+
+              </div>
+              </div>
+
+
+
+     <div th:replace="common/footer-bottom-scripts :: footer-bottom-scripts" />
+
+	</body>
+
+</html>

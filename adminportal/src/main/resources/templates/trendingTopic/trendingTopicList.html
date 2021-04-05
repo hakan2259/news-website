@@ -23,7 +23,7 @@
              <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-default">News List</h6>
+                            <h6 class="m-0 font-weight-bold text-default">Trending Topic List</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -39,12 +39,12 @@
                                     </thead>
                                   
                                     <tbody>
-                                        <tr data-th-each="category : ${categoryList}">
+                                        <tr data-th-each="trendingTopic : ${trendingTopicList}">
 
-                                          <input hidden="hidden" name="id" th:value="${category.id}">
-                                            <td th:text="${category.id}"></td>
-                                              <td th:text="${category.name}"></td>
-                                                <td th:text="${category.active}"></td>
+                                          <input hidden="hidden" name="id" th:value="${trendingTopic.id}">
+                                            <td th:text="${trendingTopic.id}"></td>
+                                              <td><a th:href="@{/trendingTopic/trendingTopicInfo(id=${trendingTopic.id})}" th:text="${trendingTopic.name}"></a></td>
+                                                <td th:text="${trendingTopic.active}"></td>
                                                  
                                                       <td>delete</td>
                                            

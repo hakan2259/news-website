@@ -7,6 +7,7 @@ package com.adminportal.service;
 import java.util.List;
 import java.util.Set;
 
+import com.adminportal.domain.Category;
 import com.adminportal.domain.User;
 import com.adminportal.domain.security.UserRole;
 
@@ -19,6 +20,7 @@ public interface UserService {
    User save(User user);
    
    List<User> findByUserRoleId(int role_id);
+   User findOne(Long id);
    
 
    

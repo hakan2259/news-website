@@ -20,7 +20,7 @@
 
                   
 
-                    <form class="form-horizontal" th:action="@{/news/update}" method="post"
+                    <form class="form-horizontal" th:action="@{/news/updateNews}" method="post"
 				enctype="multipart/form-data">
 				<fieldset>
 					<legend class="center-block">
@@ -28,6 +28,8 @@
 							required field</span>
 					</legend>
 					<hr>
+
+					<input hidden="hidden" name="id" th:value="${news.id}" />
 
 
 					<!-- title -->

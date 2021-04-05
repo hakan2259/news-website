@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xlmns:th="http://www.w3.org/1000/xhtml">
+<head th:replace="common/sidebar :: common-sidebar" />
+
+
+<body id="page-top">
+     <div id="wrapper">
+        <div th:replace="common/sidebar :: sidebar" />
+
+          <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+               <div th:replace="common/header :: header" />
+
+                    <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+          <div>
+			<ol class="breadcrumb">
+				<li><a th:href="@{/trendingTopic/trendingTopicList}"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>Go back</a></li>&nbsp; / &nbsp; 
+				<li><a th:href="@{/trendingTopic/updateTrendingTopic?id=}+${trendingTopic.id}">Edit</a></li>
+			</ol>
+			
+		</div>
+					
+
+                  <div class="row container">
+                          <div class="col-xs-12">
+                              
+                          
+                     
+                            <hr>
+                              <h3><strong>Trending Topic Name: </strong><span th:text="${trendingTopic.name}"></span></h3>
+                              <h4><strong>Active?: </strong><span th:text="${trendingTopic.active}"></span></h4>
+
+                              <hr>
+                             
+                         </div>
+                  </div>  
+
+
+
+                </div>
+                <!-- /.container-fluid -->
+
+              </div>
+            <div th:replace="common/footer :: footer" />
+
+              </div>
+              </div>
+
+
+
+     <div th:replace="common/footer-bottom-scripts :: footer-bottom-scripts" />
+
+	</body>
+
+</html>

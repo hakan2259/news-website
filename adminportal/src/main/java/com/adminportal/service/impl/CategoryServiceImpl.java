@@ -33,4 +33,9 @@ public class CategoryServiceImpl implements CategoryService {
 		return categoryRepository.findAllActiveByCategory();
 	}
 
+	@Override
+	public Category findOne(Long id) {
+		return categoryRepository.findOne(id);
+	}
+
 }

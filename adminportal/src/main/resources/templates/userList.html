@@ -50,11 +50,23 @@
 											    <td th:text="${user.username}"></td>
 												<td th:text="${user.email}"></td>
                                                      <td th:text="${user.phone}"></td>
-                                                     	 <td th:text="${user.enabled}"></td>
+                                                          <td>
+
+                                                            <span class="text-danger" th:if="(${user.enabled == false})">Onaysiz</span>
+                                                            <span class="text-success" th:if="(${user.enabled == true})">Onayli</span>
+
+                                                          </td>
+                                                                                                                 
+                                                        
 										
 													    
                                                  
-                                                      <td>delete</td>
+                                                      <td>
+                                                 
+                                                     <span><a th:href="@{/user/updateUser(id=${user.id})}">edit</a></span> |
+                                                        <span>delete</span> 
+                                                    </td>
+                                                     
                                            
                                         </tr>
                                     

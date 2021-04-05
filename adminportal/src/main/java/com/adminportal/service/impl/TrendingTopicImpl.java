@@ -28,4 +28,9 @@ public class TrendingTopicImpl implements TrendingTopicService {
 		return (List<TrendingTopic>) trendingTopicRepository.findAll();
 	}
 
+	@Override
+	public TrendingTopic findOne(Long id) {
+		return trendingTopicRepository.findOne(id);
+	}
+
 }
