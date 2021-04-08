@@ -1,4 +1,4 @@
-# news-website
+# News Website
 
 An amateur news website has been created. The design and colors of the news website are reminiscent of the newspaper concept.
 
