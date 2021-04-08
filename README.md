@@ -1,5 +1,6 @@
 # news-website
-News website reminiscent of newspaper concept
+
+An amateur news website has been created. The design and colors of the news website are reminiscent of the newspaper concept.
 
 ## License
 
