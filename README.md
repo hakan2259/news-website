@@ -2,7 +2,7 @@
 
 An amateur news website has been created. The design and colors of the news website are reminiscent of the newspaper concept.
 
-##About The Project
+## About The Project
 
 There are 5 managers in our system. While 1 manager can manage all areas of the system with full authority, other administrators can manage other subgroups of the system unlike each other. Full Administrators who are not authorized cannot only authorize themselves the person with full authority can authorize other administrators, can update and delete. New to the system by the relevant administratorNews fields can be added, deleted, and can be updated. There are two types of news in the system. While the first type of news, normal news, is open to all users entering the site, other types of news, vip news, will be open to users who have subscribed to the system and have been approved by the system administrator. In addition, there is an email confirmation system in our system, and users who are members will be able to receive confirmation via their real email. Comments section has been added under each news article, logged in users will be able to comment on any news article they want. Our news site has been dynamically created. Every part of our site is changed by the administrators according to the request.
 
