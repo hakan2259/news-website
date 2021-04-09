@@ -1,7 +1,10 @@
 # News Website
-News website reminiscent of newspaper concept
 
+An amateur news site has been created. The design and colors of the news website are reminiscent of the newspaper concept.
 
+## About The Project
+
+While 1 manager can manage all areas of the system with full authority, other administrators can manage other subgroups of the system unlike each other. Administrators who do not have full authority can not authorize themselves, only the person with full authority can authorize other administrators, update them and delete them. New news fields can be added to the system, deleted and updated by the relevant administrator. There are two types of news in the system. While the first type of news, normal news, is open to all users entering the site, other types of news, vip news, will be open to users who have subscribed to the system and have been approved by the system administrator. In addition, our system also has an email confirmation system, and users who are members will be able to receive confirmation via their real email. Comments section has been added under each news article, logged in users will be able to comment on any news article they want. Our news site has been dynamically created. Every part of our site is changed by the administrators according to the request.
 
 ## License
 
