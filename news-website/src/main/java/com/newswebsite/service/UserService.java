@@ -2,12 +2,12 @@ package com.newswebsite.service;
 
 
 
-import com.newswebsite.domain.security.PasswordResetToken;
-import com.newswebsite.domain.security.UserRole;
 
 import java.util.Set;
 
 import com.newswebsite.domain.User;
+import com.newswebsite.domain.security.PasswordResetToken;
+import com.newswebsite.domain.security.UserRole;
 
 
 public interface UserService {
@@ -16,6 +16,8 @@ public interface UserService {
    void createPasswordResetTokenForUser(final User user,final String token);
    
    User findByUsername(String username);
+   
+   User findOne(Long id);
    
    User findByEmail(String email);
    

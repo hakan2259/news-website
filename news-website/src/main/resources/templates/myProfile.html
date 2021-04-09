@@ -10,6 +10,10 @@
 <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
 
 <link rel="stylesheet" href="/assets/css/style.css">
+<script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
 </head>
 <body style="background-image: url('/assets/img/pocket-watch-665871_1280.jpg'); background-repeat: no-repeat; background-size: cover; background-color: #F7F8FB;">
 
@@ -47,8 +51,8 @@
 <div class="single-input-fields">
 
 <input type="hidden" name="id" th:value="${user.id}" />
-<div class="bg-info" th:if="${updateUserInfo}">User info updated.</div>
-
+<div class="alert alert-success" th:if="${updateSuccess}">User info updated.</div>
+<div class="alert alert-danger" th:unless="${updateSuccess}">User info update failed!</div>
 <label>First Name</label>
 <input type="text" name="firstname" id="firstName" th:value="${user.firstname}">
 </div>
@@ -62,7 +66,7 @@
 </div>
 <div class="single-input-fields">
 <label>Current Password</label>
-<input type="password" name="currentPassword" id="currentPassword">
+<input type="password" name="password" id="currentPassword">
 </div>
 <div class="single-input-fields">
 <label>* Email Address</label>
@@ -71,18 +75,20 @@
 
 <div class="single-input-fields">
 <label>* New Password</label>
-<input type="password" name="newPassword" id="newPassword">
+<input type="password" name="newPassword" id="txtNewPassword">
+
 </div>
 
 <div class="single-input-fields">
 <label>* Confirm Password</label>
-<input type="password" name="confirmPassword" id="confirmPassword">
+<input type="password" id="txtConfirmPassword">
 </div>
+<span id="checkPasswordMatch" style="color:red;"></span>
 
 </div>
 
 <div class="register-footer">
-<button class="btn-send" type="submit" style="cursor:pointer;">Submit</button>
+<button class="btn-send" type="submit" id="updateUserInfoButton" style="cursor:pointer;">Submit</button>
 </div>
 </form>
 </div>
@@ -90,5 +96,30 @@
 </div>
 
 </main>
+<script>
+
+function checkPasswordMatch(){
+	var password = $("#txtNewPassword").val();
+	var confirmPassword = $("#txtConfirmPassword").val();
+	
+	if(password == "" && confirmPassword == ""){
+		$("#checkPasswordMatch").html("");
+		$("#updateUserInfoButton").prop("disabled",false);
+		
+	}else{
+		if(password != confirmPassword){
+			$("#checkPasswordMatch").html("Passwords do not match!");
+			$("#updateUserInfoButton").prop("disabled",true);
+		}else if(password == confirmPassword){
+			$("#checkPasswordMatch").html("Passwords match");
+			$("#updateUserInfoButton").prop("disabled",false);
+		}
+	}
+}
+$(document).ready(function(){
+	$("#txtNewPassword").keyup(checkPasswordMatch)
+})
+</script>
+
 </body>
 </html>

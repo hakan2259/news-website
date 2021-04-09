@@ -1,5 +1,6 @@
 package com.newswebsite.service.impl;
 
+import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -86,5 +87,14 @@ public class UserServiceImpl implements UserService {
 		
 		return userRepository.save(user);
 	}
+
+	@Override
+	public User findOne(Long id) {
+		// TODO Auto-generated method stub
+		return userRepository.findOne(id);
+	}
+
+	
+
 
 }

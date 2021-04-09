@@ -31,7 +31,7 @@
 
 					<input hidden="hidden" name="id" th:value="${user.id}" />
 					<input hidden="hidden" name="roleId" th:value="${user.id}" />
-				
+					<input hidden="hidden" name="password" th:value="${user.password}" />
 				
 					<!-- email -->
 					<div class="form-group">
@@ -49,10 +49,10 @@
 						<label class="col-md-2 control-label" for="status">Status</label>
 						<div class="col-md-8">
 							<label><input value="true" type="radio" name="enabled"
-								th:checked="(${user.enabled}==true)" /> Enable </label> <label><input
+								th:checked="(${user.enabled}==true)" /> <span class="text-success">Enable</span> </label> <label><input
 								value="false" th:checked="(${user.enabled}==false)" type="radio" name="enabled" />
-								Disable </label> <span class="help-block" style="color:blue;">Whether the user is
-								enabled or disabled</span>
+								<span class="text-danger">Disable</span> </label> <span class="help-block" style="color:blue;"> (Whether the user is
+								enabled or disabled)</span>
 						</div>
 					</div>
 
@@ -89,16 +89,8 @@
 						</div>
 					</div>
 
-										<!-- password -->
-					<div class="form-group">
-						<label class="col-md-2 control-label" for="title">* Password</label>
-
-						<div class="col-md-8">
-							<input type="text" name="password" class="form-control" id="password"
-								th:value="${user.password}" required="required" placeholder="Password" />
-							<span class="help-block">Password of the user</span>
-						</div>
-					</div>
+									
+					
 
 									<!-- phone -->
 					<div class="form-group">
