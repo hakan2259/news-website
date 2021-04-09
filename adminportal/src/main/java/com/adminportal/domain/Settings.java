@@ -29,6 +29,7 @@ public class Settings {
 	private String twitterUrl;
 	private String instagramUrl;
 	
+	
 	public Long getId() {
 		return id;
 	}

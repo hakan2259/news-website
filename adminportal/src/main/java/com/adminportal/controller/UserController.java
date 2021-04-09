@@ -39,11 +39,12 @@ public class UserController {
 	public String updateUser(@RequestParam("id") Long id, Model model) {
 		User user = userService.findOne(id);
 
+		
 		model.addAttribute("user", user);
 	
 		return "updateUser";
 	}
-	
+
 	@RequestMapping(value = "/updateUser", method = RequestMethod.POST)
 	public String updateUserPost(@ModelAttribute("user") User user, HttpServletRequest request) {
 		

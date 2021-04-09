@@ -142,14 +142,32 @@ public class HomeController {
 			
 			) {
 		News news = newsService.findOne(id);
-		
+		Settings settings = settingsService.findBySettings();
+
 		
 		
 		model.addAttribute("news",news);
+		model.addAttribute("settings",settings);
 		
 		
 		return "newsDetail";
 	}
+	
+	@RequestMapping("/category")
+	public String category(
+			@PathParam("name") String name, Model model
+			
+			) {
+		
+		List<News> news = newsService.findNewsByCategoryName(name);
+		Settings settings = settingsService.findBySettings();
+		
+		model.addAttribute("news",news);
+		model.addAttribute("settings",settings);
+		return "categoryDetail";
+	}
+	
+	
 	
 	@RequestMapping("/myAccount")
 	public String myAccount(Model model) {
@@ -171,7 +189,12 @@ public class HomeController {
 	}
 	
 	@RequestMapping("/about")
-	public String about() {
+	public String about(Model model) {
+		
+		Settings settings = settingsService.findBySettings();
+		model.addAttribute("settings",settings);
+		
+
 		return "about";
 	}
 	
@@ -334,7 +357,7 @@ public class HomeController {
 			}
 		}
 		
-		/* check username already exists */
+		/* check Username already exists */
 		if(userService.findByUsername(user.getUsername()) !=null) {
 			if(userService.findByUsername(user.getUsername()).getId() != currentUser.getId()) {
 				model.addAttribute("usernameExists",true);

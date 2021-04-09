@@ -70,7 +70,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			"/about",
 			"/forgetPassword",
 			"/login",
-			"/newsDetail"
+			"/newsDetail",
+			"/category"
 			
 			
 	};

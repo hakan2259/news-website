@@ -260,7 +260,7 @@ xmlns:sec="http://www.w3.org/1999/xhtml">
 
              <!--Home-->
               <div class="nav-item dropdown dropdown--mega allow-hover active">
-                <a class="nav-link dropdown-toggle" href="#" id="menuHome" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Home</a>
+                <a class="nav-link dropdown-toggle" th:href="@{/}" id="menuHome" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Home</a>
                 
               </div>
               <!--Home-->
@@ -269,7 +269,7 @@ xmlns:sec="http://www.w3.org/1999/xhtml">
               <!--Menu-->
               <div data-th-each="firstSixCategory : ${firstSixByCategoryList}">
               <div class="nav-item dropdown allow-hover">
-                <a class="nav-link" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" th:text="${#strings.toUpperCase(firstSixCategory.name)}"></a>
+                <a class="nav-link" th:href="@{/category?name=}+${firstSixCategory.name}"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" th:text="${#strings.toUpperCase(firstSixCategory.name)}"></a>
 
               </div>
               </div>
@@ -282,7 +282,7 @@ xmlns:sec="http://www.w3.org/1999/xhtml">
                 <div class="dropdown-menu" aria-labelledby="menuNextPages">
 
                     <div data-th-each="afterSixCategory : ${afterSixByCategoryList}">
-                  <a class="dropdown-item" href="post-by-category.html" th:text="${#strings.toUpperCase(afterSixCategory.name)}"></a> 
+                  <a class="dropdown-item" th:href="@{/category?name=}+${afterSixCategory.name}" th:text="${#strings.toUpperCase(afterSixCategory.name)}"></a> 
                
                 </div>
                 </div>

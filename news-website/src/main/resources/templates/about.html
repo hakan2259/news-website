@@ -491,7 +491,7 @@
                 <a sec:authorize="isAuthenticated()" class="text-uppercase btn btn-link btn-sm my-1" th:href="@{/myProfile}"><span class="d-inline-block">My&nbsp;Profile</span></a>
               </li>
             
-            </ul><a href="index-2.html" class="navbar-brand mx-auto order-2 my-2"><img alt="Magazinize" src="../assets/img/newspaper-sm.png"></a>
+            </ul><a href="index-2.html" class="navbar-brand mx-auto order-2 my-2"><img alt="Magazinize" th:src="#{adminPath}+@{/assets/img/}+${settings.smallLogo}"></a>
           </div>
           <hr class="divider navbar-divider">
         </div><!-- /.navbar-container container-xl position-relative -->
@@ -576,7 +576,7 @@
             <div class="row py-2">
               <div class="col-12 col-lg">
                 <p class="mb-1">
-                  © 2021 HABER EKSTRA, LLC. All Rights Reserved.
+                  ï¿½ 2021 HABER EKSTRA, LLC. All Rights Reserved.
                 </p>
               </div><!--/.col-12 col-lg -->
               <div class="col-12 col-lg">

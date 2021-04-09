@@ -5,6 +5,8 @@ package com.newswebsite.service.impl;
 
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +24,12 @@ public class NewsServiceImpl implements NewsService {
 	public News findOne(Long id) {
 	
 		return newsRepository.findOne(id);
+	}
+
+	@Override
+	public List<News> findNewsByCategoryName(String name) {
+		
+		return newsRepository.findNewsByCategoryName(name);
 	}
 
 	
