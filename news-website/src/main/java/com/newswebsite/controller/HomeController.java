@@ -143,13 +143,16 @@ public class HomeController {
 			) {
 		News news = newsService.findOne(id);
 		Settings settings = settingsService.findBySettings();
+		List<News> findPopularLast6ByNewsList = homeService.findPopularLast6ByNews();
+        List<Category> findAllCategoryList = categoryService.findAllCategory();
+        
 
 		
 		
 		model.addAttribute("news",news);
 		model.addAttribute("settings",settings);
-		
-		
+		model.addAttribute("findPopularLast6ByNewsList",findPopularLast6ByNewsList);
+		model.addAttribute("findAllCategoryList",findAllCategoryList);
 		return "newsDetail";
 	}
 	
@@ -159,11 +162,17 @@ public class HomeController {
 			
 			) {
 		
-		List<News> news = newsService.findNewsByCategoryName(name);
+		List<News> newsByCategoryNameList = newsService.findNewsByCategoryName(name);
 		Settings settings = settingsService.findBySettings();
+        List<Category> findAllCategoryList = categoryService.findAllCategory();
+		List<News> findPopularLast6ByNewsList = homeService.findPopularLast6ByNews();
+
 		
-		model.addAttribute("news",news);
+		model.addAttribute("newsByCategoryNameList",newsByCategoryNameList);
 		model.addAttribute("settings",settings);
+		model.addAttribute("findAllCategoryList",findAllCategoryList);
+		model.addAttribute("findPopularLast6ByNewsList",findPopularLast6ByNewsList);
+
 		return "categoryDetail";
 	}
 	
@@ -192,8 +201,10 @@ public class HomeController {
 	public String about(Model model) {
 		
 		Settings settings = settingsService.findBySettings();
+        List<Category> findAllCategoryList = categoryService.findAllCategory();
+
 		model.addAttribute("settings",settings);
-		
+		model.addAttribute("findAllCategoryList",findAllCategoryList);
 
 		return "about";
 	}

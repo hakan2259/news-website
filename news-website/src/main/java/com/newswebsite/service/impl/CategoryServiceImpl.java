@@ -26,6 +26,12 @@ public class CategoryServiceImpl implements CategoryService {
 	public List<Category> findAfter6ByCategory() {
 		return categoryRepository.findAfter6ByCategory();
 	}
+
+	@Override
+	public List<Category> findAllCategory() {
+		// TODO Auto-generated method stub
+		return categoryRepository.findAllCategory();
+	}
 	
 	
 

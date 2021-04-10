@@ -52,7 +52,7 @@
 
 <input type="hidden" name="id" th:value="${user.id}" />
 <div class="alert alert-success" th:if="${updateSuccess}">User info updated.</div>
-<div class="alert alert-danger" th:unless="${updateSuccess}">User info update failed!</div>
+
 <label>First Name</label>
 <input type="text" name="firstname" id="firstName" th:value="${user.firstname}">
 </div>

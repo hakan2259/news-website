@@ -11,6 +11,9 @@ public interface CategoryService {
 	
 	List<Category> findAfter6ByCategory();
 	
+	List<Category> findAllCategory();
+	
+	
 	
 	
 	

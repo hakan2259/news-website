@@ -16,6 +16,9 @@ public interface CategoryRepository extends JpaRepository<Category, Long> {
 	@Query(value="select * from category where active = 1 order by id asc limit 6,100",nativeQuery = true)
 	public List<Category> findAfter6ByCategory();
 	
+	@Query(value="select * from category where active = 1 order by id asc",nativeQuery = true)
+	public List<Category> findAllCategory();
+	
 	
 	
 
