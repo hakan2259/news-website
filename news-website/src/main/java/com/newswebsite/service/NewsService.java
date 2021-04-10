@@ -12,6 +12,9 @@ public interface NewsService {
 	
 	List<News> findNewsByCategoryName(String name);
 	
+	List<News> findAllVipNews(String name);
+	
+	
 	
 	
 	

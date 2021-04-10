@@ -176,6 +176,26 @@ public class HomeController {
 		return "categoryDetail";
 	}
 	
+	@RequestMapping("/vipCategory")
+	public String vipCategory(
+			@PathParam("name") String name, Model model
+			
+			) {
+		
+		List<News> findAllVipNewsList = newsService.findAllVipNews(name);
+		Settings settings = settingsService.findBySettings();
+        List<Category> findAllCategoryList = categoryService.findAllCategory();
+		List<News> findPopularLast6ByNewsList = homeService.findPopularLast6ByNews();
+
+		
+		model.addAttribute("findAllVipNewsList",findAllVipNewsList);
+		model.addAttribute("settings",settings);
+		model.addAttribute("findAllCategoryList",findAllCategoryList);
+		model.addAttribute("findPopularLast6ByNewsList",findPopularLast6ByNewsList);
+
+		return "vipCategoryDetail";
+	}
+	
 	
 	
 	@RequestMapping("/myAccount")

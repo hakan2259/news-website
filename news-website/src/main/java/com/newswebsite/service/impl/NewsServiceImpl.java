@@ -32,6 +32,11 @@ public class NewsServiceImpl implements NewsService {
 		return newsRepository.findNewsByCategoryName(name);
 	}
 
+	@Override
+	public List<News> findAllVipNews(String name) {
+		return newsRepository.findAllVipNews(name);
+	}
+
 	
 
 	

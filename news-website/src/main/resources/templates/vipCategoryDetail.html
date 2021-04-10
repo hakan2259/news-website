@@ -179,23 +179,25 @@
                   <div class="section-body">
                     <div class="posts posts__sumrys sumrys__divider sumrys__timeline">
                       
-                      <!-- All News By Category -->
-                      <article class="post post__default post__sumry sumry__horz sumry__horz-1to2 size-md sumry__valign-none" data-th-each="newsByCategoryName : ${newsByCategoryNameList}" th:if="${newsByCategoryNameList !=null and !newsByCategoryNameList.isEmpty()}">
+                      
+                      
+                      <!-- All  Vip News By Category -->
+                      <article class="post post__default post__sumry sumry__horz sumry__horz-1to2 size-md sumry__valign-none" data-th-each="findAllVipNews : ${findAllVipNewsList}" th:if="${findAllVipNewsList !=null and !findAllVipNewsList.isEmpty()}">
                         <div class="sumry-inner">
                           <hr class="divider sumry-divider">
                           <div class="sumry-body">
                             <div class="post-meta sumry-meta-side">
-                              <span class="post-time"><span class="post-meta-a" th:text="${newsByCategoryName.publicationDate}" style="font-size:12px; margin-left:-5px;"><span></span>
+                              <span class="post-time"><span class="post-meta-a" th:text="${findAllVipNews.publicationDate}" style="font-size:12px; margin-left:-5px;"><span></span>
                             </div>
                             <figure class="figure post-thumbnail sumry-thumbnail">
-                              <a th:href="@{/newsDetail?id=}+${newsByCategoryName.id}" class="img-wrapper"><img th:src="#{adminPath}+@{/assets/img/news/}+${newsByCategoryName.id}+'.jpg'" class="img figure-img" alt="Image"></a>
+                              <a th:href="@{/newsDetail?id=}+${findAllVipNews.id}" class="img-wrapper"><img th:src="#{adminPath}+@{/assets/img/news/}+${findAllVipNews.id}+'.jpg'" class="img figure-img" alt="Image"></a>
                             </figure>
                             <div class="post-content sumry-content">
                               <h3 class="post-title sumry-title">
-                                <a th:href="@{/newsDetail?id=}+${newsByCategoryName.id}" th:text="${newsByCategoryName.title}"class="post-title-a sumry-title-a"></a>
+                                <a th:href="@{/newsDetail?id=}+${findAllVipNews.id}" th:text="${findAllVipNews.title}"class="post-title-a sumry-title-a"></a>
                               </h3>
                               <div class="post-excerpt d-none d-md-block">
-                                <p th:text="${#strings.abbreviate(newsByCategoryName.subTitle,100)}">
+                                <p th:text="${#strings.abbreviate(findAllVipNews.subTitle,100)}">
                                   
                                 </p>
                               </div><!-- /.post-excerpt d-none d-md-block -->
@@ -208,15 +210,10 @@
                       </article><!-- /.post post__default post__sumry sumry__horz sumry__horz-1to2 size-md sumry__valign-none-->
       					<!-- All New By Category -->
       					
-      					
-      					
-      					
-      					
-      					
-      					<article class="post post__default" th:if="${newsByCategoryNameList.isEmpty()}">
+      					<article class="post post__default" th:if="${findAllVipNewsList.isEmpty()}">
       					 <div class="alert alert-info alert-dismissible fade show text-center" role="alert">
                 
-                           No news in this category will be uploaded as soon as possible.
+                           No VİP news in this category will be uploaded as soon as possible.
 
                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     						<span aria-hidden="true">&times;</span>
