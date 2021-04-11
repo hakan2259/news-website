@@ -370,7 +370,159 @@ Article Sidebar</title>
 <!-- /.section container-xl section__default-->
 
 
+<!-- Comments Container -->
 
+ <div id="respond" class="section container-xl section__default">
+  
+        <div class="bg position-absolute section-bg">
+          
+        </div>
+      
+      <hr class="divider section-divider d-none">
+      
+    <div class="section-inner">
+    
+    <div class="sections section-sections">  
+
+  <div id="commentFormSection" class="section detail-grid-width mx-auto section__default" sec:authorize="isAuthenticated()">
+  
+        <div class="bg position-absolute section-bg">
+          
+        </div>
+        
+         <div class="text-success" th:text="${message}">
+  		</div>
+  		<hr>
+      
+      <hr class="divider section-divider">
+      
+    <div class="section-inner">
+    
+        <header class="section-header">
+          
+            <h2 class="section-title"><a href="archive.html" class="section-title-a">Leave A Comment</a></h2>
+          
+        </header>
+      
+  <div class="media post-meta pb-2 pb-xl-3">
+    
+<img src="../assets/avatar/256x256/usericon.png" class="rounded-circle mr-3" alt="Image" width="48" height="48">
+    <div class="media-body">
+    <!-- Comment Form -->
+      <form th:action="@{/comment/add}" method="post">
+        <div class="form-group mb-0">
+        
+          <input sec:authorize="isAuthenticated()" type="hidden" name="username" id="username" sec:authentication="name"/>
+          <input type="hidden" name="newsId" id="newsId" th:value="${news.id}"/>
+
+        <textarea name="message" id="message" class="form-control rounded-0 border-primary border-bottom-0"rows="3" placeholder="Type your comments here"></textarea>
+        <button type="submit" class="btn btn-outline-primary w-100 rounded-0">Submit Comment</button>
+        </div>
+      </form>
+      
+      <!-- Comment Form -->
+    </div>
+    <!-- /.media-body -->
+  </div>
+  <!-- /.media -->
+
+    </div>
+    <!-- /.section-inner -->
+    
+</div>
+<!-- /#commentFormSection.section detail-grid-width mx-auto section__default-->
+
+
+
+<div id="commentFormSection" class="section detail-grid-width mx-auto section__default" sec:authorize="isAnonymous()">
+  
+       
+        
+        
+   
+      
+    <div class="section-inner">
+    
+   
+          
+            <h2 class="section-title"><span class="alert alert-info">You must be logged in to post a comment</span></h2>
+          
+      
+      
+ 
+
+    </div>
+    <!-- /.section-inner -->
+    
+</div>
+<!-- /#commentFormSection.section detail-grid-width mx-auto section__default-->
+
+  <div id="commentsSection" class="section detail-grid-width mx-auto section__default">
+  
+        <div class="bg position-absolute section-bg">
+          
+        </div>
+      
+      <hr class="divider section-divider">
+      
+    <div class="section-inner">
+    
+        <header class="section-header">
+          
+            <h2 class="section-title"><a href="archive.html" class="section-title-a">Comments</a></h2>
+          
+        </header>
+      
+  <ul class="list-unstyled">
+
+
+<span data-th-each="findCommentByNewsId : ${findCommentByNewsIdList}">
+<!-- Comments Text -->
+    <li class="list-unstyled-item post-comment post-meta position-relative">
+
+      <div id="comment-1-collapse" class="collapse show media">
+        
+<img src="../assets/avatar/256x256/usericon.png" class="rounded-circle mr-3" alt="Image" width="48" height="48">
+        <div class="media-body">
+          <div class="mb-1"><a href="article.html" class="h6" th:text="${findCommentByNewsId.username}"></a> <small> &mdash; <span class="text-secondary" th:text="${findCommentByNewsId.postingDate}"></span></small></div>
+          <div class="text-secondary"><p th:text="${findCommentByNewsId.message}"></p></div>
+
+          
+        </div>
+      </div>
+      <!-- /.collapse show media -->
+
+      
+
+    </li>
+    <!-- /.list-unstyled-item post-comment post-meta position-relative -->
+<!-- Comments Text -->
+</span>
+  
+   
+   
+
+  </ul>
+  <!-- /.list-unstyled -->
+
+
+    </div>
+    <!-- /.section-inner -->
+    
+</div>
+<!-- /#commentsSection.section detail-grid-width mx-auto section__default-->
+
+
+    </div>
+    <!-- /.sections section-sections -->
+
+    </div>
+    <!-- /.section-inner -->
+    
+</div>
+<!-- /#respond.section container-xl section__default-->
+
+<!-- Comments Container -->
  
 
 

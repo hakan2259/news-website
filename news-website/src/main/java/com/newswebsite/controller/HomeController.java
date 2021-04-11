@@ -2,6 +2,9 @@ package com.newswebsite.controller;
 
 
 
+import java.security.Principal;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
@@ -26,8 +29,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.view.RedirectView;
 
 import com.newswebsite.domain.Category;
+import com.newswebsite.domain.Comment;
 import com.newswebsite.domain.Contact;
 import com.newswebsite.domain.News;
 import com.newswebsite.domain.Settings;
@@ -37,6 +43,7 @@ import com.newswebsite.domain.security.PasswordResetToken;
 import com.newswebsite.domain.security.Role;
 import com.newswebsite.domain.security.UserRole;
 import com.newswebsite.service.CategoryService;
+import com.newswebsite.service.CommentService;
 import com.newswebsite.service.ContactService;
 import com.newswebsite.service.HomeService;
 import com.newswebsite.service.NewsService;
@@ -63,6 +70,10 @@ public class HomeController {
 	
 	@Autowired
 	private ContactService contactService;
+	
+	@Autowired
+	private CommentService commentService;
+	
 	
 	@Autowired
 	private CategoryService categoryService;
@@ -140,6 +151,7 @@ public class HomeController {
 		Settings settings = settingsService.findBySettings();
 		List<News> findPopularLast6ByNewsList = homeService.findPopularLast6ByNews();
         List<Category> findAllCategoryList = categoryService.findAllCategory();
+        List<Comment> findCommentByNewsIdList = commentService.findCommentByNewsId(id);
         
 
 		
@@ -148,6 +160,7 @@ public class HomeController {
 		model.addAttribute("settings",settings);
 		model.addAttribute("findPopularLast6ByNewsList",findPopularLast6ByNewsList);
 		model.addAttribute("findAllCategoryList",findAllCategoryList);
+		model.addAttribute("findCommentByNewsIdList",findCommentByNewsIdList);
 		return "newsDetail";
 	}
 	
@@ -223,11 +236,6 @@ public class HomeController {
 
 		return "about";
 	}
-	
-	
-	
-	
-	
 	
 	@RequestMapping(value="/contact/add",method=RequestMethod.POST)
 	public String addContactPost(@ModelAttribute("contact") 
@@ -427,6 +435,32 @@ public class HomeController {
 		return "myProfile";
 		
 	}
+	
+	@RequestMapping(value="/comment/add",method=RequestMethod.POST)
+	public String addCommentPost(@ModelAttribute("comment")
+	Comment comment,
+	RedirectAttributes redirAttrs,
+	Principal principal,
+	HttpServletRequest request,
+
+	Model model) {
+		Calendar cal = Calendar.getInstance();
+		SimpleDateFormat format1 = new SimpleDateFormat("d MMM yyy HH:mm");
+		String formatted = format1.format(cal.getTime());
+		
+		comment.setUsername(principal.getName());
+		comment.setPostingDate(formatted);
+		
+		commentService.save(comment);
+		redirAttrs.addFlashAttribute("message","Your comment has been made successfully. Your comment will appear after getting admin approval");
+
+		return "redirect:/newsDetail?id="+comment.getNewsId();
+	
+		
+	}
+	
+	
+	
 	
 	
 	

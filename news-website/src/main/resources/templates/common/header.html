@@ -94,10 +94,12 @@ xmlns:sec="http://www.w3.org/1999/xhtml">
               <li class="nav-item">
                 <a sec:authorize="isAnonymous()" class="text-uppercase btn btn-link btn-sm my-1" th:href="@{/login}"><span class="d-inline-block">Sign&nbsp;In</span></a>
               </li>
-
+              
               <li class="nav-item">
-                <a sec:authorize="isAuthenticated()" class="text-uppercase btn btn-link btn-sm my-1" th:href="@{/myProfile}"><span class="d-inline-block">My&nbsp;Profile</span></a>
+                <a sec:authorize="isAuthenticated()" class="text-uppercase btn btn-link btn-sm my-1" th:href="@{/myProfile}"><span class="d-inline-block" sec:authentication="name"></span></a>
               </li>
+              
+
 
               <li class="nav-item">
                 <a sec:authorize="isAuthenticated()" class="text-uppercase btn btn-outline-primary btn-sm my-1" th:href="@{/logout}"><span class="d-inline-block">Logout</span></a>
