@@ -86,23 +86,19 @@ public class HomeController {
 	@RequestMapping("/")
 	public String index(Model model) {
 		model.addAttribute("standardDate", new Date());
+		
 		List<Category> firstSixByCategoryList = categoryService.findFirst6ByCategory();
 		List<Category> afterSixByCategoryList = categoryService.findAfter6ByCategory();
+        List<Category> findAllCategoryList = categoryService.findAllCategory();
 		List<TrendingTopic> trendingTopicList = trendingTopicService.findAll();
 		List<News> lastSixNewsList = homeService.findLast6ByNews();
 		List<News> StartAt6Find2NewsList = homeService.StartAt6Find2News();
-		
 		List<News> StartAt8Find6NewsList = homeService.StartAt8Find6News();
-		
 		List<News> StartAt14Find10NewsList = homeService.StartAt14Find10News();
-		
 		List<News> findEditorPicksLast8ByNewsList = homeService.findEditorPicksLast8ByNews();
 		Settings settings = settingsService.findBySettings();
-		
 		List<News> StartAt24Find10NewsList = homeService.StartAt24Find10News();
-		
 		List<News> findPopularLast6ByNewsList = homeService.findPopularLast6ByNews();
-		
 		List<News> findScienceByNewsList = homeService.findScienceByNews();
 		List<News> findTechByNewsList = homeService.findTechByNews();
 		List<News> findHealthByNewsList = homeService.findHealthByNews();
@@ -117,14 +113,13 @@ public class HomeController {
 		model.addAttribute("StartAt14Find10NewsList",StartAt14Find10NewsList);
 		model.addAttribute("findEditorPicksLast8ByNewsList",findEditorPicksLast8ByNewsList);
 		model.addAttribute("StartAt24Find10NewsList",StartAt24Find10NewsList);
-		
 		model.addAttribute("findPopularLast6ByNewsList",findPopularLast6ByNewsList);
-		
 		model.addAttribute("findScienceByNewsList",findScienceByNewsList);
 		model.addAttribute("findTechByNewsList",findTechByNewsList);
 		model.addAttribute("findHealthByNewsList",findHealthByNewsList);
 		model.addAttribute("findBookArtByNewsList",findBookArtByNewsList);
-		
+		model.addAttribute("findAllCategoryList",findAllCategoryList);
+
 		
 		model.addAttribute("settings",settings);
 		return "index";

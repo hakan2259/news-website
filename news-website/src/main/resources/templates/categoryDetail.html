@@ -76,7 +76,7 @@
     <div class="dropdown-container container-xl">
 
     <span data-th-each="findAllCategory : ${findAllCategoryList}">
-    <a class="dropdown-item col-6" th:href="@{/category?name=}+${findAllCategory.name}" th:text="${findAllCategory.name}">Featured</a>
+    <a class="dropdown-item col-6" th:href="@{/category?name=}+${findAllCategory.name}" th:text="${findAllCategory.name}"></a>
    </span>
 
  
