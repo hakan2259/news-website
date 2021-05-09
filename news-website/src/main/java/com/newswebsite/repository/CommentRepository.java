@@ -13,7 +13,7 @@ import com.newswebsite.domain.Comment;
 public interface CommentRepository extends JpaRepository<Comment, Long>{
 	
 	
-	@Query(value="select * from comment c where c.news_id = ?1",nativeQuery = true)
+	@Query(value="select * from comment c where active = 1 and c.news_id = ?1",nativeQuery = true)
 	public List<Comment> findCommentByNewsId(Long id);
 	
 }

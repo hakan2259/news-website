@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xlmns:th="http://www.w3.org/1000/xhtml">
+<head th:replace="common/sidebar :: common-sidebar" />
+
+
+<body id="page-top">
+     <div id="wrapper">
+        <div th:replace="common/sidebar :: sidebar" />
+
+          <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+               <div th:replace="common/header :: header" />
+
+                    <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                  
+
+             <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-default">User Comment List</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                           
+											<th>NewsId</th>
+                                            <th>Message</th>
+                                            <th>Username</th>
+                                            <th>Active?</th>
+                                       
+                                            
+                                            <th>Posting Date</th>
+											<th>Operation</th>
+                                         
+                                        </tr>
+                                    </thead>
+                                  
+                                    <tbody>
+                                        <tr data-th-each="comment : ${commentList}">
+
+                                          <input hidden="hidden" name="id" th:value="${comment.id}">
+                                    
+                                              <td th:text="${comment.newsId}"></td>
+                                                <td th:text="${comment.message}"></td>
+                                                       <td th:text="${comment.username}"></td>
+                                                                              <td>
+
+                                                            <span class="text-danger" th:if="(${comment.active == false})">Onaysiz</span>
+                                                            <span class="text-success" th:if="(${comment.active == true})">Onayli</span>
+
+                                                          </td>
+                                                              <td th:text="${comment.postingDate}"></td>
+                                                 
+                                                                     <td>
+                                                 
+                                                     <span><a th:href="@{/comment/updateComment(id=${comment.id})}">edit</a></span> |
+                                                        <span>delete</span> 
+                                                    </td>
+                                           
+                                        </tr>
+                                    
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+              </div>
+            <div th:replace="common/footer :: footer" />
+
+              </div>
+              </div>
+
+
+
+     <div th:replace="common/footer-bottom-scripts :: footer-bottom-scripts" />
+
+	</body>
+
+</html>
