@@ -32,7 +32,7 @@ public class TrendingTopicController {
 	public String addTrendingTopic(Model model) {
 		TrendingTopic trendingTopic = new TrendingTopic();
 		model.addAttribute("trendingTopic",trendingTopic);
-		return "addtrendingTopic";
+		return "/trendingTopic/addTrendingTopic";
 	}
 	@RequestMapping(value="/add",method=RequestMethod.POST)
 	public String addTrendingTopicPost(@ModelAttribute("trendingTopic") TrendingTopic trendingTopic, HttpServletRequest request) {
