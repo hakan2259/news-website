@@ -30,6 +30,12 @@ public class AdminServiceImpl implements AdminService {
 		return adminRepository.findAdminByUsername(username);
 	}
 
+	@Override
+	public User save(User user) {
+		// TODO Auto-generated method stub
+		return adminRepository.save(user);
+	}
+
 	
 
 	
