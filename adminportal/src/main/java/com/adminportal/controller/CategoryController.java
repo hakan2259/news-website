@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.adminportal.domain.Category;
 import com.adminportal.domain.Contact;
-
+import com.adminportal.domain.News;
+import com.adminportal.repository.CategoryRepository;
+import com.adminportal.repository.ContactRepository;
 import com.adminportal.service.CategoryService;
 import com.adminportal.service.ContactService;
 import com.adminportal.service.TrendingTopicService;
@@ -24,13 +26,16 @@ import com.adminportal.service.TrendingTopicService;
 @Controller
 @RequestMapping("/category")
 public class CategoryController {
+	@Autowired
+	private CategoryRepository categoryRepository;
+	
+	
+	
 	
 	@Autowired
 	private CategoryService categoryService;
 	
-	
-	@Autowired
-	private ContactService contactService;
+
 	
 	
 	
@@ -58,13 +63,7 @@ public class CategoryController {
 		return "/category/categoryList";
 	}
 	
-	@RequestMapping("/contactList")
-	public String contactList(Model model) {
-		List<Contact> contactList = contactService.findAll();
-		model.addAttribute("contactList",contactList);
-	
-		return "contactList";
-	}
+
 	
 	
 	@RequestMapping("/categoryInfo")
@@ -95,6 +94,19 @@ public class CategoryController {
 		
 		return "redirect:/category/categoryInfo?id="+category.getId();
 	}
+	
+	
+	@RequestMapping(value = "/remove", method = RequestMethod.POST)
+	public String remove(
+			@ModelAttribute("id") String id, Model model
+			) {
+		categoryRepository.deleteCategoryById(Long.parseLong(id.substring(10)));
+		List<Category> categoryList = categoryService.findAll();
+		model.addAttribute("categoryList",categoryList);
+		
+		return "redirect:/category/categoryList";
+	}
+	
 	
 	
 	

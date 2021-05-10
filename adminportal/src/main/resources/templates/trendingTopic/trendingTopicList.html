@@ -46,7 +46,12 @@
                                               <td><a th:href="@{/trendingTopic/trendingTopicInfo(id=${trendingTopic.id})}" th:text="${trendingTopic.name}"></a></td>
                                                 <td th:text="${trendingTopic.active}"></td>
                                                  
-                                                      <td>delete</td>
+                                                      <td>
+                                                      <input hidden="hidden" name="id" th:value="${trendingTopic.id}" />
+                                                      <button th:id="'deleteOne-'+${trendingTopic.id}" class="btn btn-danger btn-xs delete-one" type="submit" value="delete">
+                                                      <span class="fa fa-times"></span>
+                                                      Delete</button>
+                                                      </td>
                                            
                                         </tr>
                                     

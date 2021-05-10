@@ -12,16 +12,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-
-
+import com.adminportal.domain.Category;
 import com.adminportal.domain.TrendingTopic;
-
+import com.adminportal.repository.TrendingTopicRepository;
 import com.adminportal.service.TrendingTopicService;
 
 @Controller
 @RequestMapping("/trendingTopic")
 public class TrendingTopicController {
 	
+	@Autowired
+	private TrendingTopicRepository trendingTopicRepository;
 	
 	
 	@Autowired
@@ -79,6 +80,19 @@ public class TrendingTopicController {
 		trendingTopicService.save(trendingTopic);
 		
 		return "redirect:/trendingTopic/trendingTopicInfo?id="+trendingTopic.getId();
+	}
+	
+	
+	
+	@RequestMapping(value = "/remove", method = RequestMethod.POST)
+	public String remove(
+			@ModelAttribute("id") String id, Model model
+			) {
+		trendingTopicRepository.deleteTrendingTopicById(Long.parseLong(id.substring(10)));
+		List<TrendingTopic> trendingTopicList = trendingTopicService.findAll();
+		model.addAttribute("trendingTopicList",trendingTopicList);
+		
+		return "redirect:/trendingTopic/trendingTopicList";
 	}
 	
 	

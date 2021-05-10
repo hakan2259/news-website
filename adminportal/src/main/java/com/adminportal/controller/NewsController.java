@@ -26,6 +26,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.adminportal.domain.Category;
 import com.adminportal.domain.News;
+import com.adminportal.repository.NewsRepository;
 import com.adminportal.service.CategoryService;
 import com.adminportal.service.NewsService;
 
@@ -33,7 +34,8 @@ import com.adminportal.service.NewsService;
 @RequestMapping("/news")
 public class NewsController {
 
-	
+	@Autowired
+	NewsRepository newsRepository;
 	
 	@Autowired
 	private NewsService newsService;
@@ -148,6 +150,16 @@ public class NewsController {
 		
 		
 		return "/news/newsList";
+	}
+	@RequestMapping(value = "/remove", method = RequestMethod.POST)
+	public String remove(
+			@ModelAttribute("id") String id, Model model
+			) {
+		newsRepository.deleteNewsById(Long.parseLong(id.substring(10)));
+		List<News> newsList = newsService.findAll();
+		model.addAttribute("newsList",newsList);
+		
+		return "redirect:/news/newsList";
 	}
 
 }

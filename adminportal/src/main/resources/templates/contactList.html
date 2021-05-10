@@ -50,7 +50,12 @@
                                                        <td th:text="${contact.subject}"></td>
                                                               <td th:text="${contact.postingDate}"></td>
                                                  
-                                                      <td>delete</td>
+                                                     <td>
+                                                      <input hidden="hidden" name="id" th:value="${contact.id}" />
+                                                      <button th:id="'deleteOne-'+${contact.id}" class="btn btn-danger btn-xs delete-one" type="submit" value="delete">
+                                                      <span class="fa fa-times"></span>
+                                                      Delete</button>
+                                                      </td>
                                            
                                         </tr>
                                     

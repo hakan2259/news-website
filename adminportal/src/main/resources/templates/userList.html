@@ -64,8 +64,15 @@
                                                       <td>
                                                  
                                                      <span><a th:href="@{/user/updateUser(id=${user.id})}">edit</a></span> |
-                                                        <span>delete</span> 
+                                                        <input hidden="hidden" name="id" th:value="${user.id}" />
+                                                      <button th:id="'deleteOne-'+${user.id}" class="btn btn-transparent btn-xs delete-one" type="submit" value="delete">
+                                                      <span class="fa fa-times"></span>
+                                                      Delete</button>
                                                     </td>
+                                                    
+                                                    
+                                                    
+                                                      
                                                      
                                            
                                         </tr>

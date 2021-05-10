@@ -45,6 +45,8 @@ public class NewsServiceImpl implements NewsService{
 
 	
 
+	
+
 
 
 	

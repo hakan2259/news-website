@@ -51,7 +51,12 @@
                                                   <td th:text="${news.newsType}"></td>
                                                   <td th:text="${news.publicationDate}"></td>
                                                     <td th:text="${news.active}"></td>
-                                                      <td>delete</td>
+                                                      <td>
+                                                      <input hidden="hidden" name="id" th:value="${news.id}" />
+                                                      <button th:id="'deleteOne-'+${news.id}" class="btn btn-danger btn-xs delete-one" type="submit" value="delete">
+                                                      <span class="fa fa-times"></span>
+                                                      Delete</button>
+                                                      </td>
                                            
                                         </tr>
                                     

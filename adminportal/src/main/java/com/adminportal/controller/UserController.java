@@ -12,14 +12,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-
+import com.adminportal.domain.Contact;
 import com.adminportal.domain.User;
+import com.adminportal.repository.UserRepository;
 import com.adminportal.service.UserService;
 
 @Controller
 @RequestMapping("/user")
 public class UserController {
 	
+	@Autowired
+	private UserRepository userRepository;
 	
 	
 	@Autowired
@@ -50,6 +53,18 @@ public class UserController {
 		
 		user.setRoleId(2);
 		userService.save(user);
+		
+		return "redirect:/user/userList";
+	}
+	
+	
+	@RequestMapping(value = "/remove", method = RequestMethod.POST)
+	public String removeContact(
+			@ModelAttribute("id") String id, Model model
+			) {
+		userRepository.deleteUserById(Long.parseLong(id.substring(10)));
+		List<User> userList = userService.findByUserRoleId(2);
+		model.addAttribute("userList",userList);
 		
 		return "redirect:/user/userList";
 	}

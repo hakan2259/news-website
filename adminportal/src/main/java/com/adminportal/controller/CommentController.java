@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.adminportal.domain.Comment;
+import com.adminportal.domain.Contact;
 import com.adminportal.domain.User;
+import com.adminportal.repository.CommentRepository;
 import com.adminportal.service.CommentService;
 
 
@@ -22,6 +24,9 @@ import com.adminportal.service.CommentService;
 @RequestMapping("/comment")
 public class CommentController {
 
+	@Autowired
+	private CommentRepository commentRepository;
+	
 	@Autowired
 	private CommentService commentService;
 	
@@ -48,6 +53,18 @@ public class CommentController {
 	public String updateCommentPost(@ModelAttribute("comment") Comment comment, HttpServletRequest request) {
 		
 		commentService.save(comment);
+		
+		return "redirect:/comment/commentList";
+	}
+	
+	
+	@RequestMapping(value = "/remove", method = RequestMethod.POST)
+	public String removeContact(
+			@ModelAttribute("id") String id, Model model
+			) {
+		commentRepository.deleteCommentById(Long.parseLong(id.substring(10)));
+		List<Comment> commentList = commentService.findAll();
+		model.addAttribute("commentList",commentList);
 		
 		return "redirect:/comment/commentList";
 	}

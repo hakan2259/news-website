@@ -1,14 +1,20 @@
 package com.adminportal.controller;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.adminportal.domain.User;
 import com.adminportal.service.AdminService;
+
+
+
+
 
 @Controller
 @RequestMapping("/admin")
@@ -29,7 +35,16 @@ public class AdminController {
 	}
 	
 	
+	@RequestMapping("/updateAdmin")
+	public String updateAdmin(Principal principal, Model model) {
+		
+		
+		User adminUser = adminService.findAdminByUsername(principal.getName());
+		
+		model.addAttribute("adminUser", adminUser);
 	
+		return "updateAdmin";
+	}
 	
 	
 	
