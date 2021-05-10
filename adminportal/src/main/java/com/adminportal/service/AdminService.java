@@ -20,6 +20,9 @@ public interface AdminService {
    List<User> findByAdminRoleId(int role_id);
    User findAdminByUsername(String username);
    
+   User findOne(Long id);
+   
+   
    
 
    

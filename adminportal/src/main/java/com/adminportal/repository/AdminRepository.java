@@ -22,6 +22,9 @@ public interface AdminRepository extends JpaRepository<User, Long>{
 	@Query(value="select u from User u where u.username = ?1")
 	public User findAdminByUsername(String username);
 	
+	@Query(value="select u from User u where u.id = ?1")
+	public User findOne(Long id);
+	
 	
 	@Transactional
 	@Modifying

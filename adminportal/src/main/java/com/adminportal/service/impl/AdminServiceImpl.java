@@ -36,6 +36,12 @@ public class AdminServiceImpl implements AdminService {
 		return adminRepository.save(user);
 	}
 
+	@Override
+	public User findOne(Long id) {
+		// TODO Auto-generated method stub
+		return adminRepository.findOne(id);
+	}
+
 	
 
 	

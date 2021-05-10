@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.adminportal.domain.Category;
 import com.adminportal.domain.User;
@@ -82,6 +83,25 @@ public class AdminController {
 		
 		return "redirect:/admin/adminList";
 		
+	}
+	
+	@RequestMapping("/updateAdmin")
+	public String updateAdmin(@RequestParam("id") Long id, Model model) {
+		User adminUser = adminService.findOne(id);
+
+		
+		model.addAttribute("adminUser",adminUser);
+	
+		return "updateAdmin";
+	}
+	
+	@RequestMapping(value = "/updateAdmin", method = RequestMethod.POST)
+	public String updateAdminPost(@ModelAttribute("user") User user, HttpServletRequest request) {
+		
+		user.setRoleId(1);
+		adminService.save(user);
+		
+		return "redirect:/admin/adminList";
 	}
 	
 
