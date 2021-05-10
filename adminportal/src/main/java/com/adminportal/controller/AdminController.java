@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.adminportal.domain.Category;
 import com.adminportal.domain.User;
+import com.adminportal.repository.AdminRepository;
 import com.adminportal.service.AdminService;
 import com.adminportal.utility.SecurityUtility;
 
@@ -29,6 +31,9 @@ public class AdminController {
 	@Autowired
 	private AdminService adminService;
 	
+	@Autowired 
+	AdminRepository adminRepository;
+	
 	
 	@RequestMapping("/adminList")
 	public String adminList(Model model) {
@@ -39,20 +44,20 @@ public class AdminController {
 	}
 	
 	
-	@RequestMapping("/updateAdmin")
-	public String updateAdmin(Principal principal, Model model) {
+	@RequestMapping("/profileAdmin")
+	public String profileAdmin(Principal principal, Model model) {
 		
 		
 		User adminUser = adminService.findAdminByUsername(principal.getName());
 		
 		model.addAttribute("adminUser", adminUser);
 	
-		return "updateAdmin";
+		return "profileAdmin";
 	}
 	
 	
-	@RequestMapping(value = "/updateAdmin", method = RequestMethod.POST)
-	public String updateUserPost(@ModelAttribute("user") User user,HttpServletRequest request) {
+	@RequestMapping(value = "/profileAdmin", method = RequestMethod.POST)
+	public String profileAdminPost(@ModelAttribute("user") User user,HttpServletRequest request) {
 		
 		user.setRoleId(1);
 		adminService.save(user);
@@ -77,7 +82,18 @@ public class AdminController {
 		
 		return "redirect:/admin/adminList";
 		
+	}
+	
+
+	@RequestMapping(value = "/remove", method = RequestMethod.POST)
+	public String remove(
+			@ModelAttribute("id") String id, Model model
+			) {
+		adminRepository.deleteAdminById(Long.parseLong(id.substring(10)));
+		List<User> adminList = adminService.findByAdminRoleId(1);
+		model.addAttribute("adminList",adminList);
 		
+		return "redirect:/admin/adminList";
 	}
 	
 	

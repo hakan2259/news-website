@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" xlmns:th="http://www.w3.org/1000/xhtml">
+<head th:replace="common/sidebar :: common-sidebar" />
+
+
+<body id="page-top">
+	<div id="wrapper">
+		<div th:replace="common/sidebar :: sidebar" />
+
+		<!-- Content Wrapper -->
+		<div id="content-wrapper" class="d-flex flex-column">
+
+			<!-- Main Content -->
+			<div id="content">
+
+				<div th:replace="common/header :: header" />
+
+				<!-- Begin Page Content -->
+				<div class="container-fluid">
+
+
+
+					<form class="form-horizontal" th:action="@{/admin/updateAdmin}"
+						method="post">
+
+						<legend class="center-block">
+							Update Admin Information<span style="font-size: small"> *
+								is a required field</span>
+						</legend>
+						<hr>
+
+						<input hidden="hidden" name="id" th:value="${adminUser.id}" /> <input
+							hidden="hidden" name="roleId" th:value="${adminUser.id}" /> <input
+							hidden="hidden" name="password" th:value="${adminUser.password}" />
+
+						<div class="row">
+							<div class="col-md-4">
+								<img class="img-thumbnail"
+									src="https://github.com/abhisheknaiidu/abhisheknaiidu/blob/master/code.gif?raw=true"
+									width="500" />
+								<hr>
+								🏠 I’m currently living at World <br> 👨‍💻 I’m currently
+								working as a Full-stack Developer.<br> 🔭 I’m currently
+								working on news website projects.<br> 🌱 I’m currently
+								learning English 🤦‍♂.<br> ☕️ I’m coffeer. <br> ⚡ Bla
+								bla bla...
+
+							</div>
+							<div class="col-md-8">
+								<!-- email -->
+								<div class="form-group">
+									<label class="col-md-2 control-label" for="title">*
+										Email</label>
+
+									<div class="col-md-8">
+										<input type="text" name="email" class="form-control"
+											id="email" th:value="${adminUser.email}" required="required"
+											placeholder="Email" /> <span class="help-block">Email
+											of the admin</span>
+									</div>
+
+								</div>
+
+
+
+								<!-- username -->
+								<div class="form-group">
+									<label class="col-md-2 control-label" for="title">*
+										Username</label>
+
+									<div class="col-md-8">
+										<input type="text" name="username" class="form-control"
+											id="username" th:value="${adminUser.username}"
+											required="required" placeholder="Username" /> <span
+											class="help-block">Username of the admin</span>
+									</div>
+								</div>
+
+								<!-- firstname -->
+								<div class="form-group">
+									<label class="col-md-2 control-label" for="title">*
+										Firstname</label>
+
+									<div class="col-md-8">
+										<input type="text" name="firstname" class="form-control"
+											id="firstname" th:value="${adminUser.firstname}"
+											placeholder="Firstname" /> <span class="help-block">Firstname
+											of the admin</span>
+									</div>
+								</div>
+
+								<!-- lastname -->
+								<div class="form-group">
+									<label class="col-md-2 control-label" for="title">*
+										Lastname</label>
+
+									<div class="col-md-8">
+										<input type="text" name="lastname" class="form-control"
+											id="lastname" th:value="${adminUser.lastname}"
+											placeholder="Lastname" /> <span class="help-block">Lastname
+											of the admin</span>
+									</div>
+								</div>
+
+
+
+
+								<!-- phone -->
+								<div class="form-group">
+									<label class="col-md-2 control-label" for="title">*
+										Phone</label>
+
+									<div class="col-md-8">
+										<input type="text" name="phone" class="form-control"
+											id="phone" th:value="${adminUser.phone}" placeholder="Phone" />
+										<span class="help-block">Phone of the admin</span>
+									</div>
+								</div>
+
+
+
+
+
+
+
+
+								<div class="form-group">
+									<div class="col-md-2"></div>
+									<div class="col-md-8">
+										<button type="submit" class="btn btn-success">Update
+											Admin</button>
+										<a class="btn btn-danger"
+											th:href="@{/admin/adminList(id=${adminUser.id})}">Cancel</a>
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+
+
+
+
+
+
+					</form>
+
+				</div>
+				<!-- /.container-fluid -->
+
+			</div>
+			<div th:replace="common/footer :: footer" />
+
+		</div>
+	</div>
+
+
+
+	<div th:replace="common/footer-bottom-scripts :: footer-bottom-scripts" />
+
+</body>
+
+</html>
