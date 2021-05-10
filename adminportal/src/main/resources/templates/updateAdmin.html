@@ -22,7 +22,7 @@
 
                     <form class="form-horizontal" th:action="@{/admin/updateAdmin}" method="post"
 				>
-				<fieldset>
+				
 					<legend class="center-block">
 						Update Admin Information<span style="font-size: small"> * is a
 							required field</span>
@@ -33,7 +33,20 @@
 					<input hidden="hidden" name="roleId" th:value="${adminUser.id}" />
 					<input hidden="hidden" name="password" th:value="${adminUser.password}" />
 				
-					<!-- email -->
+				<div class="row">
+				<div class="col-md-4">
+									<img class = "img-thumbnail" src="https://github.com/abhisheknaiidu/abhisheknaiidu/blob/master/code.gif?raw=true" width="500"/>
+									<hr>
+									🏠 I’m currently living at World <br>
+👨‍💻 I’m currently working as a Full-stack Developer.<br>
+🔭 I’m currently working on news website projects.<br>
+🌱 I’m currently learning English 🤦‍♂.<br>
+☕️ I’m coffeer. <br>
+⚡ Bla bla bla...
+				
+				</div>
+				<div class="col-md-8">
+				<!-- email -->
 					<div class="form-group">
 						<label class="col-md-2 control-label" for="title">* Email</label>
 
@@ -42,19 +55,10 @@
 								th:value="${adminUser.email}" required="required" placeholder="Email" />
 							<span class="help-block">Email of the admin</span>
 						</div>
+						
 					</div>
 
-						<!-- Enabled or Disabled -->
-					<div class="form-group">
-						<label class="col-md-2 control-label" for="status">Status</label>
-						<div class="col-md-8">
-							<label><input value="true" type="radio" name="enabled"
-								th:checked="(${adminUser.enabled}==true)" /> <span class="text-success">Enable</span> </label> <label><input
-								value="false" th:checked="(${adminUser.enabled}==false)" type="radio" name="enabled" />
-								<span class="text-danger">Disable</span> </label> <span class="help-block" style="color:blue;"> (Whether the user is
-								enabled or disabled)</span>
-						</div>
-					</div>
+					
 
 										<!-- username -->
 					<div class="form-group">
@@ -102,6 +106,8 @@
 							<span class="help-block">Phone of the admin</span>
 						</div>
 					</div>
+					
+					
 
 				
 					
@@ -115,11 +121,16 @@
 							<a class="btn btn-danger" th:href="@{/admin/adminList(id=${adminUser.id})}">Cancel</a>
 						</div>
 					</div>
+				</div>
+				
+				</div>
+				
+					
 
 
 
 
-					</fieldset>
+				
 					</form>
 
                 </div>
