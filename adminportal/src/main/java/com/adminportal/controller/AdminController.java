@@ -6,7 +6,11 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -72,6 +76,68 @@ public class AdminController {
 		
 		return "redirect:/admin/adminList";
 	}
+	
+	
+	@RequestMapping("/changePassword")
+	public String changePassword(Principal principal, Model model) {
+		
+		
+		User adminUser = adminService.findAdminByUsername(principal.getName());
+		
+		model.addAttribute("adminUser", adminUser);
+		
+		return "changePassword";
+	}
+	
+	
+	 // change password post
+		@RequestMapping(value = "/changePassword",method=RequestMethod.POST)
+		public String updateUserInfo(
+				 @ModelAttribute("user") User user,
+				 @ModelAttribute("newPassword") String newPassword,
+				 @ModelAttribute("confirmPassword") String confirmPassword,
+				 Principal principal,
+				 Model model
+				 
+				) throws Exception {
+			
+			User adminUser = adminService.findAdminByUsername(principal.getName());
+		
+			if(adminUser == null) {
+				throw new Exception("Admin not found!");
+				
+			}
+			
+			
+			// update Password
+			
+			if(newPassword !=null & !newPassword.isEmpty() & !newPassword.equals("")) {
+				BCryptPasswordEncoder passwordEncoder = SecurityUtility.passwordEncoder();
+				String dbPassword = adminUser.getPassword();
+				if(passwordEncoder.matches(user.getPassword(), dbPassword) & newPassword.equals(confirmPassword)) {
+					adminUser.setPassword(passwordEncoder.encode(newPassword));
+					
+				}else {
+					model.addAttribute("incorrectPassword", true);
+					model.addAttribute("adminUser",adminUser);
+					return "changePassword";
+					
+				}
+				
+			}
+			
+		    
+			adminService.save(adminUser);
+			model.addAttribute("updateSuccess",true);
+			model.addAttribute("adminUser",adminUser);
+			
+			
+			
+		
+			
+			return "changePassword";
+			
+		}
 	
 	@RequestMapping(value="/add",method=RequestMethod.GET)
 	public String addAdmin(Model model,Principal principal) {
