@@ -32,6 +32,7 @@ public class AdminportalApplication implements CommandLineRunner{
 		user1.setUsername("superadmin");
 		user1.setPassword(SecurityUtility.passwordEncoder().encode("admin"));
 		user1.setEmail("superadmin@gmail.com");
+		user1.setAuthorityId(1);
 		
 		user1.setRoleId(1);
 		Set<UserRole> userRoles = new HashSet<>();

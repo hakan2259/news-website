@@ -52,7 +52,7 @@
 
 <input type="hidden" name="id" th:value="${user.id}" />
 <div class="alert alert-success" th:if="${updateSuccess}">User info updated.</div>
-
+<div class="alert alert-danger" th:if="${incorrectPassword}">İncorrect Password.</div>
 <label>First Name</label>
 <input type="text" name="firstname" id="firstName" th:value="${user.firstname}">
 </div>
@@ -75,15 +75,14 @@
 
 <div class="single-input-fields">
 <label>* New Password</label>
-<input type="password" name="newPassword" id="txtNewPassword">
+<input type="password" name="newPassword" id="newPassword">
 
 </div>
 
 <div class="single-input-fields">
 <label>* Confirm Password</label>
-<input type="password" id="txtConfirmPassword">
+<input type="password" id="confirmPassword" name="confirmPassword">
 </div>
-<span id="checkPasswordMatch" style="color:red;"></span>
 
 </div>
 
@@ -96,31 +95,7 @@
 </div>
 
 </main>
-<script>
 
-function checkPasswordMatch(){
-	var password = $("#txtNewPassword").val();
-	var confirmPassword = $("#txtConfirmPassword").val();
-	
-	if(password == "" && confirmPassword == ""){
-		$("#checkPasswordMatch").html("");
-		$("#updateUserInfoButton").prop("disabled",false);
-		
-	}else{
-		if(password != confirmPassword){
-			$("#checkPasswordMatch").html("Passwords do not match!");
-			$("#updateUserInfoButton").prop("disabled",true);
-		}else if(password == confirmPassword){
-			$("#checkPasswordMatch").html("Passwords match");
-			$("#updateUserInfoButton").prop("disabled",false);
-		}
-	}
-}
-$(document).ready(function(){
-	$("#txtNewPassword").keyup(checkPasswordMatch)
-})
-
-</script>
 
 </body>
 </html>

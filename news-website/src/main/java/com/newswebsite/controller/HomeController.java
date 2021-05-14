@@ -374,6 +374,7 @@ public class HomeController {
 	public String updateUserInfo(
 			 @ModelAttribute("user") User user,
 			 @ModelAttribute("newPassword") String newPassword,
+			 @ModelAttribute("confirmPassword") String confirmPassword,
 			 Model model
 			 
 			) throws Exception {
@@ -404,7 +405,7 @@ public class HomeController {
 		if(newPassword !=null & !newPassword.isEmpty() & !newPassword.equals("")) {
 			BCryptPasswordEncoder passwordEncoder = SecurityUtility.passwordEncoder();
 			String dbPassword = currentUser.getPassword();
-			if(passwordEncoder.matches(user.getPassword(), dbPassword)) {
+			if(passwordEncoder.matches(user.getPassword(), dbPassword) & newPassword.equals(confirmPassword)) {
 				currentUser.setPassword(passwordEncoder.encode(newPassword));
 				
 			}else {

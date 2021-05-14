@@ -30,8 +30,8 @@ public class NewswebsiteApplication implements CommandLineRunner  {
 		User user1 = new User();
 		user1.setFirstname("John");
 		user1.setLastname("Adams");
-		user1.setUsername("j");
-		user1.setPassword(SecurityUtility.passwordEncoder().encode("p"));
+		user1.setUsername("j59");
+		user1.setPassword(SecurityUtility.passwordEncoder().encode("59"));
 		user1.setEmail("jAdams@gmail.com");
 		user1.setRoleId(2);
 		Set<UserRole> userRoles = new HashSet<>();
