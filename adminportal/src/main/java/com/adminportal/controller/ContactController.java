@@ -1,5 +1,6 @@
 package com.adminportal.controller;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,12 +11,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.adminportal.domain.Contact;
+import com.adminportal.domain.User;
 import com.adminportal.repository.ContactRepository;
+import com.adminportal.service.AdminService;
 import com.adminportal.service.ContactService;
 
 @Controller
 @RequestMapping("/contact")
 public class ContactController {
+	@Autowired
+	private AdminService adminService;
 	
 	@Autowired
 	private ContactRepository contactRepository;
@@ -25,9 +30,14 @@ public class ContactController {
 	
 	
 	@RequestMapping("/contactList")
-	public String contactList(Model model) {
+	public String contactList(Model model,Principal principal) {
 		List<Contact> contactList = contactService.findAll();
 		model.addAttribute("contactList",contactList);
+		
+		User adminUser = adminService.findAdminByUsername(principal.getName());
+		if(adminUser !=null) {
+			model.addAttribute("adminUser",adminUser);
+		}
 	
 		return "contactList";
 	}

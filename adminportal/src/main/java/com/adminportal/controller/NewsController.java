@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.security.Principal;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
@@ -26,7 +27,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.adminportal.domain.Category;
 import com.adminportal.domain.News;
+import com.adminportal.domain.User;
 import com.adminportal.repository.NewsRepository;
+import com.adminportal.service.AdminService;
 import com.adminportal.service.CategoryService;
 import com.adminportal.service.NewsService;
 
@@ -35,7 +38,9 @@ import com.adminportal.service.NewsService;
 public class NewsController {
 
 	@Autowired
-	NewsRepository newsRepository;
+	private AdminService adminService;
+	@Autowired
+	private NewsRepository newsRepository;
 	
 	@Autowired
 	private NewsService newsService;
@@ -46,13 +51,16 @@ public class NewsController {
 	
 	
 	@RequestMapping(value="/add",method=RequestMethod.GET)
-	public String addNews(Model model) {
+	public String addNews(Model model, Principal principal) {
 		News news = new News();
 		
 		List<Category> categoryList = categoryService.findAllActiveByCategory();
 		
 		
-		
+		User adminUser = adminService.findAdminByUsername(principal.getName());
+		if(adminUser !=null) {
+			model.addAttribute("adminUser",adminUser);
+		}
 		model.addAttribute("news",news);
 		model.addAttribute("categoryList",categoryList);
 		
@@ -92,9 +100,14 @@ public class NewsController {
 	}
 	
 	@RequestMapping("/newsInfo")
-	public String newsInfo(@RequestParam("id") Long id, Model model) {
+	public String newsInfo(@RequestParam("id") Long id, Model model,Principal principal) {
 		News news = newsService.findOne(id);
 		model.addAttribute("news",news);
+		
+		User adminUser = adminService.findAdminByUsername(principal.getName());
+		if(adminUser !=null) {
+			model.addAttribute("adminUser",adminUser);
+		}
 		
 		return "/news/newsInfo";
 		
@@ -103,12 +116,17 @@ public class NewsController {
 	}
 	
 	@RequestMapping("/updateNews")
-	public String updateBook(@RequestParam("id") Long id, Model model) {
+	public String updateBook(@RequestParam("id") Long id, Model model,Principal principal) {
 		News news = newsService.findOne(id);
 		List<Category> categoryList = categoryService.findAllActiveByCategory();
 
 		model.addAttribute("news", news);
 		model.addAttribute("categoryList", categoryList);
+		
+		User adminUser = adminService.findAdminByUsername(principal.getName());
+		if(adminUser !=null) {
+			model.addAttribute("adminUser",adminUser);
+		}
 		return "/news/updateNews";
 	}
 	
@@ -144,10 +162,14 @@ public class NewsController {
 	
 	
 	@RequestMapping("/newsList")
-	public String newsList(Model model) {
+	public String newsList(Model model, Principal principal) {
 		List<News> newsList = newsService.findAll();
 		model.addAttribute("newsList",newsList);
 		
+		User adminUser = adminService.findAdminByUsername(principal.getName());
+		if(adminUser !=null) {
+			model.addAttribute("adminUser",adminUser);
+		}
 		
 		return "/news/newsList";
 	}

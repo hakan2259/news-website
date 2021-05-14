@@ -1,5 +1,6 @@
 package com.adminportal.controller;
 
+import java.security.Principal;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,12 +15,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.adminportal.domain.Category;
 import com.adminportal.domain.TrendingTopic;
+import com.adminportal.domain.User;
 import com.adminportal.repository.TrendingTopicRepository;
+import com.adminportal.service.AdminService;
 import com.adminportal.service.TrendingTopicService;
 
 @Controller
 @RequestMapping("/trendingTopic")
 public class TrendingTopicController {
+	
+	@Autowired
+	private AdminService adminService;
 	
 	@Autowired
 	private TrendingTopicRepository trendingTopicRepository;
@@ -30,9 +36,15 @@ public class TrendingTopicController {
 	
 	
 	@RequestMapping(value="/add",method=RequestMethod.GET)
-	public String addTrendingTopic(Model model) {
+	public String addTrendingTopic(Model model,Principal principal) {
 		TrendingTopic trendingTopic = new TrendingTopic();
 		model.addAttribute("trendingTopic",trendingTopic);
+		
+		
+		User adminUser = adminService.findAdminByUsername(principal.getName());
+		if(adminUser !=null) {
+			model.addAttribute("adminUser",adminUser);
+		}
 		return "/trendingTopic/addTrendingTopic";
 	}
 	@RequestMapping(value="/add",method=RequestMethod.POST)
@@ -45,18 +57,28 @@ public class TrendingTopicController {
 	}
 	
 	@RequestMapping("/trendingTopicList")
-	public String trendingTopicList(Model model) {
+	public String trendingTopicList(Model model,Principal principal) {
 		List<TrendingTopic> trendingTopicList = trendingTopicService.findAll();
 		model.addAttribute("trendingTopicList",trendingTopicList);
+		
+		User adminUser = adminService.findAdminByUsername(principal.getName());
+		if(adminUser !=null) {
+			model.addAttribute("adminUser",adminUser);
+		}
 	
 		return "/trendingTopic/trendingTopicList";
 	}
 	
 	
 	@RequestMapping("/trendingTopicInfo")
-	public String newsInfo(@RequestParam("id") Long id, Model model) {
+	public String newsInfo(@RequestParam("id") Long id, Model model,Principal principal) {
 		TrendingTopic trendingTopic = trendingTopicService.findOne(id);
 		model.addAttribute("trendingTopic",trendingTopic);
+		
+		User adminUser = adminService.findAdminByUsername(principal.getName());
+		if(adminUser !=null) {
+			model.addAttribute("adminUser",adminUser);
+		}
 		
 		return "/trendingTopic/trendingTopicInfo";
 		
@@ -65,10 +87,15 @@ public class TrendingTopicController {
 	}
 	
 	@RequestMapping("/updateTrendingTopic")
-	public String updateTrendingTopic(@RequestParam("id") Long id, Model model) {
+	public String updateTrendingTopic(@RequestParam("id") Long id, Model model,Principal principal) {
 		TrendingTopic trendingTopic = trendingTopicService.findOne(id);
 
 		model.addAttribute("trendingTopic", trendingTopic);
+		
+		User adminUser = adminService.findAdminByUsername(principal.getName());
+		if(adminUser !=null) {
+			model.addAttribute("adminUser",adminUser);
+		}
 	
 		return "/trendingTopic/updateTrendingTopic";
 	}

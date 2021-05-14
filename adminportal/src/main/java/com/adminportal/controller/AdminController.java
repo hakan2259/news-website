@@ -6,6 +6,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.adminportal.domain.Category;
+
 import com.adminportal.domain.User;
 import com.adminportal.repository.AdminRepository;
 import com.adminportal.service.AdminService;
@@ -37,9 +38,14 @@ public class AdminController {
 	
 	
 	@RequestMapping("/adminList")
-	public String adminList(Model model) {
+	public String adminList(Model model,Principal principal) {
 		List<User> adminList = adminService.findByAdminRoleId(1);
 		model.addAttribute("adminList",adminList);
+		
+		User adminUser = adminService.findAdminByUsername(principal.getName());
+		if(adminUser !=null) {
+			model.addAttribute("adminUser",adminUser);
+		}
 	
 		return "adminList";
 	}
@@ -52,6 +58,7 @@ public class AdminController {
 		User adminUser = adminService.findAdminByUsername(principal.getName());
 		
 		model.addAttribute("adminUser", adminUser);
+		
 	
 		return "profileAdmin";
 	}
@@ -67,9 +74,13 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value="/add",method=RequestMethod.GET)
-	public String addAdmin(Model model) {
-		User adminUser = new User();
-		model.addAttribute("adminUser",adminUser);
+	public String addAdmin(Model model,Principal principal) {
+	
+		
+		User adminUser = adminService.findAdminByUsername(principal.getName());
+		if(adminUser !=null) {
+			model.addAttribute("adminUser",adminUser);
+		}
 		return "addAdmin";
 	}
 	

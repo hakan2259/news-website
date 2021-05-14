@@ -1,6 +1,7 @@
 package com.adminportal.controller;
 
 
+import java.security.Principal;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,8 +18,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.adminportal.domain.Category;
 import com.adminportal.domain.Contact;
 import com.adminportal.domain.News;
+import com.adminportal.domain.User;
 import com.adminportal.repository.CategoryRepository;
 import com.adminportal.repository.ContactRepository;
+import com.adminportal.service.AdminService;
 import com.adminportal.service.CategoryService;
 import com.adminportal.service.ContactService;
 import com.adminportal.service.TrendingTopicService;
@@ -29,21 +32,26 @@ public class CategoryController {
 	@Autowired
 	private CategoryRepository categoryRepository;
 	
+	@Autowired
+	private AdminService adminService;
+	
+	
 	
 	
 	
 	@Autowired
 	private CategoryService categoryService;
 	
-
-	
-	
-	
-	
 	@RequestMapping(value="/add",method=RequestMethod.GET)
-	public String addCategory(Model model) {
+	public String addCategory(Model model,Principal principal) {
 		Category category = new Category();
 		model.addAttribute("category",category);
+		
+		
+		User adminUser = adminService.findAdminByUsername(principal.getName());
+		if(adminUser !=null) {
+			model.addAttribute("adminUser",adminUser);
+		}
 		return "/category/addCategory";
 	}
 	@RequestMapping(value="/add",method=RequestMethod.POST)
@@ -56,9 +64,14 @@ public class CategoryController {
 	}
 	
 	@RequestMapping("/categoryList")
-	public String categoryList(Model model) {
+	public String categoryList(Model model,Principal principal) {
 		List<Category> categoryList = categoryService.findAll();
 		model.addAttribute("categoryList",categoryList);
+		
+		User adminUser = adminService.findAdminByUsername(principal.getName());
+		if(adminUser !=null) {
+			model.addAttribute("adminUser",adminUser);
+		}
 	
 		return "/category/categoryList";
 	}
@@ -67,9 +80,14 @@ public class CategoryController {
 	
 	
 	@RequestMapping("/categoryInfo")
-	public String newsInfo(@RequestParam("id") Long id, Model model) {
+	public String newsInfo(@RequestParam("id") Long id, Model model,Principal principal) {
 		Category category = categoryService.findOne(id);
 		model.addAttribute("category",category);
+		
+		User adminUser = adminService.findAdminByUsername(principal.getName());
+		if(adminUser !=null) {
+			model.addAttribute("adminUser",adminUser);
+		}
 		
 		return "/category/categoryInfo";
 		
@@ -78,10 +96,15 @@ public class CategoryController {
 	}
 	
 	@RequestMapping("/updateCategory")
-	public String updateCategory(@RequestParam("id") Long id, Model model) {
+	public String updateCategory(@RequestParam("id") Long id, Model model, Principal principal) {
 		Category category = categoryService.findOne(id);
 
 		model.addAttribute("category", category);
+		
+		User adminUser = adminService.findAdminByUsername(principal.getName());
+		if(adminUser !=null) {
+			model.addAttribute("adminUser",adminUser);
+		}
 	
 		return "/category/updateCategory";
 	}

@@ -1,5 +1,6 @@
 package com.adminportal.controller;
 
+import java.security.Principal;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,6 +17,7 @@ import com.adminportal.domain.Comment;
 import com.adminportal.domain.Contact;
 import com.adminportal.domain.User;
 import com.adminportal.repository.CommentRepository;
+import com.adminportal.service.AdminService;
 import com.adminportal.service.CommentService;
 
 
@@ -25,25 +27,36 @@ import com.adminportal.service.CommentService;
 public class CommentController {
 
 	@Autowired
+	private AdminService adminService;
+	
+	@Autowired
 	private CommentRepository commentRepository;
 	
 	@Autowired
 	private CommentService commentService;
 	
 	@RequestMapping("/commentList")
-	public String commentList(Model model) {
+	public String commentList(Model model,Principal principal) {
 		
 		List<Comment> commentList = commentService.findAll();
 		model.addAttribute("commentList",commentList);
+		
+		User adminUser = adminService.findAdminByUsername(principal.getName());
+		if(adminUser !=null) {
+			model.addAttribute("adminUser",adminUser);
+		}
 		
 		return "commentList";
 	}
 	
 	@RequestMapping("/updateComment")
-	public String updateUser(@RequestParam("id") Long id, Model model) {
+	public String updateUser(@RequestParam("id") Long id, Model model,Principal principal) {
 		Comment comment = commentService.findOne(id);
 
-		
+		User adminUser = adminService.findAdminByUsername(principal.getName());
+		if(adminUser !=null) {
+			model.addAttribute("adminUser",adminUser);
+		}
 		model.addAttribute("comment", comment);
 	
 		return "updateComment";

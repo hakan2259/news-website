@@ -38,8 +38,16 @@ public class User implements UserDetails{
 	private boolean enabled=true;
 
 	private int roleId;
+	private int authorityId;
 	
 	
+	
+	public int getAuthorityId() {
+		return authorityId;
+	}
+	public void setAuthorityId(int authorityId) {
+		this.authorityId = authorityId;
+	}
 	public int getRoleId() {
 		return roleId;
 	}
