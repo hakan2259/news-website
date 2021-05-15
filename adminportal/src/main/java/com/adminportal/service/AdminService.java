@@ -19,8 +19,9 @@ public interface AdminService {
    
    List<User> findByAdminRoleId(int role_id);
    User findAdminByUsername(String username);
-
    
+   
+   User createUser(User user, Set<UserRole> userRoles) throws Exception;
    User findOne(Long id);
    
    

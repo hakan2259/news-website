@@ -1,7 +1,9 @@
 package com.adminportal.controller;
 
 import java.security.Principal;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -19,10 +21,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
+
+
 import com.adminportal.domain.User;
 import com.adminportal.repository.AdminRepository;
 import com.adminportal.service.AdminService;
 import com.adminportal.utility.SecurityUtility;
+import com.adminportal.domain.security.Role;
+import com.adminportal.domain.security.UserRole;
 
 
 
@@ -151,12 +157,28 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value="/add",method=RequestMethod.POST)
-	public String addCategoryPost(@ModelAttribute("user") User user, HttpServletRequest request) {
+	public String addCategoryPost(@ModelAttribute("user") User user, HttpServletRequest request){
 		user.setRoleId(1);
 		String encryptedPassword = SecurityUtility.passwordEncoder().encode(user.getPassword());
 		user.setPassword(encryptedPassword);
 		
+		Set<UserRole> userRoles = new HashSet<>();
+		Role role = new Role();
+		role.setRoleId(1);
+		role.setName("ROLE_ADMIN");
+		
+		userRoles.add(new UserRole(user, role));
+		try {
+			adminService.createUser(user, userRoles);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		adminService.save(user);
+		
+		
+		
 		
 		return "redirect:/admin/adminList";
 		
