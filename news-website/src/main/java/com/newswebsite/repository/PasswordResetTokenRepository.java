@@ -25,5 +25,9 @@ public interface PasswordResetTokenRepository extends JpaRepository<PasswordRese
 	void deleteAllExpiredSince(Date now);
 	
 	
+	@Query(value = "select * from password_reset_token p where p.user_id = ?1",nativeQuery = true)
+	PasswordResetToken findPasswordResetTokenById(Long userId);
+	
+	
 	
 }

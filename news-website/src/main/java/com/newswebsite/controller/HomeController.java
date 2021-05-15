@@ -43,11 +43,13 @@ import com.newswebsite.domain.User;
 import com.newswebsite.domain.security.PasswordResetToken;
 import com.newswebsite.domain.security.Role;
 import com.newswebsite.domain.security.UserRole;
+import com.newswebsite.repository.UserRepository;
 import com.newswebsite.service.CategoryService;
 import com.newswebsite.service.CommentService;
 import com.newswebsite.service.ContactService;
 import com.newswebsite.service.HomeService;
 import com.newswebsite.service.NewsService;
+import com.newswebsite.service.PasswordResetTokenService;
 import com.newswebsite.service.SettingsService;
 import com.newswebsite.service.TrendingTopicService;
 import com.newswebsite.service.UserService;
@@ -91,12 +93,18 @@ public class HomeController {
 	@Autowired
 	private SettingsService settingsService;
 	
+	@Autowired
+	private PasswordResetTokenService passwordResetTokenService;
+	
+	
 	
 	
 	
 	
 	@RequestMapping("/")
-	public String index(Model model) {
+	public String index(Model model,Principal principal) {
+		
+		
 		
 		
 		
@@ -120,6 +128,13 @@ public class HomeController {
 		List<News> findHealthByNewsList = homeService.findHealthByNews();
 		List<News> findBookArtByNewsList = homeService.findBookArtByNews();
 		
+		if(principal !=null) {
+			User user = userService.findByUsername(principal.getName());
+			PasswordResetToken passwordResetToken = passwordResetTokenService.findPasswordResetTokenById(user.getId());
+			model.addAttribute("passwordResetToken",passwordResetToken);
+		}
+	
+		
 		model.addAttribute("firstSixByCategoryList",firstSixByCategoryList);
 		model.addAttribute("afterSixByCategoryList",afterSixByCategoryList);
 		model.addAttribute("trendingTopicList",trendingTopicList);
@@ -135,6 +150,8 @@ public class HomeController {
 		model.addAttribute("findHealthByNewsList",findHealthByNewsList);
 		model.addAttribute("findBookArtByNewsList",findBookArtByNewsList);
 		model.addAttribute("findAllCategoryList",findAllCategoryList);
+		
+		
 
 		
 		model.addAttribute("settings",settings);

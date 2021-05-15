@@ -7,6 +7,7 @@ import com.newswebsite.domain.User;
 
 
 
+
 public interface UserRepository extends JpaRepository<User, Long>{
 	User findByUsername(String username);
 	User findByEmail(String email);
@@ -14,5 +15,7 @@ public interface UserRepository extends JpaRepository<User, Long>{
 
 	@Query(value = "select u from User u where u.id = ?1")
 	User findOne(Long id);
+	
+	
 	
 }
