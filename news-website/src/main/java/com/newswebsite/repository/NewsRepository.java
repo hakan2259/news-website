@@ -17,10 +17,10 @@ public interface NewsRepository extends JpaRepository<News, Long> {
 	@Query(value="select n from News n where n.id = ?1")
 	public News findOne(Long id);
 	
-	@Query(value="select * from News n where n.category = ?1 and n.news_type='Normal'",nativeQuery = true)
+	@Query(value="select * from News n where n.category = ?1 and n.news_type <> 'Vip News' order by id desc",nativeQuery = true)
 	public List<News> findNewsByCategoryName(String name);
 	
-	@Query(value="select * from News n where n.news_type='Vip News'",nativeQuery = true)
+	@Query(value="select * from News n where n.news_type='Vip News' order by id desc",nativeQuery = true)
 	public List<News> findAllVipNews(String name);
 	
 	List<News> findByTitleContaining(String title);

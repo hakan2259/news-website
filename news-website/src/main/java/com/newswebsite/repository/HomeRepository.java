@@ -36,16 +36,16 @@ public interface HomeRepository extends JpaRepository<News, Long> {
 	public List<News> findPopularLast6ByNews();
 	
 	
-	@Query(value="select * from news where active = 1 and news_type = 'Normal' and category = 'Bilim' order by id desc limit 5,5",nativeQuery = true)
+	@Query(value="select * from news where active = 1 and news_type <> 'Vip News' and category = 'Bilim' order by id desc limit 5,5",nativeQuery = true)
 	public List<News> findScienceByNews();
 	
-	@Query(value="select * from news where active = 1 and news_type = 'Normal' and category = 'Teknoloji' order by id desc limit 5,5",nativeQuery = true)
+	@Query(value="select * from news where active = 1 and news_type <> 'Vip News' and category = 'Teknoloji' order by id desc limit 5,5",nativeQuery = true)
 	public List<News> findTechByNews();
 	
-	@Query(value="select * from news where active = 1 and news_type = 'Normal' and category = 'Sağlık' order by id desc limit 5,5",nativeQuery = true)
+	@Query(value="select * from news where active = 1 and news_type <> 'Vip News' and category = 'Sağlık' order by id desc limit 5,5",nativeQuery = true)
 	public List<News> findHealthByNews();
 	
-	@Query(value="select * from news where active = 1 and news_type = 'Normal' and category = 'Kitap Sanat' order by id desc limit 5,5",nativeQuery = true)
+	@Query(value="select * from news where active = 1 and news_type <> 'Vip News' and category = 'Kitap Sanat' order by id desc limit 5,5",nativeQuery = true)
 	public List<News> findBookArtByNews();
 	
 	

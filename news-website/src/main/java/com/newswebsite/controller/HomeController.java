@@ -199,10 +199,7 @@ public class HomeController {
 			
 			) {
 		
-		List<News> newsByCategoryNameList = newsService.findNewsByCategoryName(name);
-		Settings settings = settingsService.findBySettings();
-        List<Category> findAllCategoryList = categoryService.findAllCategory();
-		List<News> findPopularLast6ByNewsList = homeService.findPopularLast6ByNews();
+		
 		
 		
 		 if(principal !=null) {
@@ -210,6 +207,11 @@ public class HomeController {
 				PasswordResetToken passwordResetToken = passwordResetTokenService.findPasswordResetTokenById(user.getId());
 				model.addAttribute("passwordResetToken",passwordResetToken);
 			}
+		 
+		 List<News> newsByCategoryNameList = newsService.findNewsByCategoryName(name);
+			Settings settings = settingsService.findBySettings();
+	        List<Category> findAllCategoryList = categoryService.findAllCategory();
+			List<News> findPopularLast6ByNewsList = homeService.findPopularLast6ByNews();
 
 		
 		model.addAttribute("newsByCategoryNameList",newsByCategoryNameList);
