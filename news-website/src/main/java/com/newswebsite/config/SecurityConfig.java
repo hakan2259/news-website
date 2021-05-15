@@ -71,7 +71,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			"/forgetPassword",
 			"/login",
 			"/newsDetail",
-			"/category"
+			"/category",
+			"/searchNews"
 			
 			
 	};

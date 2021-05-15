@@ -23,6 +23,9 @@ public interface NewsRepository extends JpaRepository<News, Long> {
 	@Query(value="select * from News n where n.news_type='Vip News'",nativeQuery = true)
 	public List<News> findAllVipNews(String name);
 	
+	List<News> findByTitleContaining(String title);
+	
+	
 	
 
 }

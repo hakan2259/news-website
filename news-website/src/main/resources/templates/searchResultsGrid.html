@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from html.coolorize.com/magazinize/1.0.0/newspaper/search-results-grid.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 08 Mar 2021 21:45:11 GMT -->
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather%7CRoboto:400,400i,700,700" rel="stylesheet">
+    <script src="../assets/js/538d9daa14.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/584c55a7ed.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="../assets/css/magazinize-newspaper.css">
+    <title>
+      Search Results
+    </title>
+  </head>
+  <body class="">
+   <!-- HEADER --> 
+    <header class="header sections sections__header">
+
+      <div class="bg sections-bg header-bg position-absolute"></div>
+
+  <nav class="navbar navbar__middle navbar-expand navbar-light">
+
+    <div class="navbar-container container-fluid">
+
+      <div class="collapse navbar-collapse flex-wrap align-items-start">
+    
+        <ul class="navbar-nav navbar-nav--left w-50 w-md-25 order-1 my-1">
+          
+
+
+
+<!-- Menus Toggle -->
+<li class="nav-item dropdown allow-hover">
+  <a class="nav-link dropdown-toggle" href="#" id="menusDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-bars toggle-icon" aria-hidden="true"></i></a>
+  <div class="dropdown-menu" role="menu" aria-labelledby="menusDropdown">
+    
+    <div class="dropdown-container container-xl">
+
+    <span data-th-each="findAllCategory : ${findAllCategoryList}">
+    <a class="dropdown-item col-6" th:href="@{/category?name=}+${findAllCategory.name}" th:text="${findAllCategory.name}">Featured</a>
+   </span>
+
+ 
+
+
+    </div>
+    <!--/.dropdown-container.container-xl-->
+
+  </div>
+  <!--/.dropdown-menu.dropdown-menu-right-->
+</li>
+<!--/.nav-item-->
+<!-- Menus Toggle -->
+
+         
+
+<!--/.nav-item-->
+          
+        </ul>
+
+        <ul class="navbar-nav navbar-nav--right w-50 w-md-25 justify-content-end text-right order-1 order-md-3 my-1">
+          
+            
+  
+    <li class="nav-item">
+      
+        <a sec:authorize="isAnonymous()" class="text-uppercase btn btn-link btn-sm my-1" th:href="@{/login}"><span class="d-inline-block">Sign&nbsp;In</span></a>
+      
+    </li>
+  
+<li class="nav-item">
+  
+  <a sec:authorize="isAuthenticated()" class="text-uppercase btn btn-outline-primary btn-sm my-1" th:href="@{/myProfile}"><span class="d-inline-block">My&nbsp;Profile</span></a>
+</li>
+
+
+<li class="nav-item">
+  
+  <a sec:authorize="isAuthenticated()" class="text-uppercase btn btn-outline-primary btn-sm my-1" th:href="@{/logout}"><span class="d-inline-block">Logout</span></a>
+</li>
+
+          
+        </ul>
+
+        <a th:href="@{/}" class="navbar-brand mx-auto order-2 my-2"><img alt="Magazinize" th:src="#{adminPath}+@{/assets/img/}+${settings.smallLogo}"></a>
+      
+      </div>
+
+      
+        <hr class="divider navbar-divider">
+      
+
+    </div>
+    <!-- /.navbar-container container-fluid -->
+    
+  </nav>
+  <!-- /.navbar navbar__middle navbar-expand navbar-light -->
+ </header>
+    <!-- /.header --> 
+   <!-- HEADER --> 
+   
+    <main class="main sections sections__main">
+      <div class="bg sections-bg main-bg position-absolute"></div>
+      <div id="heroSection" class="section section__hero container-xl section__default">
+        <div class="bg position-absolute section-bg"></div>
+        <hr class="divider section-divider d-none">
+        <div class="section-inner">
+          <div class="section-body">
+            <h1 class="page-title">
+              Search Results
+            </h1>
+            <form id="searchResultForm" th:action="@{/searchNews}" method="post" class="mt-3 w-100" name="searchResultForm">
+              <div class="input-group">
+                <input type="text" name="keyword" class="form-control" placeholder="Keyword">
+                <div class="input-group-append">
+                  <button class="btn btn btn-primary" type="submit">Search</button>
+                </div>
+              </div>
+            </form>
+            
+            
+          </div><!-- /.section-body -->
+        </div><!-- /.section-inner -->
+        <div class="alert alert-info mt-3" th:if="${emptyList}">
+         No news found. Search for another news!
+        </div>
+      </div><!-- /#heroSection.section section__hero container-xl section__default-->
+      
+     
+      <div id="multicolssection1" class="section container-xl section__default">
+        <div class="bg position-absolute section-bg"></div>
+        <hr class="divider section-divider d-none">
+        <div class="section-inner">
+          <div class="sections section_sections row">
+           
+            <div id="searchResultsSection" class="section col-12 col-lg-8 col-xl-9 section__default">
+              <div class="bg position-absolute section-bg"></div>
+              <hr class="divider section-divider">
+              <div class="section-inner">
+                <div class="section-body">
+                  <div class="posts posts__sumrys row sumrys__divider">
+                    
+                    
+                    <!-- ARTİCLE -->
+                    <article class="post post__default post__sumry sumry__vert size-sm col-6 col-xl-4 sumry__valign-none" data-th-each="news : ${newsList}">
+                      <div class="sumry-inner">
+                        <hr class="divider sumry-divider">
+                        <div class="sumry-body">
+                          <figure class="figure post-thumbnail sumry-thumbnail">
+                                  <a th:href="@{/newsDetail?id=}+${news.id}"><img th:src="#{adminPath}+@{/assets/img/news/}+${news.id}+'.jpg'" class="img w-100" alt="Image"></a>
+                          </figure>
+                          <div class="post-content sumry-content">
+                            <div class="post-category text-uppercase">
+                                <span th:text="${news.category}" class="post-category-a"></span> 
+                            </div><!-- /.post-meta post-category text-uppercase -->
+                            <h3 class="post-title sumry-title">
+                                <a th:href="@{/newsDetail?id=}+${news.id}" class="post-title-a sumry-title-a" th:text="${news.title}"></a>
+                            </h3>
+                            <div class="post-meta">
+                             <span class="post-author"><span class="post-meta-a" th:text="${news.author}"></span></span> <span class="post-meta-separator">&nbsp;â€¢&nbsp;</span> <span class="post-time"><span class="post-meta-a" th:text="${news.publicationDate}">
+
+                            </div>
+                          </div><!-- /.post-content sumry-content -->
+                        </div><!-- /.sumry-body -->
+                      </div><!-- /.sumry-inner -->
+                    </article><!-- /.post post__default post__sumry sumry__vert size-sm col-6 col-xl-4 sumry__valign-none-->
+                     <!-- ARTİCLE -->
+                    
+                    
+                    
+                    
+                  </div><!-- /.posts posts__sumrys row sumrys__divider -->
+                </div><!-- /.section-body -->
+                <footer class="section-footer mt-auto">
+                  <nav class="section-pagination" aria-label="Page navigation">
+                    <hr class="divider">
+                   
+                  </nav>
+                </footer><!-- /.section-footer -->
+              </div><!-- /.section-inner -->
+            </div><!-- /#searchResultsSection.section col-12 col-lg-8 col-xl-9 section__default-->
+          </div><!--/.sections section_sections row-->
+        </div><!-- /.section-inner -->
+      </div><!-- /#multicolssection1.section container-xl section__default-->
+    </main><!-- /.sections main-sections -->
+    <footer class="sections sections__footer">
+      <div class="bg sections-bg footer-bg position-absolute"></div>
+      <div id="footerSection" class="section pt-4 container-fluid section__default">
+        <div class="bg position-absolute section-bg"></div>
+        <hr class="divider section-divider">
+        <div class="section-inner">
+          <div class="section-body section-content">
+            <div class="row py-2">
+              <div class="col-12 col-lg">
+                <p class="mb-1">
+                  � 2021 HABER EKSTRA, LLC. All Rights Reserved.
+                </p>
+              </div><!--/.col-12 col-lg -->
+              <div class="col-12 col-lg">
+                <ul class="list-unstyled mb-0 d-flex justify-content-lg-end">
+                
+                  <li class="px-2 mb-1">
+                    <a class="" th:href="@{/contact}">Contact</a>
+                  </li>
+                  <li class="px-2 mb-1">
+                    <a class="" th:href="@{/login}">Sign In</a>
+                  </li>
+                </ul>
+              </div><!--/.col-12 col-lg -->
+            </div><!-- /.row -->
+          </div><!-- /.section-body -->
+        </div><!-- /.section-inner -->
+      </div><!-- /#footerSection.section pt-4 container-fluid section__default-->
+    </footer><!-- /.sections sections__footer -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="../assets/js/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> 
+    <script src="../assets/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script> 
+    <script src="../assets/js/magazinize.js"></script>
+  </body>
+
+<!-- Mirrored from html.coolorize.com/magazinize/1.0.0/newspaper/search-results-grid.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 08 Mar 2021 21:45:13 GMT -->
+</html>

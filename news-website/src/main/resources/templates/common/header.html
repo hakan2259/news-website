@@ -96,8 +96,11 @@ xmlns:sec="http://www.w3.org/1999/xhtml">
               </li>
               
               <li class="nav-item">
-                <a sec:authorize="isAuthenticated()" class="text-uppercase btn btn-link btn-sm my-1" th:href="@{/myProfile}"><span class="d-inline-block" sec:authentication="name"></span></a>
+                <a sec:authorize="isAuthenticated()" class="text-uppercase btn btn-link btn-sm my-1" th:href="@{/myProfile"><span class="d-inline-block" sec:authentication="name"></span></a>
               </li>
+              
+
+              
               
 
 
@@ -184,9 +187,9 @@ xmlns:sec="http://www.w3.org/1999/xhtml">
                 <a class="nav-link dropdown-toggle" href="#" id="searchFormDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-search" aria-hidden="true"></i></a>
                 <div class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="searchFormDropdown">
                   <div class="dropdown-container container-xl">
-                    <form id="searchForm" action="http://html.coolorize.com/magazinize/1.0.0/newspaper/search-results.html" method="get" class="form-inline flex-nowrap w-lg-75 mx-lg-auto" name="searchForm">
+                    <form id="searchForm" th:action="@{/searchNews}" method="post" class="form-inline flex-nowrap w-lg-75 mx-lg-auto" name="searchForm">
                       <div class="input-group w-100">
-                        <input type="text" name="search" class="form-control" placeholder="Keyword">
+                        <input type="text" name="keyword" class="form-control" placeholder="Keyword">
                         <div class="input-group-append">
                           <button type="submit" class="btn btn btn-primary"><i class="fas fa-search"></i></button>
                         </div>

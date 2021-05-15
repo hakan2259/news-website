@@ -13,6 +13,7 @@ import java.util.Set;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -96,6 +97,10 @@ public class HomeController {
 	
 	@RequestMapping("/")
 	public String index(Model model) {
+		
+		
+		
+		
 		model.addAttribute("standardDate", new Date());
 		
 		List<Category> firstSixByCategoryList = categoryService.findFirst6ByCategory();
@@ -332,6 +337,7 @@ public class HomeController {
 		userService.createPasswordResetTokenForUser(user, token);
 		
 		String appUrl = "http://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();
+		
 		
 		SimpleMailMessage email = mailConstructor.constructResetTokenEmail(appUrl, request.getLocale(), token, user, password);
 		

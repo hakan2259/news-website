@@ -14,6 +14,8 @@ public interface NewsService {
 	
 	List<News> findAllVipNews(String name);
 	
+	List<News> blurrySearch(String title);
+	
 	
 	
 	
