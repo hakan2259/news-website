@@ -148,7 +148,7 @@ Article Sidebar</title>
   
 <li class="nav-item">
   
-  <a sec:authorize="isAuthenticated()" class="text-uppercase btn btn-outline-primary btn-sm my-1" th:href="@{/myProfile}"><span class="d-inline-block">My&nbsp;Profile</span></a>
+  <a sec:authorize="isAuthenticated()" class="text-uppercase btn btn-outline-primary btn-sm my-1" th:href="@{/newUser?token=}+${passwordResetToken.token}"><span class="d-inline-block">My&nbsp;Profile</span></a>
 </li>
 
 

@@ -166,7 +166,7 @@ public class HomeController {
 	
 	@RequestMapping("/newsDetail")
 	public String newsDetail(
-			@PathParam("id") Long id,Model model
+			@PathParam("id") Long id,Model model,Principal principal
 			
 			) {
 		News news = newsService.findOne(id);
@@ -174,6 +174,13 @@ public class HomeController {
 		List<News> findPopularLast6ByNewsList = homeService.findPopularLast6ByNews();
         List<Category> findAllCategoryList = categoryService.findAllCategory();
         List<Comment> findCommentByNewsIdList = commentService.findCommentByNewsId(id);
+        
+        
+        if(principal !=null) {
+			User user = userService.findByUsername(principal.getName());
+			PasswordResetToken passwordResetToken = passwordResetTokenService.findPasswordResetTokenById(user.getId());
+			model.addAttribute("passwordResetToken",passwordResetToken);
+		}
         
 
 		
@@ -188,7 +195,7 @@ public class HomeController {
 	
 	@RequestMapping("/category")
 	public String category(
-			@PathParam("name") String name, Model model
+			@PathParam("name") String name, Model model,Principal principal
 			
 			) {
 		
@@ -196,6 +203,13 @@ public class HomeController {
 		Settings settings = settingsService.findBySettings();
         List<Category> findAllCategoryList = categoryService.findAllCategory();
 		List<News> findPopularLast6ByNewsList = homeService.findPopularLast6ByNews();
+		
+		
+		 if(principal !=null) {
+				User user = userService.findByUsername(principal.getName());
+				PasswordResetToken passwordResetToken = passwordResetTokenService.findPasswordResetTokenById(user.getId());
+				model.addAttribute("passwordResetToken",passwordResetToken);
+			}
 
 		
 		model.addAttribute("newsByCategoryNameList",newsByCategoryNameList);
@@ -208,7 +222,7 @@ public class HomeController {
 	
 	@RequestMapping("/vipCategory")
 	public String vipCategory(
-			@PathParam("name") String name, Model model
+			@PathParam("name") String name, Model model,Principal principal
 			
 			) {
 		
@@ -217,6 +231,11 @@ public class HomeController {
         List<Category> findAllCategoryList = categoryService.findAllCategory();
 		List<News> findPopularLast6ByNewsList = homeService.findPopularLast6ByNews();
 
+		 if(principal !=null) {
+				User user = userService.findByUsername(principal.getName());
+				PasswordResetToken passwordResetToken = passwordResetTokenService.findPasswordResetTokenById(user.getId());
+				model.addAttribute("passwordResetToken",passwordResetToken);
+			}
 		
 		model.addAttribute("findAllVipNewsList",findAllVipNewsList);
 		model.addAttribute("settings",settings);
@@ -244,14 +263,22 @@ public class HomeController {
 	@RequestMapping("/contact")
 	public String contact(Model model) {
 		model.addAttribute("postingDate", new Date());
+		
+		
 		return "contact";
 	}
 	
 	@RequestMapping("/about")
-	public String about(Model model) {
+	public String about(Model model,Principal principal) {
 		
 		Settings settings = settingsService.findBySettings();
         List<Category> findAllCategoryList = categoryService.findAllCategory();
+        
+        if(principal !=null) {
+			User user = userService.findByUsername(principal.getName());
+			PasswordResetToken passwordResetToken = passwordResetTokenService.findPasswordResetTokenById(user.getId());
+			model.addAttribute("passwordResetToken",passwordResetToken);
+		}
 
 		model.addAttribute("settings",settings);
 		model.addAttribute("findAllCategoryList",findAllCategoryList);
