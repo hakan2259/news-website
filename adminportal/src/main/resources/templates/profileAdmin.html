@@ -20,7 +20,7 @@
 
 
 
-					<form class="form-horizontal" th:action="@{/admin/updateAdmin}"
+					<form class="form-horizontal" th:action="@{/admin/profileAdmin}"
 						method="post">
 
 						<legend class="center-block">
@@ -29,10 +29,10 @@
 						</legend>
 						<hr>
 
-						<input hidden="hidden" name="id" th:value="${adminUser.id}" /> <input
-							hidden="hidden" name="roleId" th:value="${adminUser.id}" /> <input
-							hidden="hidden" name="password" th:value="${adminUser.password}" />
-
+						<input hidden="hidden" name="id" th:value="${adminUser.id}" /> 
+						<input hidden="hidden" name="roleId" th:value="${adminUser.roleId}" /> 
+						<input hidden="hidden" name="password" th:value="${adminUser.password}" />
+						<input hidden="hidden" name="authorityId" th:value="${adminUser.authorityId}" />
 						<div class="row">
 							<div class="col-md-4">
 								<img class="img-thumbnail"
@@ -49,7 +49,7 @@
 							<div class="col-md-8">
 								<!-- email -->
 								<div class="form-group">
-									<label class="col-md-2 control-label" for="title">*
+									<label class="col-md-2 control-label" for="email">*
 										Email</label>
 
 									<div class="col-md-8">

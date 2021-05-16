@@ -78,6 +78,7 @@ public class AdminController {
 	public String profileAdminPost(@ModelAttribute("user") User user,HttpServletRequest request) {
 		
 		user.setRoleId(1);
+		
 		adminService.save(user);
 		
 		return "redirect:/admin/adminList";

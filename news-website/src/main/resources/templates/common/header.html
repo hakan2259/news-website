@@ -202,7 +202,7 @@ xmlns:sec="http://www.w3.org/1999/xhtml">
                 <a class="nav-link dropdown-toggle" href="#" id="loginSIgnUpDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="far fa-user" aria-hidden="true"></i></a>
                 <div class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="loginSIgnUpDropdown">
                   <a sec:authorize="isAnonymous()" th:href="@{/login}" class="dropdown-item">Sign In</a> 
-                   <a sec:authorize="isAuthenticated()" th:href="@{/myProfile}" class="dropdown-item">My Profile</a> 
+                   <a sec:authorize="isAuthenticated()" th:href="@{/newUser?token=}+${passwordResetToken.token}" class="dropdown-item">My Profile</a> 
                   <a sec:authorize="isAnonymous()" th:href="@{/myAccount}" class="dropdown-item">Sign Up</a>
                        <a sec:authorize="isAuthenticated()" th:href="@{/logout}" class="dropdown-item">Logout</a>
                 </div>

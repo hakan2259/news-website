@@ -60,7 +60,7 @@ CREATE TABLE `category` (
 
 LOCK TABLES `category` WRITE;
 /*!40000 ALTER TABLE `category` DISABLE KEYS */;
-INSERT INTO `category` VALUES (14,_binary '','Koronavirüs'),(15,_binary '','Dünya'),(16,_binary '','Ekonomi'),(17,_binary '','Sağlık'),(18,_binary '','Teknoloji'),(19,_binary '','Eğlence'),(20,_binary '','Magazin'),(21,_binary '','Oyun'),(22,_binary '','Siyaset'),(143,_binary '\0','Kadın'),(215,_binary '','Bilim'),(221,_binary '','Eğitim'),(254,_binary '','Kitap Sanat');
+INSERT INTO `category` VALUES (14,_binary '','Koronavirüs'),(15,_binary '','Dünya'),(16,_binary '','Ekonomi'),(17,_binary '','Sağlık'),(18,_binary '','Teknoloji'),(19,_binary '','Eğlence'),(20,_binary '','Magazin'),(21,_binary '','Oyun'),(22,_binary '','Siyaset'),(491,_binary '','Spoorrr'),(143,_binary '\0','Kadın'),(215,_binary '','Bilim'),(221,_binary '','Eğitim'),(254,_binary '','Kitap Sanat');
 /*!40000 ALTER TABLE `category` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -88,7 +88,7 @@ CREATE TABLE `comment` (
 
 LOCK TABLES `comment` WRITE;
 /*!40000 ALTER TABLE `comment` DISABLE KEYS */;
-INSERT INTO `comment` VALUES (340,'dwad',322,'','',_binary '\0'),(342,'11 22 2 2',322,'','',_binary '\0'),(343,'bbbbbb',322,'11 Apr 2021 16:07','',_binary '\0'),(344,'hakan jonnnyyy',322,'11 Apr 2021 16:09','hkn2259',_binary '\0'),(345,'dadwada',322,'11 Apr 2021 16:10','hkn2259',_binary '\0'),(347,'2222',322,'11 Apr 2021 16:17','hkn2259',_binary '\0'),(348,'23123123123',322,'11 Apr 2021 16:24','hkn2259',_binary '\0'),(349,'bbbbb',322,'11 Apr 2021 16:24','hkn2259',_binary '\0'),(350,'dedededede',322,'11 Apr 2021 16:28','hkn2259',_binary '\0'),(351,'mmm',322,'11 Apr 2021 16:31','hkn2259',_binary '\0'),(352,'121313213132132',322,'11 Apr 2021 16:31','hkn2259',_binary '\0'),(353,'111',322,'11 Apr 2021 16:32','hkn2259',_binary '\0'),(354,'11\r\n1\r\n1\r\n1',322,'11 Apr 2021 16:33','hkn2259',_binary '\0'),(355,'awdawdawd',322,'11 Apr 2021 16:37','hkn2259',_binary '\0'),(356,'awdwad',322,'11 Apr 2021 16:37','hkn2259',_binary '\0'),(357,'awdawd',322,'11 Apr 2021 16:37','hkn2259',_binary '\0'),(358,'awdawd',322,'11 Apr 2021 16:38','hkn2259',_binary '\0'),(359,'dadaw',322,'11 Apr 2021 16:38','hkn2259',_binary '\0'),(360,'awdawd',322,'11 Apr 2021 16:38','hkn2259',_binary '\0'),(361,'awdw',322,'11 Apr 2021 16:38','hkn2259',_binary '\0'),(362,'dededw',321,'11 Apr 2021 16:44','hkn2259',_binary '\0'),(363,'awdawdawdaw',318,'11 Apr 2021 16:44','hkn2259',_binary '\0'),(365,'awdawdawdawdawd',316,'11 Apr 2021 16:44','hkn2259',_binary '\0'),(368,'active eklendi,naber yorumun guzel mi?',321,'11 Apr 2021 19:40','hkn2259',_binary '');
+INSERT INTO `comment` VALUES (340,'dwad',322,'','',_binary '\0'),(342,'11 22 2 2',322,'','',_binary '\0'),(343,'bbbbbb',322,'11 Apr 2021 16:07','',_binary '\0'),(344,'hakan jonnnyyy',322,'11 Apr 2021 16:09','hkn2259',_binary '\0'),(345,'dadwada',322,'11 Apr 2021 16:10','hkn2259',_binary '\0'),(489,'swdawdwa',487,'16 May 2021 18:18','hakan22',_binary '\0'),(347,'2222',322,'11 Apr 2021 16:17','hkn2259',_binary '\0'),(348,'23123123123',322,'11 Apr 2021 16:24','hkn2259',_binary '\0'),(349,'bbbbb',322,'11 Apr 2021 16:24','hkn2259',_binary '\0'),(350,'dedededede',322,'11 Apr 2021 16:28','hkn2259',_binary '\0'),(351,'mmm',322,'11 Apr 2021 16:31','hkn2259',_binary '\0'),(352,'121313213132132',322,'11 Apr 2021 16:31','hkn2259',_binary '\0'),(353,'111',322,'11 Apr 2021 16:32','hkn2259',_binary '\0'),(354,'11\r\n1\r\n1\r\n1',322,'11 Apr 2021 16:33','hkn2259',_binary '\0'),(355,'awdawdawd',322,'11 Apr 2021 16:37','hkn2259',_binary '\0'),(356,'awdwad',322,'11 Apr 2021 16:37','hkn2259',_binary '\0'),(357,'awdawd',322,'11 Apr 2021 16:37','hkn2259',_binary '\0'),(358,'awdawd',322,'11 Apr 2021 16:38','hkn2259',_binary '\0'),(359,'dadaw',322,'11 Apr 2021 16:38','hkn2259',_binary '\0'),(360,'awdawd',322,'11 Apr 2021 16:38','hkn2259',_binary '\0'),(361,'awdw',322,'11 Apr 2021 16:38','hkn2259',_binary '\0'),(362,'dededw',321,'11 Apr 2021 16:44','hkn2259',_binary '\0'),(363,'awdawdawdaw',318,'11 Apr 2021 16:44','hkn2259',_binary '\0'),(490,'unttum',487,'16 May 2021 18:18','hakan22',_binary ''),(365,'awdawdawdawdawd',316,'11 Apr 2021 16:44','hkn2259',_binary '\0'),(368,'active eklendi,naber yorumun guzel mi?',321,'11 Apr 2021 19:40','hkn2259',_binary '');
 /*!40000 ALTER TABLE `comment` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -138,7 +138,7 @@ CREATE TABLE `hibernate_sequence` (
 
 LOCK TABLES `hibernate_sequence` WRITE;
 /*!40000 ALTER TABLE `hibernate_sequence` DISABLE KEYS */;
-INSERT INTO `hibernate_sequence` VALUES (488);
+INSERT INTO `hibernate_sequence` VALUES (498);
 /*!40000 ALTER TABLE `hibernate_sequence` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -220,7 +220,7 @@ CREATE TABLE `role` (
 
 LOCK TABLES `role` WRITE;
 /*!40000 ALTER TABLE `role` DISABLE KEYS */;
-INSERT INTO `role` VALUES (1,'ROLE_ADMIN'),(2,'ROLE_USER');
+INSERT INTO `role` VALUES (1,'ROLE_ADMIN');
 /*!40000 ALTER TABLE `role` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -312,7 +312,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (414,1,'superadmin@gmail.com',_binary '','Hakan','Sandal','$2a$12$il1IYsWMFX5z4ZiZO18O9ud0NIi.PG47CjOezI1C.7OTycLlChiH6','05360164766',1,'superadmin'),(416,0,'jAdams@gmail.com',_binary '','John','Adams','$2a$12$il1IYsWMFX5z4ZiZO18O9uEioEApYJOHN1IYfgjZ3fgV6hFFiv9li','',2,'j59'),(418,0,'hakan.sandal8@gmail.com',_binary '','hakan','sandal','$2a$12$0dn6nMxKJWCweyk3Femw3uZzSO9BIXTCwJzXkm5j4xp55M3ONx3FK',NULL,2,'hakan59'),(421,0,'hakan.sandal9@hotmail.com',_binary '','2hakan','2sandal','$2a$12$2VFwUf23SFUVf3vTz0ug2.tNdZEHpY0/ir6RjH6yqTji5t9KL9xFy','05641654165',2,'hakan22'),(424,2,'ridvan@gmail.com',_binary '','Rıdvan','Kadayıfçı','$2a$12$0dn6nMxKJWCweyk3Femw3uZzSO9BIXTCwJzXkm5j4xp55M3ONx3FK','0551465465465',1,'ridvan59'),(426,3,'neslihan@gmail.com',_binary '','Neslihan','Toprak','$2a$12$i8AYxMDqvclGau4oNoFFIOrUwGvHfMLvzSBjtY8ZD1oPpy1pkPpJ2','05465465465',1,'neslihan59'),(428,4,'derya.nurhak@gmail.com',_binary '','Derya','Nurhak','$2a$12$2VFwUf23SFUVf3vTz0ug2.HjA2XqAaReKpZo7u6P/rTcVDxbDDHsa','0454654654',1,'derya59'),(430,5,'muhammed@gmail.com',_binary '','Muhammed','Danışman','$2a$12$vjW.cYB/JERhKDmqXWb.8.g2VS2YHGEIn7/5/qYSMjQaz.P2Ic6IS','0544654654',1,'muhammed59');
+INSERT INTO `user` VALUES (494,1,'superadmin@gmail.com',_binary '','Hakan','SAndal','$2a$12$il1IYsWMFX5z4ZiZO18O9ud0NIi.PG47CjOezI1C.7OTycLlChiH6','',1,'superadmin'),(496,2,'ridvan@gmail.com',_binary '','Rıdvan','Kadayıfçıııı','$2a$12$0dn6nMxKJWCweyk3Femw3uZzSO9BIXTCwJzXkm5j4xp55M3ONx3FK','0546546546',1,'ridvan59');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -339,7 +339,7 @@ CREATE TABLE `user_role` (
 
 LOCK TABLES `user_role` WRITE;
 /*!40000 ALTER TABLE `user_role` DISABLE KEYS */;
-INSERT INTO `user_role` VALUES (415,1,414),(417,2,416),(419,2,418),(422,2,421),(425,1,424),(427,1,426),(429,1,428),(431,1,430);
+INSERT INTO `user_role` VALUES (495,1,494),(497,1,496);
 /*!40000 ALTER TABLE `user_role` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -352,4 +352,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-05-15 22:17:02
+-- Dump completed on 2021-05-16 23:20:55
